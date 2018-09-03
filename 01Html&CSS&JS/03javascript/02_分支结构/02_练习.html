@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_练习</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 1.判断一个数是奇数还是偶数, 并打印结果.
+			/* 2. 输入内容后判断,
+			 * 高：180cm以上；富：1000万以上；帅：颜值500以上；
+			 如果这三个条件同时满足，则弹出：“啧啧啧. 脸呢?”
+			 如果这三个条件有为真的情况，则：“说真话好么?!”
+			 如果这三个条件都不满足，则：“还能说些神马?”
+			*/
+//			var x = parseInt(prompt("请输入一个数"));
+			
+//			if(x % 2 == 0){
+//				document.write("<h1>偶数</h1>");
+//			}else{
+//				document.write("<h1>奇数</h1>");
+//			}
+			
+			 var a = prompt("请输入身高cm");
+			 var b = prompt("请输入财富wan");
+			 var c = prompt("请输入颜值px");
+			 
+			 if(a > 180 && b > 10000 && c > 500){
+			 	document.write("<h1>吱吱吱,脸呢?</h1>");
+			 }else if(a > 180 || b >10000 || c > 500){
+			    document.write("<h1>说真话好吗?</h1>");
+			 }else{
+			 	document.write("<h1>还能说些神马?</h1>");
+			 }
+			 
+			
+		</script>
+	</body>
+</html>

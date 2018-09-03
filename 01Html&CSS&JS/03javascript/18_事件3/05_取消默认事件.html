@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_取消默认事件</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//右键菜单栏
+			document.oncontextmenu = function(){
+				alert("请尊重劳动者成果");
+				//取消默认事件
+				return false;
+			}
+			function stopDefault(ev){
+				if(ev&& ev.preventDefault){
+					ev.preventDefault();
+				}else{
+					window.event.returnValue = false;
+				}
+				return false;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>04_水仙花数</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//4. 编程将所有“水仙花数”打印出来，并打印其总个数。
+			//“水仙花数”是一个 各个位立方之和等于该整数 的三位数     
+			//153 
+			//100 ~ 999
+			var j = 0;
+			for(var i = 100; i < 999; i++) {
+				var a = parseInt(i / 100);
+				var b = parseInt((i % 100) / 10);
+				var c = parseInt((i % 10) / 1);
+				//console.log(a);
+				//console.log(b);
+				//console.log(c);
+
+				if(i == a * a * a + b * b * b + c * c * c) {
+					j++;
+					console.log("水仙花数为: " + i);
+				}
+			}
+			console.log("总个数为:" + j);
+			
+			
+		</script>
+	</body>
+
+</html>

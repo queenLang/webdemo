@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_transform_旋转</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: darkturquoise;
+				margin-bottom: 30px;
+				border-bottom: 2px solid red;
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+			}
+			/*旋转  正数顺时针  负数逆时针   deg角度*/
+			.div1:hover{
+				/*trfr*/
+				-moz-transform: rotate(-180deg);
+				-ms-transform: rotate(-180deg);
+				-o-transform: rotate(-180deg);
+				transform: rotate(-180deg);
+			}
+			.div2{
+				/*修改基准点 trfo
+				 水平方向:left center right 像素  百分比
+				 垂直方向:bottom center  top  像素  百分比*/
+				
+				/*右上角为基准点*/
+				-webkit-transform-origin: right top;
+				-moz-transform-origin: right top;
+				-ms-transform-origin: right top;
+				-o-transform-origin: right top;
+				transform-origin: right top;
+			}
+			.div2:hover{
+				-webkit-transform: rotate(-180deg);
+				-moz-transform: rotate(-180deg);
+				-ms-transform: rotate(-180deg);
+				-o-transform: rotate(-180deg);
+				transform: rotate(-180deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<div class="div2"></div>
+	</body>
+</html>

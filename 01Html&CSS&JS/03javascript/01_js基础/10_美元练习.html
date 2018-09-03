@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>10_美元练习.</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var money = 359;
+			var a = (money - money % 20) / 20;
+			var b = (money - money % 10) % 20 / 10;
+			var c = (money - money % 5) % 10 / 5;
+			var d = money %5 / 1;
+			console.log("20元需要: " +a);
+			console.log("10元需要: " +b);
+			console.log("5元需要: " +c);
+			console.log("1元需要: " +d);
+		</script>
+	</body>
+</html>

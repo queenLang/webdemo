@@ -1,0 +1,181 @@
+list = [{
+	id: '26387939',
+	title: '摔跤吧！爸爸',
+	imgurl: 'https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2457983084.jpg',
+	rate: '9.1',
+	hot: '0',
+	chinese: '0',
+	USA: '1',
+	Korea: '0'
+}, {
+	id: '26279202',
+	title: '“吃吃”的爱',
+	imgurl: 'https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2459199108.jpg',
+	rate: '5.8',
+	hot: '1',
+	chinese: '0',
+	USA: '0',
+	Korea: '1'
+}, {
+	id: '26385490',
+	title: '联合王国',
+	imgurl: 'https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2456762036.jpg',
+	rate: '6.5',
+	hot: '0',
+	chinese: '1',
+	USA: '1',
+	Korea: '0'
+}, {
+	id: '26757945',
+	title: '一天',
+	imgurl: 'https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2459290922.jpg',
+	rate: '7.2',
+	hot: '0',
+	chinese: '1',
+	USA: '1',
+	Korea: '1'
+}, {
+	id: '20451290',
+	title: '新木乃伊',
+	imgurl: 'https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2459198108.jpg',
+	rate: '4.8',
+	hot: '1',
+	chinese: '1',
+	USA: '0',
+	Korea: '1'
+}, {
+	id: '26266085',
+	title: '三个老枪手',
+	imgurl: 'https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2405979810.jpg',
+	rate: '7.6',
+	hot: '0',
+	chinese: '1',
+	USA: '0',
+	Korea: '0'
+}, {
+	id: '26877237',
+	title: '29+1',
+	imgurl: 'https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2458020487.jpg',
+	rate: '7.4',
+	hot: '0',
+	chinese: '0',
+	USA: '1',
+	Korea: '1'
+}, {
+	id: '26365236',
+	title: '玉子',
+	imgurl: 'https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2458949885.jpg',
+	rate: '6.6',
+	hot: '1',
+	chinese: '0',
+	USA: '0',
+	Korea: '1'
+}, {
+	id: '25818101',
+	title: '攻壳机动队',
+	imgurl: 'https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2453176400.jpg',
+	rate: '6.5',
+	hot: '1',
+	chinese: '1',
+	USA: '0',
+	Korea: '0'
+}, {
+	id: '26382962',
+	title: '美好的意外',
+	imgurl: 'https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2461293117.jpg',
+	rate: '5.5',
+	hot: '1',
+	chinese: '1',
+	USA: '1',
+	Korea: '0'
+}, {
+	id: '25864124',
+	title: '亚瑟王：斗兽争霸',
+	imgurl: 'https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2453433569.jpg',
+	rate: '7.3',
+	hot: '0',
+	chinese: '0',
+	USA: '0',
+	Korea: '1'
+}, {
+	id: '26593587',
+	title: '天才少女',
+	imgurl: 'https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2394315478.jpg',
+	rate: '8.1',
+	hot: '0',
+	chinese: '1',
+	USA: '1',
+	Korea: '1'
+}, {
+	id: '3025669',
+	title: '迷失Z城',
+	imgurl: 'https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2460384566.jpg',
+	rate: '6.8',
+	hot: '1',
+	chinese: '1',
+	USA: '0',
+	Korea: '1'
+}, {
+	id: '26605946',
+	title: '毒。诫',
+	imgurl: 'https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2457738034.jpg',
+	rate: '4.8',
+	hot: '0',
+	chinese: '0',
+	USA: '1',
+	Korea: '1'
+}, {
+	id: '26946508',
+	title: '恶女',
+	imgurl: 'https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2455296419.jpg',
+	rate: '6.1',
+	hot: '0',
+	chinese: '1',
+	USA: '0',
+	Korea: '0'
+}, {
+	id: '26639958',
+	title: '春娇救志明',
+	imgurl: 'https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2456056900.jpg',
+	rate: '7.3',
+	hot: '1',
+	chinese: '0',
+	USA: '1',
+	Korea: '1'
+}, {
+	id: '26260853',
+	title: '速度与激情8',
+	imgurl: 'https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2444256500.jpg',
+	rate: '7.1',
+	hot: '1',
+	chinese: '0',
+	USA: '0',
+	Korea: '0'
+}, {
+	id: '26707472',
+	title: '明日的我与昨日的你约会',
+	imgurl: 'https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2390682054.jpg',
+	rate: '7.5',
+	hot: '1',
+	chinese: '0',
+	USA: '0',
+	Korea: '0'
+}, {
+	id: '26816383',
+	title: '喜欢你',
+	imgurl: 'https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2456180253.jpg',
+	rate: '7.0',
+	hot: '1',
+	chinese: '0',
+	USA: '0',
+	Korea: '1'
+}, {
+	id: '27038968',
+	title: '蚯蚓',
+	imgurl: 'https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2458429082.jpg',
+	rate: '6.7',
+	hot: '0',
+	chinese: '1',
+	USA: '0',
+	Korea: '0'
+}];

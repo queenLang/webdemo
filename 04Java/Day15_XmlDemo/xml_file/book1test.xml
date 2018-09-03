@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<library>
+      <book type="玄幻">
+            <name>诛仙</name>
+            <kind>修仙</kind>
+            <num>500页</num>
+            <price>20</price>
+      </book>
+      <book type="悬疑">
+            <name>嫌疑人</name>
+            <kind>悬疑</kind>
+            <num>5050页</num>
+            <price>120</price>
+      </book>
+      <book type="爱情">
+            <name>悲伤逆流</name>
+            <kind>言情</kind>
+            <num>5020页</num>
+            <price>240</price>
+      </book>
+      <book type="史书">
+            <name>史记</name>
+            <kind>历史</kind>
+            <num>5000页</num>
+            <price>210</price>
+      </book>
+</library>

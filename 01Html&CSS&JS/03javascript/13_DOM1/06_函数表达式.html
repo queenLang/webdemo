@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_函数表达式</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function fnName1(){
+				xxxxxx;
+			}
+			//函数声明
+			//-----------------
+			var fuN = function(){
+				xxxxx;
+			}
+			//函数表达式: 使用function 关键字声明一个函数
+			//未给出函数名(匿名函数),将匿名函数值赋给一个变量
+			
+			//例子1:  报错
+			// 函数表达式不会被提升 
+			//fuName3(); 还没有保存对函数的引用 函数调用必须在函数表达式之后
+//			fuName3();
+//			var funName3 =function(){
+//				alert("哈哈哈");
+//			}
+			
+			//例子2:
+			//正确
+			//函数表达式后加(), js在解析到这的时候立马调用函数
+			var fuName4 = function(){
+				alert("懵");
+			}();
+			
+			//----------------------------------------
+			//1.将函数赋值给一个变量
+			function say(value){
+				return "🐶" + value;
+			}
+			var iFn = say;
+			console.log("iFn: " + iFn);
+			console.log("调用: " + iFn("红红"));
+			
+			//2.函数作为函数的参数
+			function execute(someFn,value){
+				var mm = "迪丽热巴";
+				var result = someFn(mm,value);
+				console.log("execute调用111: " + result);
+			}
+			execute(say,"大红红");
+			
+//			execute(function(value1,value2){
+//				console.log(value1,value2);
+//				return "🐱" + value1 + value2 + "🐶";
+//			},"邓伦")
+			//回调函数
+			
+			// 3.函数自身作为函数的参数
+			function logName(name,fn){
+				//1. 打印 鲸鱼
+				//2.2 打印 么么哒(* ￣3)(ε￣ *)
+				console.log("进入logName 函数: " + name);
+				//判断参数 fn 是否存在
+				if(fn){
+					// 2.调用函数
+					console.log("调用:fn 函数");
+					fn();
+					console.log("fn 函数结束");
+				}
+				// 3. 打印 鲸鱼
+				//2.3 打印 么么哒(* ￣3)(ε￣ *)
+				console.log("logName 函数结束: " + name);
+			}
+			
+			logName("鲸鱼",function(){
+				//2.1 调用logName("么么哒(* ￣3)(ε￣ *)")
+				console.log("调用logName(\"么么哒\")函数");
+				
+				logName("么么哒(* ￣3)(ε￣ *)",function(){
+					logName("蜜蜂🐝");
+				});
+				
+				console.log("logName(\"么么哒\")函数结束");
+			});
+			/*
+			 进入logName 函数: 鲸鱼
+             调用:fn 函数
+             调用logName("么么哒")函数
+             进入logName 函数: 么么哒(* ￣3)(ε￣ *)
+             logName 函数结束: 么么哒(* ￣3)(ε￣ *)
+             logName("么么哒")函数结束
+             fn 函数结束
+             logName 函数结束: 鲸鱼
+			 */
+		</script>
+	</body>
+</html>

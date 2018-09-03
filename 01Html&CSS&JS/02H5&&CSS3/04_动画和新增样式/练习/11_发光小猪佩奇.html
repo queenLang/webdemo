@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>11_发光小猪佩奇</title>
+		<style type="text/css">
+			 div{
+			 	width: 580px;
+			 	height: 580px;
+			 	margin: 100px auto;
+			 	background-image: url(images/i1.jpeg);
+			 	border: 10px solid white;
+			 	/*border: 15px solid transparent;*/
+			 	box-shadow: 1px 1px 5px 5px skyblue;
+			 }
+			@-webkit-keyframes bcc{
+				from{
+					box-shadow: 5px 5px 20px 5px skyblue;
+				}
+				to{
+					box-shadow: 2px 2px 10px 5px white;
+				}
+			}
+			div:hover{
+				-webkit-animation: bcc 1s infinite alternate;
+				-o-animation: bcc 1s infinite alternate;
+				animation: bcc 1s infinite alternate;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

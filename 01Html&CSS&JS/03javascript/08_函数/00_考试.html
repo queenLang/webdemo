@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>00_考试.</title>
+
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			 *  对数组  testArray = [10, 22, 8, 33, 61, 90, 62] 做如下操作
+			 *  1. 从大到小进行排序输出
+			 *  2. 在数组首尾分别添加数字 11,90
+			 *  3. 在数组元素33后插入 44, 8 元素
+			 *  4. 反序输出数组
+			 *  5. 数组去重(去掉重复的元素)
+			 */
+			// 1.----------
+			var arr = [10, 22, 8, 33, 61, 90, 62];
+			var temp = 0;
+			for(var i = 0; i < arr.length; i++) {
+				for(var j = 0; j < arr.length - 1 - i; j++) {
+					if(arr[j + 1] > arr[j]) {
+						temp = arr[j];
+						arr[j] = arr[j  + 1];
+						arr[j + 1] = temp;
+					}
+				}
+
+			}
+			console.log(arr);
+			// 2. -----------
+			var a = arr.unshift(11);
+			console.log(arr);
+			var b = arr.push(90);
+			console.log(arr);
+			// 3. -----------
+			var c = arr.splice(5, 0, 44, 8);
+			console.log(arr);
+			// 4. -----------
+			var arr1 = [];
+			for(var i = 0; i < arr.length; i++) {
+				arr1[i] = arr[arr.length - 1 - i];
+			}
+			console.log(arr1);
+			console.log(arr.reverse());
+
+			// 5. ------------
+			 var arr2 = [];
+			for(var i = 0; i < arr.length; i++) {
+				if(arr2.indexOf(arr[i]) == -1) {
+					arr2.push(arr[i]);
+				}
+			}
+			console.log(arr2);
+			
+			console.log("xin " +arr);
+//			for(var i = 0; i < arr.length; i++) {
+//				if(arr.indexOf(arr[i]) == -1) {
+//					arr.splice(i,1);
+//					
+//				}
+//				i--;
+//			}
+//			console.log("a:" +arr);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_form属性</title>
+	</head>
+	<body>
+		<form action="" method="get" id="form1">
+			<!--健值对
+				key=value
+				name=value
+			-->
+			姓名:
+			<input type="text" name="username" id="username" value="" />
+			
+			<input type="submit" value="提交"/>
+		</form>
+		<p>下面输入域在form表单之外  但仍然是表单的一部分</p>
+		<input type="text" name="age" id="age" value="18" form="form1"/>
+	</body>
+</html>

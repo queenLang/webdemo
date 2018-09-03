@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_横向瀑布流</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul,li{
+				list-style: none;
+			
+			}
+			#list{
+				border: 1px solid black;
+				margin: 0 auto;
+				position: relative;
+			}
+			li{
+				height: 200px;
+				line-height: 200px;
+				background-color: black;
+				color: white;
+				font-size: 50px;
+				text-align: center;
+				box-sizing: border-box;
+				position: absolute;
+				transition: all 1s;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list"></ul>
+		<script type="text/javascript">
+			var oList = document.getElementById("list");
+			var space = 20;
+			var winH = document.documentElement.clientHeight;
+			var rows = parseInt((winH - space) / (200 + space));
+			oList.style.height = space + (200 + space)*rows + "px";
+			var rowWArr = [];
+			for (var i = 0; i < rows; i++) {
+				rowWArr[i] = 0;
+			}
+			for (var i = 0; i < 50; i++) {
+				var newLi = document.createElement("li");
+				newLi.innerHTML = i;
+				oList.appendChild(newLi);
+				var w = Math.floor(Math.random()*(300-100+1)+100);
+				newLi.style.width = w + "px";
+			    var minW = rowWArr[0];
+			    var minIndex = 0;
+			    for (var j = 0; j < rowWArr.length; j++) {
+			      if(minW > rowWArr[j]){
+			      	minW = rowWArr[j];
+			      	minIndex = j;
+			      }
+			    }
+			    newLi.style.left = space + minW + "px";
+			    newLi.style.top = space + minIndex * (200 + space) + "px";
+			    rowWArr[minIndex] += space + newLi.offsetWidth;
+			}
+			var maxW = rowWArr[0];
+			for (var i = 0; i < rowWArr.length; i++) {
+				if(maxW < rowWArr[i]){
+					maxW =rowWArr[i];
+				}
+			}
+			oList.style.width = maxW + space + "px";
+		</script>
+	</body>
+</html>

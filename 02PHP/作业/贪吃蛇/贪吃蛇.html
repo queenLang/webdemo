@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 1000px;
+            height: 600px;
+            background-color: rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        #box div {
+            position: absolute;
+        }
+        #move {
+            width: 60px;
+            height: 30px;
+            color: white;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+<div id="main">
+    <button id="move">开始</button>
+    <div id="box"></div>
+</div>
+
+<script type="text/javascript">
+    var moveDiv = document.getElementById("move");
+    var allBox = document.getElementById("box");
+    //使用构造方法创建蛇
+    function Snake() {
+        //设置蛇的高度和宽度
+        this.width = 20;
+        this.height = 20;
+        this.direction = "right";
+        this.body = [{
+            x: 2,
+            y: 0
+        }, {
+            x: 1,
+            y: 0
+        }, {
+            x: 0,
+            y: 0
+        }];
+
+        this.display = function() {
+            //创建蛇
+            for(var i = 0; i < this.body.length; i++) {
+                if(this.body[i].x != null) {
+                    var s = document.createElement("div");
+                    //将节点保存到状态中,以便于后面删除
+                    this.body[i].flag = s;
+                    //设置宽高
+                    s.style.width = this.width + "px";
+                    s.style.height = this.height + "px";
+                    s.style.backgroundColor = "darkgoldenrod";
+                    s.style.left = this.body[i].x * this.width + "px";
+                    s.style.top = this.body[i].y * this.height + "px";
+                    //添加到大的div中
+                    allBox.appendChild(s);
+                }
+            }
+        };
+
+        //让蛇跑起来,后面一个元素到前面一个元素的位置
+        //蛇头根据方向处理,所以i不能等于0
+        this.run = function() {
+            //后一个元素到前一个元素的位置
+            for(var i = this.body.length - 1; i > 0; i--) {
+                this.body[i].x = this.body[i - 1].x;
+                this.body[i].y = this.body[i - 1].y;
+            }
+
+            // 根据方向处理蛇头
+            switch(this.direction) {
+                case "left":
+                    this.body[0].x -= 1;
+                    break;
+                case "right":
+                    this.body[0].x += 1;
+                    break;
+                case "up":
+                    this.body[0].y -= 1;
+                    break;
+                case "down":
+                    this.body[0].y += 1;
+                    break;
+            }
+
+            console.log(this.body[0].x);
+
+            //判断是否出界
+            if(this.body[0].x < 0 || this.body[0].x > 49 || this.body[0].y < 0 || this.body[0].y > 29) {
+                clearInterval(timer);
+                alert("撞墙了~~~");
+                //删除旧的
+                for(var i = 0; i < this.body.length; i++) {
+                    if(this.body[i].flag != null) { // 如果刚吃完就死掉，会加一个值为null的
+                        allBox.removeChild(this.body[i].flag);
+                    }
+                }
+
+                this.body = [{
+                    x: 2,
+                    y: 0
+                }, {
+                    x: 1,
+                    y: 0
+                }, {
+                    x: 0,
+                    y: 0
+                }];
+
+                this.direction = 'right';
+                this.display(); // 显示初始状态
+                return false; // 结束
+            }
+            // 判断蛇头吃到食物，xy坐标重合，
+            if(this.body[0].x == food.x && this.body[0].y == food.y) {
+                // 蛇加一节，因为根据最后节点定，下面display时，会自动赋值的
+                this.body.push({
+                    x: null,
+                    y: null,
+                    flag: null
+                });
+
+                // 清除食物,重新生成食物
+                allBox.removeChild(food.flag);
+                food.display();
+            }
+            for(var i = 0; i < this.body.length; i++) {
+                if(this.body[i].flag != null) { // 如果刚吃完就死掉，会加一个值为null的
+                    allBox.removeChild(this.body[i].flag);
+                }
+            }
+            this.display();
+        }
+    };
+
+    //创建食物
+    function Food() {
+        this.width = 20;
+        this.height = 20;
+        this.display = function() {
+            var f = document.createElement("div");
+            this.flag = f;
+            f.style.width = this.width + "px";
+            f.style.height = this.height + "px";
+            f.style.backgroundColor = "red";
+            this.x = Math.floor(Math.random() * 50);
+            this.y = Math.floor(Math.random() * 30);
+            f.style.left = this.x * this.width + "px";
+            f.style.top = this.y * this.height + "px";
+            allBox.appendChild(f);
+        }
+    }
+
+    var snake = new Snake();
+    var food = new Food();
+    snake.display(); // 初始化显示
+    food.display();
+    // 给body加按键事件，上下左右
+    document.body.onkeydown = function(ev) {
+        var ev = ev || window.event;
+        console.log(ev.keyCode);
+        switch(ev.keyCode) {
+            case 38:
+                if(snake.direction != "down") { // 不允许返回，向上的时候不能向下
+                    snake.direction = "up";
+                }
+                break;
+            case 40:
+                if(snake.direction != "up") {
+                    snake.direction = "down";
+                }
+                break;
+            case 39:
+                if(snake.direction != "left") {
+                    snake.direction = "right";
+                }
+                break;
+            case 37:
+                if(snake.direction != "right") {
+                    snake.direction = "left";
+                }
+                break;
+        }
+    }
+    var timer;
+    moveDiv.onclick = function() {
+        clearInterval(timer);
+        timer = setInterval("snake.run()", 200);
+    };
+</script>
+</body>
+
+</html>

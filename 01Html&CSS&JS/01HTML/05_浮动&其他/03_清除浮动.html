@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_清除浮动</title>
+		<style type="text/css">
+			.father{
+				border: 5px solid red;
+				/*第三种*/
+				overflow: hidden;
+			}
+			.in{
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+			}
+			.right{
+				float: right;
+			}
+			/*第二种相当于使用伪元素实现第一种的空div的方式
+			 伪元素
+			 给这个元素的最后位置添加子元素*/
+			.father::after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="in right"></div>
+			<div class="in right"> </div>
+			<div class="in right"></div>
+			<!-- 第一种 clear:both 但是破坏结构-->
+			<div style="background-color: teal; clear: both;"></div>
+			
+		</div>
+	</body>
+</html>

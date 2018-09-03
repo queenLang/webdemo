@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>04_练习.</title>
+		<style type="text/css">
+			div {
+				width: 50px;
+				height: 50px;
+				margin: 5px;
+				font-size: 20px;
+				text-align: center;
+				line-height: 50px;
+				display: inline-block;
+			}
+			
+			.div1 {
+				background-color: blue;
+			}
+			.div2{
+				background-color: goldenrod;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			//代表行
+			for(var i = 1; i <= 3; i++) {
+
+				//代表列
+				for(var j = 1; j <= 10; j++) {
+					//判断是第几行 && 第二行中的奇数
+					if(i == 2 && j % 2 == 1) {
+						document.write("<div class ='div1'>" + j + "</div>");
+					} else {
+						//文档写入
+						document.write("<div class ='div2'>" + j + "</div>");
+					}
+				}
+				document.write("<br />");
+
+			}
+			
+		</script>
+	</body>
+
+</html>

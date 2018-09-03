@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_history</title>
+		
+	</head>
+	<body>
+		<!--History 对象包含用户（在浏览器窗口中）访问过的 URL。-->
+		<button onclick="goback()">后退</button>
+		<button onclick="forwardH()">前进</button>
+		<button onclick="go()">gogogo</button>
+		<button onclick="btnClick()">跳转00</button>
+		
+		<script type="text/javascript">
+			function btnClick(){
+				location.href = "00.html";
+			}
+			//后退
+			function goback(){
+				history.back();
+			}
+			//前进
+			function forwardH(){
+				history.forward();
+			}
+			//前往任意页面
+			function go(){
+				history.go(1);   //forward()
+				history.go(-1);   //goback()
+				history.go(0);   //刷新页面
+			}
+		</script>
+	</body>
+</html>

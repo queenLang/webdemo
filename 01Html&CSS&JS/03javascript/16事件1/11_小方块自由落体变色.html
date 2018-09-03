@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>11_小方块自由落体变色</title>
+		<script src="../11_动画2/tools.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#box {
+				width: 700px;
+				height: 600px;
+				border: 5px solid blueviolet;	
+			}			
+			#box div {
+				width: 50px;
+				height: 50px;
+				background-color: chocolate;
+				margin: 0 10px;
+				position: relative;
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+		</div>
+		<script type="text/javascript">
+			var oBox = document.getElementById("box");
+			var divs = oBox.getElementsByTagName("div");
+			var maxH = oBox.clientHeight - divs[0].offsetHeight;
+  
+			for(var i = 0; i < divs.length; i++) {
+				var s = Math.floor(Math.random() * (15 - 5 + 1) + 5);
+				
+				  startMove1(divs[i],maxH,s,"top",50,function(obj){
+				  	obj.style.backgroundColor = getRandomColor();
+				  	var timer = setTimeout(function(){
+				  		obj.style.backgroundColor = getRandomColor();
+				  		startMove1(obj,0,-s,"top",50);
+				  	},500)
+				  })
+			}
+
+			function startMove1(obj, torgetPos, speed, attr, time ,fn) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					var attrValue = parseInt(getStyle(obj, attr));
+					if(Math.abs(attrValue - torgetPos) <= Math.abs(speed)) {
+						obj.style[attr] = torgetPos + "px";
+						clearInterval(obj.timer);
+						if(fn){
+							fn(obj);
+						}
+					} else {
+						obj.style[attr] = attrValue + speed + "px";
+					}
+					console.log(getStyle(obj, attr));
+				}, time)
+			}
+		</script>
+	</body>
+
+</html>

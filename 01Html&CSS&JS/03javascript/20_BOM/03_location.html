@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_location.</title>
+	</head>
+	<body>
+		<!--Location 对象包含有关当前 URL 的信息。-->
+		<button onclick="theClick()">按钮</button>
+		<a href="#kfc">锚点</a>
+		<form action="05_接收值页面.html" method="get">
+			<input type="text" id="uname" value="123" name="uname" />
+			<input type="text" id="age" value="18" name="age"/>
+			<input type="submit" value="提交"/>
+		</form>
+		<script type="text/javascript">
+			function theClick(){
+				//完整的URL
+				console.log("href: " + window.location.href);
+				// # 内容
+				console.log("hash: " + location.hash);
+				// ? 内容
+				console.log("search: " + location.search);
+				
+				console.log("当前页面路径文件名: " + location.pathname);
+				console.log("使用协议: " + location.protocol);
+				
+				
+				// 在当前页面打开网页
+				//location.href = "00.html";
+				//刷新页面
+				//location.reload();
+			}
+		</script>
+	</body>
+</html>

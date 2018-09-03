@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<library>
+      <book>
+            <name>书1</name>
+            <picUrl>https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1843107695,1173205572&amp;fm=27&amp;gp=0.jpg</picUrl>
+      </book>
+      <book>
+            <name>书2</name>
+            <picUrl>https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1843107695,1173205572&amp;fm=27&amp;gp=0.jpg</picUrl>
+      </book>
+      <book>
+            <name>书3</name>
+            <picUrl>https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1843107695,1173205572&amp;fm=27&amp;gp=0.jpg</picUrl>
+      </book>
+</library>

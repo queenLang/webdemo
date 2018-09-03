@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_事件对象</title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: lightcoral;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="oDiv"></div>
+		<script type="text/javascript">
+			var oDiv = document.getElementById("oDiv");
+		    oDiv.onmousedown = function(ev){
+				//事假对象
+				console.log(ev);
+				var ev = ev || window.event;			
+				switch (ev.which){
+					case 1:
+					console.log("左键")
+						break;
+					case 2:
+					console.log("滚轮");
+						break;	
+					case 3:
+					console.log("右键");
+						break;
+				}
+			}
+		</script>
+	</body>
+</html>

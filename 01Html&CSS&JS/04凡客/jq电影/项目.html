@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			/*头部*/
+			
+			.header {
+				width: 100%;
+				height: 70px;
+				background-color: dodgerblue;
+			}
+			/*头部文字*/
+			
+			.header_name {
+				margin-left: 100px;
+				color: white;
+				font-size: 50px;
+				line-height: 70px;
+			}
+			/*中间内容*/
+			
+			.content {
+				width: 1000px;
+				margin: 30px auto;
+				box-shadow: 2px 2px 10px 5px lightgrey;
+				padding-top: 1px;
+			}
+			/*内容框*/
+			/*上面搜索框*/
+			
+			.con_up {
+				width: 940px;
+				height: 60px;
+				background-color: rgba(0, 0, 0, 0.2);
+				margin: 30px auto;
+				line-height: 58px;
+			}
+			
+			.up_name {
+				margin-left: 20px;
+			}
+			
+			.up_btn {
+				background-color: dodgerblue;
+			}
+			/*下面表格*/
+			
+			.con_down {
+				width: 940px;
+				padding-bottom: 30px;
+				margin: 30px auto;
+			}
+			
+			table.table {
+				border: 1px solid silver;
+			}
+			/*标题*/
+			
+			table.table .down_title {
+				width: 150px;
+			}
+			/*图片网址*/
+			
+			table.table .down_imgurl {
+				/*换行*/
+				word-break: break-all;
+				width: 260px;
+				padding: 8px;
+			}
+			/*评分之后变竖行*/
+			
+			table.table .count {
+				width: 25px;
+				padding: 0;
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+			/*评分之后对应的td*/
+			
+			table.table .count_a {
+				padding: 25px 15px 25px;
+			}
+			/*编辑 删除*/
+			
+			table.table .count_b {
+				width: 60px;
+				padding: 20px 0px 20px;
+			}
+			
+			table.table .count_c {
+				padding: 25px 15px 25px;
+			}
+			
+			#myModal {
+				margin-top: 100px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<!--头部-->
+			<div class="header">
+				<div class="header_name">ADMIN</div>
+			</div>
+			<!--身体-->
+			<div class="content">
+				<!--上面搜索框-->
+				<div class="con_up">
+					<form class="form-inline">
+						<div class="form-group up_name">
+							<label for="inputPassword2" class="sr-only">姓名</label>
+							<input type="password" class="form-control" id="inputPassword2" placeholder="姓名">
+						</div>
+						<button type="submit" class="btn btn-primary up_btn">查询</button>
+						<button type="button" class="btn btn-primary up_btn button_add" data-toggle="modal" data-target="#myModal">新增</button>
+					</form>
+				</div>
+				<!--下面表格-->
+				<div class="con_down">
+					<table class="table">
+						<tr class="info">
+							<th><input type="checkbox" id="all_check"></th>
+							<th>#</th>
+							<th class="down_title">影片名</th>
+							<th class="down_imgurl">图片</th>
+							<th class="count">评分</th>
+							<th class="count">热门</th>
+							<th class="count">华语</th>
+							<th class="count">欧美</th>
+							<th class="count">韩国</th>
+							<th colspan="2" class="operate">操作</th>
+						</tr>
+					</table>
+					<button type="button" class="btn btn-primary" id="all_delete">全部删除</button>
+				</div>
+			</div>
+		</div>
+		<!-- 点击新增之后 -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<form class="form-horizontal">
+						<br />
+						<div class="modal-header" style="border: 0;">
+							<label for="inputEmail3" class="modal-title mo_add">新增</label>
+							<button type="button" class=" btn-primary btn col-sm-offset-10" data-dismiss="modal" aria-label="Close">关闭<span aria-hidden="true"></span></button>
+							<!--<h4 "></h4>-->
+						</div>
+						<!--电影名-->
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label col-sm-offset-1">电影名</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control" id="box_foot_name" placeholder="电影名">
+							</div>
+						</div>
+						<!--热度-->
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label col-sm-offset-1">热度</label>
+							<div class="col-sm-7">
+								<input type="text" id="box_foot_hot" class="form-control" placeholder="热度">
+							</div>
+						</div>
+						<!--图片路径-->
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label col-sm-offset-1">图片路径</label>
+							<div class="col-sm-7">
+								<input type="text" id="box_foot_src" class="form-control" placeholder="图片路径">
+							</div>
+						</div>
+						<!--ID-->
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label col-sm-offset-1">ID</label>
+							<div class="col-sm-7">
+								<input type="text" id="box_foot_id" class="form-control" placeholder="ID">
+							</div>
+						</div>
+						<!--类别-->
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 col-sm-offset-1 control-label">类别</label>
+							<div class="col-sm-8" id="btn_all">
+								<button type="button" class="btn btn-default col-sm-3">最热</button>
+								<button type="button" class="btn btn-default col-sm-3 col-sm-offset-1">国产</button>
+								<button type="button" class="btn btn-default col-sm-3 col-sm-offset-1">欧美</button>
+								<button type="button" class="btn btn-default col-sm-3" style="margin-top: 10px;">韩国</button>
+							</div>
+						</div>
+						<br />
+						<br />
+
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-10">
+								<button type="button" class="btn btn-primary col-sm-7" id="box_foot_submit" data-dismiss="modal" aria-label="Close">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="js/jquery-1.11.2.min(1).js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/json.js" type="text/javascript" charset="utf-8"></script>
+		<script src="admin.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="https://cdn.bootcss.com/limonte-sweetalert2/7.21.1/sweetalert2.all.js"></script>
+		
+
+	</body>
+
+</html>

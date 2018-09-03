@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_无参无返回</title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: lightblue;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+			<!--实现功能:点击div1时,求数组和并打印-->
+			<!--实现功能:点击div2时,求数组和并打印-->
+			<script type="text/javascript">
+				var arr = [10,33,56,98,102];
+				var div1 = document.getElementById("div1");
+				var div2 = document.getElementById("div2");
+				
+				div1.onclick =function(){
+					console.log("上");
+					//调用函数
+					getNum();
+					console.log("下");
+				}
+				div2.onclick =function(){
+					getNum();
+				}
+				//函数声明 
+				//function 函数定义关键字
+				//getNum 函数名
+				//无参数无返回值的函数
+				function getNum(){
+					var a = 0;
+					for (var i = 0; i < arr.length; i++) {
+						a += arr[i];
+					}
+					console.log(a);
+				}
+			</script>
+		
+	</body>
+</html>

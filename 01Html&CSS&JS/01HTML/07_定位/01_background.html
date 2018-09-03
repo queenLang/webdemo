@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_background</title>
+		<style type="text/css">
+			div{
+				width: 800px;
+				height: 800px;
+				border: 10px dotted red;
+				margin: 40px auto 0px;
+				padding: 10px;
+				
+				background-repeat: no-repeat;
+				background-image: url(img/feng.jpg);
+				background-position: 0 0;
+				/*规定相当于哪开始定位*/
+				/*border-box从边框开始
+				 padding-box从内边距开始(默认的)
+				 content-box从内容区开始
+				 * */
+				background-origin: content-box;
+			}
+		</style>
+	</head>
+	<body>
+		<div>啦啦啦啦</div>
+	</body>
+</html>

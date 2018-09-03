@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_绑定事件的方式</title>
+		<style type="text/css">
+			#all{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				}
+		</style>
+	</head>
+	<body>
+		<!-- 绑定方式一: 嵌入 dom -->
+		<button onclick="openY()">Hi--</button>
+		<div id="all"></div>
+		<script type="text/javascript">
+			function openY(){
+				console.log("button");
+			}
+			
+			
+			
+			var oAll = document.getElementById("all");
+			// 绑定方式二:   直接绑定: 只能响应一个函数
+			oAll.onclick = function(){
+				console.log("onclick11111");
+			}
+			oAll.onclick = function(){
+				console.log("onclick22222");  
+			}
+			
+			//绑定方式三:  事件监听   可以绑定多个响应事件
+			
+			//addEventListener(事件名,绑定事件触发的函数,boolean)
+		    	//true  事件捕获   false  事件冒泡
+			oAll.addEventListener("click",function theClick(){
+				console.log("🐔");
+			},false);
+			
+			oAll.addEventListener("click",function(){
+				console.log("🌶");
+			},false);
+			
+			oAll.addEventListener("click",myClick,false);
+			function myClick (){
+				console.log("🍉");
+			}
+			
+			//解除响应事件
+			//但是响应函数是匿名函数就解不了了,找不到函数名啊
+			oAll.removeEventListener("click",myClick,false);
+			
+			//IE 方式不同
+			//事件绑定函数通用方法
+			function addEvent(obj,theEvent,fn){
+				try{
+					obj.addEventListener(theEvent,fn,false);
+				}catch(e){
+					//TODO handle the exception
+					console.log(e);
+					try{
+						//IE 6 7 8
+						obj.attachEvent("on" + theEvent,fn,false);
+					}catch(e){
+						//TODO handle the exception
+						console.log("换一个吧");
+					}
+				}
+			}
+			
+		</script>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>05_匀速运动封装</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: rosybrown;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			oAll.onmouseover = function() {
+				startMove(oAll, 800, 7);
+			}
+			oAll.onmouseout = function() {
+					startMove(oAll, 10, -7);
+				}
+				//鼠标移入往左  鼠标移出往右
+
+			//从左往右,从右往左 调用一个函数
+			function startMove(obj, targetPos, speed) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					if(Math.abs(obj.offsetLeft - targetPos) <= Math.abs(speed)) {		
+						obj.style.left = targetPos + "px";
+						clearInterval(obj.timer);
+					} else {
+						obj.style.left = obj.offsetLeft + speed + "px";
+					}
+					console.log(obj.offsetLeft);
+				}, 20)
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>08练习</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [];
+			var max = 0;
+			var max2 = 0;
+			for( var i = 0; i < 10 ; i ++){
+				arr[i] = Math.floor(Math.random() * (50 + 1));
+				if(arr[i] > max2){
+					max2 = arr[i];
+				}
+				if(max2 > max){
+					var temp = max2;
+					max2 = max;
+					max = temp;
+					 
+				}
+			}
+			document.write(arr.join(" "));
+			document.write("<br />");
+			document.write(" " +max);
+			document.write("<br />");
+			document.write(" " + max2);
+		</script>
+	</body>
+</html>

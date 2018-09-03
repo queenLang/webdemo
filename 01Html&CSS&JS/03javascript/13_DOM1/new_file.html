@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//回调函数
+
+			// 3.函数自身作为函数的参数
+			function logName(name, fn) {
+				console.log("进入logName 函数: " + name);
+				if(fn) {
+					console.log("调用:fn 函数");
+					fn();
+					console.log("fn 函数结束");
+				}
+				console.log("logName 函数结束: " + name);
+			}
+			logName("鲸鱼", function() {
+				console.log("调用logName(\"111\")函数");
+				logName("111", function() {
+					logName("蜜蜂🐝");
+				});
+				console.log("logName(\"111\")函数结束");
+			});
+			
+			
+			
+			
+			function execute(someFn,value){
+				var mm = "迪丽热巴";
+				var result = someFn(mm,value);
+				console.log("execute调用111: " + result);
+			}
+			execute(say,"大红红");
+			
+//			execute(function(value1,value2){
+//				console.log(value1,value2);
+//				return "🐱" + value1 + value2 + "🐶";
+//			},"邓伦")
+		</script>
+	</body>
+
+</html>

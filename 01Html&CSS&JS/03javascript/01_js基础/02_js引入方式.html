@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>02_js引入方式</title>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			alert("内部引入3~");
+		</script>
+	</head>
+
+	<body>
+		<!--外部引入
+			1.创建js文件
+			2.使用script标签引入
+			3.注意:外部引入得js文件里不能写script 标签
+			内部引入:
+			1.可以在文档的任何位置进行引用
+			2.多个script标签,按照从上往下的顺序执行
+			*****推荐写在body的尾部
+		-->
+		<script type="text/javascript">
+			alert("内部引入~");
+		</script>
+	</body>
+	<script>
+		alert("内部引入2~");
+	</script>
+
+</html>

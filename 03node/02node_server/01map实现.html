@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>map实现</title>
+</head>
+<body>
+<script>
+
+    let arr = ["马大爷", "李易峰", "黄景瑜", "阮经天"];
+
+    let result = arr.map((value, index, array) => {
+        console.log(value, index, array);
+        return value + "是大猪蹄子";
+    })
+    console.log(result);
+
+
+    let map = (theArr, callback) => {
+        var resultArr = [];
+        for (let i = 0; i < theArr.length; i++) {
+            let item = callback(theArr[i], i, theArr);
+            resultArr.push(item);
+        }
+        return resultArr;
+    }
+
+    let result1 = map(arr, (value, index, array) => {
+        console.log(value, index, array);
+        return value + "是大猪蹄子";
+    })
+    console.log(result1);
+
+
+    //原型方法
+    Array.prototype.mapmap = function (callback) {
+        var newArr = [];
+        for (var i = 0; i < this.length; i++) {
+            var items = callback(this[i], i, this);
+            newArr.push(items);
+        }
+        return newArr;
+    }
+
+    var newMap = arr.mapmap(function f(value, index, array) {
+        console.log(value, index, array);
+        return value + "str";
+    })
+    console.log(newMap);
+
+</script>
+
+</body>
+</html>

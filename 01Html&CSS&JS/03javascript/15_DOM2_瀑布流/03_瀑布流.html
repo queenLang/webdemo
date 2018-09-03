@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_瀑布流</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul,li{
+				list-style: none;
+			
+			}
+			#list{
+				border: 1px solid black;
+				margin: 0 auto;
+				position: relative;
+			}
+			li{
+				width: 200px;
+				background-color: black;
+				color: white;
+				font-size: 50px;
+				text-align: center;
+				box-sizing: border-box;
+				position: absolute;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+		</ul>
+		
+		<script type="text/javascript">
+			var oList = document.getElementById("list");
+		    //每个小块之间的缝隙
+			var space = 20;
+			//获取浏览器宽度
+			var winW = document.documentElement.clientWidth;
+			//计算列数
+			var cols = parseInt((winW-space) / (200 + space));
+			console.log("列数: "+cols);
+			//设置ul宽度
+			oList.style.width = (200 + space) * cols + space + "px";
+			//初始化放置每列高度的数组
+			var colHArr = [];
+			for (var i = 0; i < cols; i++) {
+				colHArr[i] = 0;
+			}
+			//for 循环创建li
+			for (var i = 0; i < 50; i++) {
+				var newLi = document.createElement("li");
+				newLi.innerHTML = i;
+				oList.appendChild(newLi);
+				//设置不同高
+				var h = Math.floor(Math.random()*(300-100 +1) + 100);
+				newLi.style.height = h + "px";
+				newLi.style.lineHeight = h + "px";	
+				//设置位置第一步
+				//寻找最短的那一列
+				//默认第一列是最短的
+				var minH = colHArr[0];
+				var minIndex = 0;
+				for (var j = 0; j < colHArr.length; j++) {
+					if(minH > colHArr[j]){
+						minH = colHArr[j];
+						minIndex = j;
+					}
+				}
+				console.log("index: " + minIndex);
+				//设置top left
+				newLi.style.top = minH + space + "px";
+				/*
+				  0 minIndex = 0 space + (200+ space)*0
+				  1 minIndex = 1 space + (200+ space)*1
+				  2 minIndex = 2 space + (200+ space)*2
+				  3 minIndex = 3 space + (200+ space)*3
+				  .....
+				  5 minIndex = 2 space + (200+ space)*2
+				 */
+				newLi.style.left = space + (200 + space)*minIndex + "px";
+				//更新最短列的高
+				colHArr[minIndex] += space + newLi.offsetHeight;
+			}
+			
+			//更新ul的高
+			//找到最高的那一列
+			var maxH = colHArr[0];
+			for (var i = 0; i < colHArr.length; i++) {
+				if(maxH < colHArr[i]){
+					maxH =colHArr[i];
+				}
+			}
+			oList.style.height = maxH + space + "px";
+		</script>
+	</body>
+</html>

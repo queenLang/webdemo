@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>背景墙</title>
+		<style type="text/css">
+		 @font-face {
+		 	font-family:"haha";
+		 	src: url(新蒂泡芙体.otf);
+		 }
+		   .polaroids{
+		     list-style: none;
+		     width: 1600px;
+		     margin: 0 auto;;
+		   }
+			ul li{
+				float: left;
+				width: 250px;
+				height: 350px;
+				margin: 30px;
+				background-color: white;
+				box-shadow: 1px 1px 5px 5px silver;
+				text-align: center;
+				font-family: haha;
+				font-size: 30px;
+				
+			}
+			ul li:hover{
+				transform: scale(1.2);
+			}
+			ul img{
+				width: 250px;
+				height: 250px;
+				box-sizing: border-box;
+				padding: 15px 15px 20px;
+			}
+			
+			li:nth-of-type(5),
+			li:nth-of-type(10),
+			li:nth-of-type(15){
+				transform: rotate(5deg);
+			}
+			li:nth-of-type(2),
+			li:nth-of-type(8){
+				transform: rotate(2deg);
+			}
+			li:nth-of-type(4),
+			li:nth-of-type(14){
+				transform: rotate(1deg);
+			}
+			li:nth-of-type(6),
+			li:nth-of-type(12){
+				transform: translateY(-10px);
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="polaroids">
+			<li><a href="#" title="你"><img src="images/image-01.jpg"></a>你</li>
+			<li><a href="#" title="唱"><img src="images/image-02.jpg"></a>唱</li>
+			<li><a href="#" title="歌"><img src="images/image-01.jpg"></a>歌</li>
+			<li><a href="#" title="不"><img src="images/image-02.jpg"></a>不</li>
+			<li><a href="#" title="是"><img src="images/image-01.jpg"></a>是</li>
+			<li><a href="#" title="跑"><img src="images/image-02.jpg"></a>跑</li>
+			<li><a href="#" title="调"><img src="images/image-01.jpg"></a>调</li>
+			<li><a href="#" title="只"><img src="images/image-02.jpg"></a>只</li>
+			<li><a href="#" title="是"><img src="images/image-01.jpg"></a>是</li>
+			<li><a href="#" title="有"><img src="images/image-02.jpg"></a>有</li>
+			<li><a href="#" title="自"><img src="images/image-01.jpg"></a>自</li>
+			<li><a href="#" title="己"><img src="images/image-02.jpg"></a>己</li>
+			<li><a href="#" title="的"><img src="images/image-02.jpg"></a>的</li>
+			<li><a href="#" title="调"><img src="images/image-01.jpg"></a>调</li>
+			<li><a href="#" title="调"><img src="images/image-02.jpg"></a>调</li>
+
+		</ul>
+	</body>
+</html>

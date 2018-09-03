@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_navigator</title>
+	</head>
+	<body>
+		<!-- navigator对象包含有关访问者浏览器信息  -->
+		<div id="exap"></div>
+		<script type="text/javascript">
+			var txt = "<p>浏览器名称: " + navigator.appName + "</p>";
+			txt += "<p>用户代理字符串: " + navigator.userAgent + "</p>";
+			txt += "<p>判断浏览器: " + navigator.userAgent.indexOf("Firefox") + "</p>";
+			
+			document.getElementById("exap").innerHTML = txt;
+		</script>
+	</body>
+</html>

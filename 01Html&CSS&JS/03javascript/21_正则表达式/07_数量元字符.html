@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>07_数量元字符</title>
+	</head>
+	<body>
+		<!--
+			1. {n,m} 匹配前一项至少n次，但不能超过m次
+			2. {n,} 匹配前一项n次或更多次
+			3. {n} 匹配前一项正好n次
+			
+			4. ？ 匹配前一项0次或者1次，也就是说前一项是可选的，等价于{0，1}
+			5. + 匹配前一项1次或多次，等价于{1，}
+			6. * 匹配前一项0次或多次，等价于{0，}
+			7. x(?=y) 	只有x后面紧跟着y时，才匹配x，但是y不是匹配结果的一部分。
+			8. x(?!y) 	只有x后面不紧跟着y时，才匹配x。
+
+		-->
+		<script type="text/javascript">
+			var str = "kfc666aa8888liiliiba888ac8888888lililili8888lilivlili77";
+			var reg1 = /8{2,5}/g;    //8888,888,88888,88,8888
+			var reg2 = /8{3,}/g;     //8888,888,8888888,8888
+			var reg3 = /7{2}/g;
+			var reg4 = /8?/g;        //,,,,,,,,8,8,8,8,,,8,8,8,,,8,8,8,8,8,8,8,,,,,,,,,8,8,8,8,,,,,,,,,,,,
+			var reg5 = /a8+/g;       //a8888,a888
+			var reg6 = /a8*/g;       //a,a8888,a888,a
+			var reg7 = /(li)+/g;     //li,li,lililili,lili,lili
+			var reg8 = /li+/g;       //lii,lii,li,li,li,li,li,li,li,li
+			
+			var str = "smartgirl smartygirl smartgirlgirl";
+			var reg = /smart(?=girl)/g;   //smart,smart
+			
+			var str = "3.141.45.6 7 8.9";
+			//数字后面不紧跟着小数点的数字
+			var reg9 = /\d+(?!\.)/g;
+			//alert(str.match(reg9));
+			
+			
+			//邮政编码: 起始的数字不能为0; 然后是5个数字
+			var strr = "11120093";
+            var reg10 = /^[1-9]\d{5}$/g;
+            alert(reg10.test(strr));
+		</script>
+	</body>
+</html>

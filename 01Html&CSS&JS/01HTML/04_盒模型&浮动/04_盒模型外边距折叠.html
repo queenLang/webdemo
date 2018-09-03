@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_盒模型外边距折叠</title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				border: 2px solid red;
+				background-color: royalblue;
+				margin: 30px;
+			}
+			/*如果外边距直接接触  会发生折叠  只存在于垂直方向
+			 如果两个外边距不相等  将选择比较大的外边距进行设置*/
+			.div1{
+				margin-bottom: 60px;
+			}
+			.div2{
+				margin-top: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<div class="div2"></div>
+	</body>
+</html>

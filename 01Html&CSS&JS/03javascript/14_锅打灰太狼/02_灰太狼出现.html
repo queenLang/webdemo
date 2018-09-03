@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>02_灰太狼出现</title>
+		<script src="../11_动画2/tools.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/*body{
+             	display: flex;
+             	justify-content: center;
+             }*/
+			
+			#box {
+				width: 320px;
+				height: 480px;
+				background-image: url(img/game_bg.jpg);
+				position: relative;
+			}
+			
+			#div {
+				/*width: 100px;
+				height: 100px;*/
+				/*background-color: black;*/
+				position: absolute;
+			}
+			
+			#score {
+				position: absolute;
+				top: 8px;
+				left: 70px;
+				width: 30px;
+				height: 30px;
+				color: white;
+				font-size: 22px;
+			}
+			
+			#time {
+				width: 180px;
+				height: 16px;
+				background-image: url(img/progress.png);
+				position: absolute;
+				top: 66px;
+				left: 63px;
+			}
+			
+			#start,
+			#end {
+				position: absolute;
+				top: 200px;
+				left: 80px;
+				color: red;
+				font-size: 60px;
+				width: 160px;
+				text-align: center;
+			}
+			
+			#end {
+				display: none;
+				position: absolute;
+				top: 200px;
+				left: 70px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="start">开始</div>
+			<div id="end">GAMG OVER!</div>
+			<div id="score"></div>
+			<div id="time"></div>
+			<div id="div"></div>
+		</div>
+		<script type="text/javascript">
+			var arrPos = [{
+					l: "98px",
+					t: "115px"
+				}, {
+					l: "17px",
+					t: "160px"
+				}, {
+					l: "15px",
+					t: "220px"
+				}, {
+					l: "30px",
+					t: "293px"
+				}, {
+					l: "122px",
+					t: "273px"
+				}, {
+					l: "207px",
+					t: "295px"
+				}, {
+					l: "200px",
+					t: "211px"
+				}, {
+					l: "187px",
+					t: "141px"
+				}, {
+					l: "100px",
+					t: "185px"
+				}]
+				//最外层
+			var oBox = document.getElementById("box");
+			//狼🐺
+			var oWolfs = document.getElementById("div");
+			//时间条
+			var oTime = document.getElementById("time");
+			//开始键
+			var oStart = document.getElementById("start");
+			//结束
+			var oEnd = document.getElementById("end");
+
+			var moverTimer = null;
+			var num = 0;
+			var wolfArr1 = ['img/x0.png', 'img/x1.png', 'img/x2.png', 'img/x3.png', 'img/x4.png', 'img/x5.png', 'img/x6.png', 'img/x7.png', 'img/x8.png', 'img/x9.png'];
+			var wolfArr2 = ['img/h0.png', 'img/h1.png', 'img/h2.png', 'img/h3.png', 'img/h4.png', 'img/h5.png', 'img/h6.png', 'img/h7.png', 'img/h8.png', 'img/h9.png'];
+			var owlf = Math.floor(Math.random() * 6) < 1 ? wolfArr1 : wolfArr2;
+
+			var startTimer = null;
+			oStart.onclick = function() {
+				oStart.style.display = "none";
+				wolfMove(owlf);
+				startCountDown();
+			}
+
+			function startCountDown() {
+				var countDownTimer = setInterval(function() {
+					var attrValue = oTime.offsetWidth;
+					var speed = -1;
+					if(Math.abs(0 - attrValue) <= Math.abs(speed)) {
+
+						clearInterval(countDownTimer);
+						clearInterval(moverTimer);
+						oTime.style.width = 0;
+						oWolfs.removeChild(oWolfs.children[0]);
+						oEnd.style.display = "block";
+
+					} else {
+						oTime.style.width = oTime.offsetWidth + speed + "px";
+					}
+				}, 200);
+			}
+
+			function wolfMove(wolfArr) {
+				//1.随机狼出现的位置	oWolfs的位置更改一次
+				var s = Math.floor(Math.random() * (8 - 0 + 1) + 0);
+				oWolfs.style.left = arrPos[s]["l"];
+				oWolfs.style.top = arrPos[s]["t"];
+				//2.创建存放灰太狼的图片
+				var newWolf = document.createElement("img");
+				oWolfs.appendChild(newWolf);
+				//3.狼开始动 本质图片的更换
+				var count = 0; //定时器走过的次数
+				var index = 0; //记录图片的下标		
+				moverTimer = setInterval(function() {
+					if(count < 6) {
+						newWolf.src = wolfArr[index];
+						index++;
+					} else if(count >= 6 && count < 12) {
+						index--;
+						newWolf.src = wolfArr[index];
+
+					} else {
+						console.log("一次结束");
+						//运动结束
+						clearInterval(moverTimer);
+						oWolfs.removeChild(newWolf);
+						//在此随机一个新的位置
+						wolfMove(Math.floor(Math.random() * 6) < 1 ? wolfArr1 : wolfArr2);
+					}
+					count++;
+				}, 100)
+
+				//图片对象点击事件
+				var flag = true;
+				var randomArr = wolfArr;
+				var oscore = document.getElementById("score");
+				oWolfs.onclick = function() {
+					if(flag) {
+						flag != flag;
+						if(randomArr == wolfArr2) {
+							num += 10;
+						} else {
+							num -= 10;
+						}
+						oscore.innerHTML = num;
+						//图片从6开始
+						index = 6;
+						//清除不被打图片运动的定时器
+						clearInterval(moverTimer);
+						var timer2 = setInterval(function() {
+							newWolf.src = randomArr[index];
+							if(index <= 9) {
+								newWolf.src = wolfArr[index];
+								index++;
+							} else {
+								oWolfs.removeChild(newWolf);
+								clearInterval(timer2);
+								wolfMove(Math.floor(Math.random() * 6) < 1 ? wolfArr1 : wolfArr2);
+							}
+						}, 100);
+					}
+				}
+			}
+		</script>
+	</body>

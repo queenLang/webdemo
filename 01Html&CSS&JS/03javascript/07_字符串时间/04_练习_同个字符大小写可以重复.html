@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>04_字符练习</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+//			var arr = [];
+//			while(arr.length != 5) {
+//				var a = prompt("请输入字符");
+//				var flag = true;
+//
+//				for(var i = 0; i < arr.length; i++) {
+//					console.log(arr[i]);
+//					if(a == arr[i]) {
+//						flag = false;
+//						break;
+//					}
+//				}
+//				if(flag) {
+//					arr.push(a);
+//				}
+//			}
+//			console.log(arr);
+
+			//方法2
+			var arr2 = [];
+			while(arr2.length != 5) {
+				var str = prompt("请输ru字符");
+				if(arr2.indexOf(str) == -1) {
+					arr2.push(str);
+				}
+			}
+			console.log(arr2);
+		</script>
+	</body>
+
+</html>

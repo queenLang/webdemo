@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_boxshadow</title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: #CD853F;
+				/*边框阴影
+				 1.必写 水平阴影的位置
+				 2.必写  垂直阴影的位置
+				 3,可选  阴影尺寸
+				 4,可选  阴影模糊距离
+				 5,可选   阴影颜色
+				 6,可选 外部  内部阴影*/
+				box-shadow: 2px 2px 10px 5px yellow inset;
+			}
+			.div1{
+				width: 200px;
+				height: 200px;
+				background-color: salmon;
+				margin-top: 60px;
+				/*transparent 用于背景图片透明*/
+				border: 15px solid transparent;
+				border-image: url(img/黄景瑜6.jpg) 30 30 round;
+			}
+			/*CSS3边框:边框圆角;边框阴影;边框图片*/
+			.div2{
+				background-color: fuchsia;
+				border: 15px solid transparent;
+				border-image: url(img/border-1.png) 30 30 round;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div class="div1"></div>
+		<div class="div2"></div>
+	</body>
+</html>

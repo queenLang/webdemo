@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_匹配汉字.</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//中文编码 unicode
+			var str = "老姨啊 000 是不是sa 00 快跑啊 00";
+			var reg = /[\u8001\u59e8]+/g;
+			//alert(str.match(reg));
+			
+			//匹配中文: [\u4e00-\u9fa5]
+			var str = "饕餮 卍";
+			var reg2 = /[\u4e00-\u9fa5]/g;
+			alert(str.match(reg2));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>09_作业首页产品关于</title>
+		<script src="tools.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				/*font-size: 20px;*/
+			}
+			
+			.all {
+				width: 100px;
+				float: left;
+				overflow: hidden;
+			}
+			
+			.div1 {
+				width: 100px;
+				background-color: skyblue;
+				z-index: 2;
+				height: 30px;
+				line-height: 30px;
+			}
+			
+			.div2 {
+				width: 100px;
+				height: 0;
+				background-color: firebrick;
+				overflow: hidden;
+				line-height: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="all">
+				<div class="div1">首页</div>
+				<div class="div2">
+					<div>欠</div>
+					<div>揍</div>
+				</div>
+			</div>
+			<div class="all">
+				<div class="div1">产品</div>
+				<div class="div2">
+					<div>某</div>
+					<div>些</div>
+					<div>人</div>
+					<div>啊</div>
+				</div>
+			</div>	
+				<div class="all">
+					<div class="div1">关于</div>
+					<div class="div2">
+						<div>傻</div>
+						<div>不</div>
+						<div>傻</div>
+						<div>ha</div>
+						<div>ha</div>
+						<div>ha</div>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				var oDiv1 = document.getElementsByClassName("div1");
+				var oDiv2 = document.getElementsByClassName("div2");
+				for(var i = 0; i < oDiv1.length; i++) {
+					oDiv1[i].index = i;
+					oDiv1[i].onmouseover = function() {
+
+						var divChlid = oDiv2[this.index].getElementsByTagName("div");
+						var oHeight = getStyle(divChlid[0], "height");
+						var olist = parseInt(oHeight) * divChlid.length;
+
+						easeMove(oDiv2[this.index], olist, 19, "height", 20);
+						for(var i = 0; i < divChlid.length; i++) {
+							divChlid[i].index = i;
+							divChlid[i].style.backgroundColor = getRandomColor();
+						}
+					}
+					oDiv1[i].onmouseout = function() {
+						easeMove(oDiv2[this.index], 0, 19, "height", 20);
+					}
+
+				}
+
+				function easeMove(obj, targetPos, speedScale, attr, time) {
+					clearInterval(obj.timer);
+					obj.timer = setInterval(function() {
+						var isStop = true; //记录是否清除当前属性的定时器 true 清除
+						var attrValue = getStyle(obj, attr);
+						attrValue = attr == "opacity" ? attrValue * 100 : parseInt(attrValue);
+
+						var speed = (targetPos - attrValue) / speedScale;
+						speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+						//console.log("speed: " + speed + "attrValue: " + attrValue + "targetPos: " + targetPos);
+
+						if(attrValue != targetPos) {
+							//如果当前属性的值与目标值不相同,定时器不能清除
+							isStop = false;
+							obj.style[attr] = attr == "opacity" ? (attrValue + speed) / 100 : attrValue + speed + "px";
+						}
+						//如果是 true ,说明完成运动,所以可以清除
+						if(isStop) {
+							clearInterval(obj.timer);
+						}
+						console.log(getStyle(obj, attr));
+					}, time)
+				}
+			</script>
+	</body>
+
+</html>

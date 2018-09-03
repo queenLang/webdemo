@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<library desc="good">
+      <book>
+            <name>西游记</name>
+            <type>传记</type>
+            <num>123</num>
+      </book>
+      <book>
+            <name>哑舍</name>
+            <type>传记</type>
+            <num>1243</num>
+      </book>
+</library>

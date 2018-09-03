@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>掌恒新</title>
+		<style type="text/css">
+			/*整体*/
+			
+			body {
+				background-color: black;
+				margin: -8px;
+			}
+			/*导航部分*/
+			
+			.nav {
+				width: 100%;
+				/*height: 80px;*/
+				overflow: hidden;
+				background-color: rgba(0, 0, 0);
+				
+				margin: 0 auto;
+			}
+			
+			.head {
+				width: 1400px;
+				/*height: 80px;*/
+				overflow: hidden;
+				background-color: rgba(0, 0, 0);
+				margin: 0 auto;
+			}
+			
+			.head_logo {
+				margin-top: 20px;
+				float: left;
+			}
+			/*导航右部分*/
+			
+			.head_word {
+				width: 400px;
+				height: 50px;
+				margin-top: 30px;
+				float: right;
+			}
+			
+			.head_word a {
+				color: white;
+				text-decoration: none;
+				font-size: 15px;
+				float: left;
+				height: 20px;
+				padding-right: 10px;
+				padding-left: 10px;
+				border-right: 1px solid white;
+			}
+			
+			.last a {
+				border-right: 1px solid black;
+			}
+			
+			a:hover {
+				color: blue;
+			}
+			/*--------------------------------------------------------------------------------*/
+			/*内容区第一个黑色块*/
+			
+			.one {
+				width: 100%;
+				height: 500px;
+				background-image: url(img/bg.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				margin: 0 auto;
+			}
+			/*广州掌恒*/
+			
+			.guangzhou {
+				width: 450px;
+				height: 50px;
+				margin: 0 auto;
+				font-size: 28px;
+				padding: 100px 100px 50px;
+				color: white;
+			}
+			/*互联营销.研发.运营 网易.联想联合创始人*/
+			
+			.kuang {
+				width: 410px;
+				height: 50px;
+				margin: 0 auto;
+			}
+			
+			.kuang span {
+				color: white;
+				padding: 5px;
+				border: 1px solid white;
+			}
+			
+			.kuai_a {
+				margin-right: 80px;
+			}
+			/*电商.IM通讯.O2O营销.移动OA办公*/
+			
+			.dianshang,
+			.fuwu {
+				color: white;
+				margin: 0 auto;
+			}
+			
+			.dianshang {
+				padding-top: 50px;
+				width: 300px;
+				height: 50px;
+			}
+			
+			.fuwu {
+				width: 400px;
+				height: 50px;
+			}
+			/*--------------------------------------------------------------------*/
+			/*内容区 第二部分白色块*/
+			
+			.two {
+				width: 1005;
+				height: 400px;
+				background-color: white;
+				margin: 0 auto;
+			}
+			/*第二部分上面框*/
+			
+			.two_a {
+				width: 280px;
+				height: 50px;
+				padding: 20px;
+				margin: 0 auto;
+			}
+			/*第二部分下半部分*/
+			
+			.two_b {
+				width: 1200px;
+				height: 300px;
+				margin: 0 auto;
+			}
+			
+			.pingtai,
+			.xinmeit,
+			.chuangyi,
+			.APP {
+				width: 300px;
+				height: 300px;
+				font-size: 14px;
+				text-align: center;
+				color: gray;
+				float: left;
+			}
+			
+			.pingtai_tu,
+			.xinmeit_tu,
+			.chuangyi_tu,
+			.APP_tu {
+				width: 92px;
+				height: 106px;
+				margin: 0 auto;
+			}
+			
+			.pingtai_tu:hover {
+				background-image: url(img/abilities_hover1.png);
+			}
+			
+			.xinmeit_tu:hover {
+				background-image: url(img/abilities_hover2.png);
+			}
+			
+			.chuangyi_tu:hover {
+				background-image: url(img/abilities_hover3.png);
+			}
+			
+			.APP_tu:hover {
+				background-image: url(img/abilities_hover4.png);
+			}
+			
+			.pingtai_a,
+			.xinmeit_a,
+			.chuangyi_a,
+			.APP_a {
+				font-size: 16px;
+				width: 100px;
+				height: 30px;
+				margin: 0 auto;
+				padding-top: 10px;
+				padding-bottom: 20px;
+			}
+			/*-----------------------------------------------*/
+			/*第三部分小黑框*/
+			
+			.three {
+				width: 100%;
+				height: 150px;
+				background-image: url(img/mid_bg.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				margin: 0 auto;
+			}
+			/*----------------------------------------------*/
+			/*第四部分白框图片*/
+			
+			.four {
+				width: 100%;
+				height: 540px;
+				background-color: white;
+				margin: 0 auto;
+			}
+			/*第四部分上下两个图标*/
+			
+			.four_up,
+			.four_down {
+				width: 300px;
+				height: 60px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				margin: 0 auto;
+			}
+			
+			.four_mi {
+				width: 920px;
+				height: 390px;
+				margin: 0 auto;
+			}
+			
+			.four_mi_guanggao {
+				background-image: url(img/广告.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				width: 180px;
+				height: 200px;
+				margin: 5px;
+			}
+			
+			.four_mi_guanggao div {
+				background-color: rgba(128, 138, 135, 0.5);
+				color: white;
+				text-align: center;
+				margin-top: 150px;
+				padding: 5px;
+			}
+			
+			.four_mi_fuzhuang {
+				background-image: url(img/服装.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				width: 340px;
+				height: 200px;
+				margin: 5px;
+			}
+			
+			.four_mi_fuzhuang div {
+				background-color: rgba(128, 138, 135, 0.7);
+				color: white;
+				text-align: center;
+				margin-top: 150px;
+				padding: 5px;
+			}
+			
+			.four_mi_canyin {
+				background-image: url(img/餐饮.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				width: 360px;
+				height: 140px;
+				margin: 5px;
+			}
+			
+			.four_mi_yiliao {
+				background-image: url(img/医疗.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				width: 260px;
+				height: 140px;
+				margin: 5px;
+			}
+			
+			.four_mi_yiliao div {
+				background-color: rgba(128, 138, 135, 0.5);
+				color: white;
+				text-align: center;
+				margin-top: 85px;
+				padding: 5px;
+			}
+			
+			.four_mi_jiaoyu {
+				background-image: url(img/教育.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				width: 260px;
+				height: 140px;
+				margin: 5px;
+			}
+			
+			.four_mi_jiaoyu div {
+				background-color: rgba(128, 138, 135, 0.5);
+				color: white;
+				text-align: center;
+				margin-top: 85px;
+				padding: 5px;
+			}
+			
+			.four_mi_pinpai {
+				background-image: url(img/设计.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				width: 180px;
+				height: 200px;
+				margin: 5px;
+			}
+			
+			.four_mi_More {
+				background-image: url(img/more.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				width: 180px;
+				height: 200px;
+				margin: 5px;
+			}
+			/*------------------------------------------------*/
+			/*第五部分*/
+			
+			.five {
+				width: 100%;
+				height: 400px;
+				background-image: url(img/con_bg.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				margin: 0 auto;
+			}
+			.five_kuang{
+				width: 800px;
+				height: 200px;
+				padding-top: 80px;
+				margin: 0 auto;
+			}
+			.five_dianhua,
+			.five_dizhi,
+			.five_guanyu,
+			.five_youxiang {
+				width: 200px;
+				height: 100px;
+				float: left;
+			}
+			.five_a{
+				color: white;
+				padding-bottom: 30px;
+				font-size: 15px;
+			}
+			.five_b{
+				color: white;
+				padding-bottom: 10px;
+				font-size: 10px;
+			}
+			/*-----------------------------------*/
+			/*第六部分*/
+			.foot{
+				width: 100%;
+				height: 50px;
+				background-color: black;
+				margin: 0 auto;
+			}
+			.foot div{
+		        text-align: center;
+				color: white;
+				font-size: 10px;	
+				margin: 0 auto;
+			}
+			.foot_a{
+				width: 400px;
+				height: 20px;
+			}
+			.five_b{
+				width: 500px;
+				height: 20px;
+			}
+			.right {
+				float: right;
+			}
+			
+			.left {
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<!--最上黑色导航条-->
+
+			<div class="nav">
+				<div class="head">
+					<!--左边logo-->
+					<div class="head_logo"><img src="img/header_logo.png" /></div>
+					<!--右面文字-->
+					<div class="head_word">
+						<div>
+							<a href="#">Home</a>
+						</div>
+						<div>
+							<a href="#">Abilities</a>
+						</div>
+						<div>
+							<a href="#">Portfolio</a>
+						</div>
+						<div class="last">
+							<a href="#">About</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--内容区第一个黑色-->
+			<div class="one">
+				<div class="guangzhou">广州掌恒---专注于数学化营销领域</div>
+				<div class="kuang">
+					<span class="kuai_a">互联营销.研发.运营</span><span class="kuai_b">网易.联想联合创始人</span>
+				</div>
+				<div class="dianshang">电商.IM通讯.O2O营销.移动OA办公</div>
+				<div class="fuwu">服务于地产.餐饮.广告.教育培训.医疗.服装等多个行业</div>
+			</div>
+			<!--第二部分白色-->
+			<div class="two">
+				<div class="two_a"><img src="img/ability.png" /></div>
+				<!--下半部分-->
+				<div class="two_b">
+					<!--平台建设托管-->
+					<div class="pingtai">
+						<div class="pingtai_tu"><img src="img/abilities1.png" /></div>
+						<div class="pingtai_a">平台建设托管</div>
+						<div >企业官网.项目官网</div>
+						<div >活动官网.电子商务网站</div>
+						<div >微官网</div>
+					</div>
+
+					<div class="xinmeit">
+						<div class="xinmeit_tu"><img src="img/abilities2.png" /></div>
+						<div class="xinmeit_a">新媒体营销</div>
+						<div >企业微信代运营.微信二次开发</div>
+						<div >微信活动策划和推广.无线广告推广</div>
+					</div>
+
+					<div class="chuangyi">
+						<div class="chuangyi_tu"><img src="img/abilities3.png" /></div>
+						<div class="chuangyi_a">创意设计</div>
+						<div >产品专题.flash动画</div>
+						<div >平面创意.广告创意</div>
+					</div>
+					<div class="APP">
+						<div class="APP_tu"><img src="img/abilities4.png" /></div>
+						<div class="APP_a">APP定制开发</div>
+						<div >O2O全案APP定制与运维</div>
+						<div >电商.智慧医疗.地产.企业OA</div>
+						<div >餐饮.家居等行业定制与运维</div>
+						<div >APP半年免维护与终身跟踪服务</div>
+					</div>
+				</div>
+			</div>
+			<!--第三部分小黑框-->
+			<div class="three"></div>
+			<!--第四部分白的-->
+			<div class="four">
+				<div class="four_up"><img src="img/portfolio_title.png" /></div>
+				<div class="four_mi">
+
+					<div class="left">
+						<div>
+							<div class="four_mi_guanggao left">
+								<div>广告平面创意</div>
+							</div>
+							<div class="four_mi_fuzhuang left">
+								<div>服装海报宣传设计</div>
+							</div>
+						</div>
+						<div class="left">
+							<div class="four_mi_yiliao left">
+								<div>医疗品牌创意</div>
+							</div>
+							<div class="four_mi_jiaoyu left">
+								<div>教育品牌平面创意</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="left">
+						<div>
+							<div class="four_mi_canyin"></div>
+						</div>
+						<div>
+							<div class="four_mi_pinpai left"></div>
+							<div class="four_mi_More left"></div>
+						</div>
+					</div>
+
+				</div>
+				<div class="four_down"><img src="img/connect_titile.png" /></div>
+			</div>
+			<!--第五部分黑色-->
+			<div class="five">
+				<div class="five_kuang">
+					<div class="five_dizhi">
+						<div class="five_a">公司地址:</div>
+						<div class="five_b">广州市天河区天河路518号</div>
+						<div class="five_b">南方数码都会2226号</div>
+					</div>
+					<div class="five_dianhua">
+						<div class="five_a">服务电话:</div>
+						<div class="five_b">Tel:020-37601080</div>
+						<div class="five_b">24小时热线:13611412781</div>
+					</div>
+					<div class="five_guanyu">
+						<div class="five_a">关注掌恒:</div>
+						<div class="five_b">QQ群:168942355</div>
+						<div class="five_b">微信:1648942362</div>
+					</div>
+					<div class="five_youxiang">
+						<div class="five_a">企业邮箱:</div>
+						<div class="five_b">zhaobowen@palm_h.com</div>
+					</div>
+				</div>
+			</div>
+			<!--最下部分页脚-->
+			<div class="foot">
+	
+				  <div class="foot_a">网站建设版权所有@2013广州掌恒信息技术有限公司</div>
+				  <div class="foot_b">粤IPC备11086386COPYHGHT  2011 DESIGH ALL RESEHVED</div>
+
+			</div>
+		</div>
+	</body>
+
+</html>

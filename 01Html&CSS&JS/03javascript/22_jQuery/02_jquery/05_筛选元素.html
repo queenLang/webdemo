@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_筛选元素</title>
+	</head>
+	<body>
+		<p>黄景瑜帅</p>
+		<div>李易峰`更帅</div>
+		<p>邓伦也不错</p>
+		<span>王北车...嗯...不错</span>
+		<div id="div1">
+			<h1>班长说学伪坏话</h1>
+			<h3>学伪打报告</h3>
+			<div>css字体具有继承性</div>
+			<div>
+				<h1>哎.咋整</h1>
+				<h3 id="h3">h3</h3>
+			</div>
+		</div>
+		<span>沈阳大暴雨</span>
+		<script src="jquery-1.11.2.min(1).js" type="text/javascript" charset="utf-8"></script>
+	    <script type="text/javascript">
+	      //下一个兄弟节点
+	    	  $("div").next().css("color","red");
+	    	  //上一个兄弟节点
+	    	  $("div").prev().css("color","darkgoldenrod");
+	    	  //找到h1
+	    	  $("#div1").find("h1").css("color","blue");
+	    	  //找到h1中 eq(0) 第一个
+	    	  $("#div1").find("h1").eq(1).css("color","seagreen");
+	    	  //eq 返回的是jq对象  下标是从0开始`
+	    	  $("div").eq(2).css("color","violet");
+	    	  
+	    	  
+    	       console.log( $("div").eq(2));
+	    	  console.log( $("div")[2]);
+	    	  
+	    	  var num = $("#h3").index();
+	    	  console.log(num);
+	    </script>
+	</body>
+</html>

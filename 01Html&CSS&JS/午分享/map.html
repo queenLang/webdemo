@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>map</title>
+	</head>
+	<body>
+		<p>点击按钮将数组的每一个元素乘以输入框指定的值,返回一个新的数组</p>
+		<p>
+			最小年龄:
+			<input type="number" name="age" id="age" value="10" />
+		</p>
+		<button id="btn">点击</button>
+		<p id="arr">原数组</p>
+		<p id="data">新数组</p>
+		
+		<script type="text/javascript">
+			var btn = document.getElementById("btn");
+			var data = document.getElementById("data");
+			var age = document.getElementById("age");
+			var arr = document.getElementById("arr");
+			
+			var numbers = [25,45,77,91,4];
+			arr.innerHTML = numbers;
+			btn.onclick = function(){
+				data.innerHTML = numbers.map(myFunction)
+			}
+			function myFunction(num){
+				return num * age.value
+			}
+		</script>
+	</body>
+</html>

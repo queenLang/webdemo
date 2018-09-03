@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量提升</title>
+</head>
+<body>
+<script>
+    //ES5 变量提升
+    var a = 5;
+    function getData() {
+        console.log(a);  //undefined
+        var a = 10;
+    }
+    getData();
+
+    // function getData() {
+    //     var a = undefined;
+    //     console.log(a);  //undefined
+    //    a = 10;
+    // }
+    // getData();
+
+    let count = 100;
+    function getCount() {
+        //ES6 没有变量提升,ES6会找到附件的变量值,而函数中的count 是在打印下面生成的,按照执行顺序,会找不到
+        console.log(count);  // count is not defined
+        let  count = 10;
+    }
+    getCount();
+
+    function abc() {
+        console.log("abc: " + count); //100
+    }
+    abc();
+
+</script>
+</body>
+</html>

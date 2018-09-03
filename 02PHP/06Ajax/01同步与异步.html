@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //类似同步请求
+    for (var i = 0; i < 10; i++) {
+        console.log(i);
+    }
+    console.log("for循环执行完毕");
+
+    //类似异步请求 异步请求就是先执行下面的  然后在执行
+    setTimeout(function () {
+        console.log("哈哈哈");
+    },3000);
+    console.log("定时器下面的代码");
+
+</script>
+</body>
+</html>

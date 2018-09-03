@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				color: red;
+			}
+			div{
+				color: blue;
+			}
+			/*选择器相同 看执行顺序 */
+			#d1{
+				color: saddlebrown;
+			}
+			.d2{
+				color: fuchsia;
+			}
+			/*id选择器优先级>类选择器>标签选择器*/
+			
+		</style>
+	</head>
+	<body>
+		<div id="d1" class="d2">执子之手 与子偕老</div>
+	</body>
+</html>

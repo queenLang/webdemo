@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>02_练习五星评价</title>
+		<style type="text/css">
+			ul {
+				display: flex;
+				list-style: none;
+			}
+			
+			li {
+				color: indigo;
+				font-size: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul id="box">
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+		</ul>
+		<script src="jquery-1.11.2.min(1).js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var wjx_k = "☆";
+			var wjx_s = "★";
+
+			$("#box li").mouseover(function() {
+				$(this).html(wjx_s).prevAll().html(wjx_s);
+				$(this).nextAll().html(wjx_k);
+			})
+			
+			$("#box").mouseout(function() {
+				//所有的五角星都是空心的
+				$(this).children().html(wjx_k);
+				//点击的五角星和其之前的所有的五角星 变满星
+				$("li.click").html(wjx_s).prevAll().html(wjx_s);
+			})
+			
+			//当点击一个按钮的时候
+			$("#box li").click(function() {
+				//记录哪一个星星被点击
+				$(this).addClass("click").siblings().removeClass("click");
+			})
+		</script>
+	</body>
+
+</html>

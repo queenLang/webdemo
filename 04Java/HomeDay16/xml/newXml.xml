@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<province>
+      <city1 城市1=" ">
+            <area>区1</area>
+            <area>区2</area>
+            <area>区3</area>
+      </city1>
+      <city2 城市2=" ">
+            <area>区1</area>
+            <area>区2</area>
+            <area>区3</area>
+      </city2>
+      <city3 城市3=" ">
+            <area>区1</area>
+            <area>区2</area>
+            <area>区3</area>
+      </city3>
+      <city4 城市4=" ">
+            <area>区1</area>
+            <area>区2</area>
+            <area>区3</area>
+      </city4>
+      <city5 城市5=" ">
+            <area>区1</area>
+            <area>区2</area>
+            <area>区3</area>
+      </city5>
+      <city6 城市6=" ">
+            <area>区1</area>
+            <area>区2</area>
+            <area>区3</area>
+      </city6>
+      <city7 城市7=" ">
+            <area>区1</area>
+            <area>区2</area>
+            <area>区3</area>
+      </city7>
+      <city8 城市8=" ">
+            <area>区1</area>
+            <area>区2</area>
+            <area>区3</area>
+      </city8>
+      <city9 城市9=" ">
+            <area>区1</area>
+            <area>区2</area>
+            <area>区3</area>
+      </city9>
+      <city10 城市10=" ">
+            <area>区1</area>
+            <area>区2</area>
+            <area>区3</area>
+      </city10>
+</province>

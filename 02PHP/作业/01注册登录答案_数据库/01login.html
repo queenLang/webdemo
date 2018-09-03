@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="01login.php" method="post" id="theForm">
+    <div>
+        用户名:
+        <input type="text" name="username" id="name">
+    </div>
+    <div>
+        密码:
+        <input type="password" name="password">
+    </div>
+    <div>
+        <input type="submit" value="提交">
+    </div>
+</form>
+<script>
+    var oForm = document.getElementById("theForm");
+    var oName = document.getElementById("name");
+    oForm.onsubmit = function () {
+        if(oName.value.trim().length == 0){
+            return false;  //取消默认事件
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>02_匀速运动.</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: rosybrown;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="all"></div>
+		<script type="text/javascript">
+			//时间 每20毫秒 速度 是7px 运动到800px 停
+			var oAll = document.getElementById("all");
+			var speed = 50;
+			//如果总距离 - 已经运动的距离(剩余距离) > 7 就继续运动
+			//如果 <= 7 就停止运动
+			var timer = setInterval(function() {
+				if(800 - oAll.offsetLeft <= 7) {
+					oAll.style.left = "800px";
+					clearInterval(timer);
+				} else {
+					oAll.style.left = oAll.offsetLeft + speed + "px";
+					//805
+				}
+				console.log(oAll.offsetLeft);
+			}, 1000)
+		</script>
+	</body>
+
+</html>

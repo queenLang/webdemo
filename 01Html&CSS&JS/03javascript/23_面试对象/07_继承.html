@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			Person.prototype.country = "China";
+			Person.prototype.eat = function(){
+				console.log(this.name + "吃饭饭~~");
+			}
+			Person.prototype.sleep = function(){
+				console.log(this.name + "睡觉觉~~");
+			}
+			function Student(name,age,score){
+				//this.name = name;
+				//this.age = age;
+				
+				
+				//call apply bind   改变函数内的this指向
+				
+				//继承属性
+				Person.call(this,name,age);
+				this.score = score;
+			}
+			
+			//原型方法和属性的继承
+			//错误写法
+//			Student.prototype = Person.prototype;
+			for (var attr in Person.prototype) {
+				console.log(attr);
+				Student.prototype[attr] = Person.prototype[attr];
+			}
+			var stu = new Student("黄景瑜","20","100");
+			stu.sleep();
+		</script>
+	</body>
+</html>
+ 

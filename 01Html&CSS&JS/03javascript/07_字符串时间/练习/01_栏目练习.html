@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>01_栏目练习.</title>
+		<style type="text/css">
+			* {
+				transition: all ease-in-out .5s;
+				font-size: 25px;
+			}
+			
+			.box {
+				border: 1px solid cadetblue;
+				text-align: center;
+				padding-top: 20px;
+			}
+			
+			button {
+				border: 0;
+				outline: none;
+			}
+			
+			.btn-info {
+				color: white;
+				background-color: #5bc0de;
+				border-color: #46b8da;
+			}
+			
+			button.active {
+				background-color: white;
+			}
+			
+			.btn {
+				border: 0;
+				display: inline-block;
+				padding: 6px 12px;
+				margin-bottom: 0;
+				font-size: 20px;
+				text-align: center;
+				vertical-align: middle;
+				border: 1px solid transparent;
+				border-radius: 4px;
+			}
+			
+			.box .alert-info {
+				margin-top: 10px;
+			}
+			
+			.box .alert-info:nth-child(odd) {
+				background-color: wheat;
+			}
+			
+			.box .alert-info:nth-child(even) {
+				background-color: thistle;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div1" class="box">
+			<button type="button" class="btn active">栏目一</button>
+			<button type="button" class="btn btn-info">栏目二</button>
+			<button type="button" class="btn btn-info">栏目三</button>
+			<button type="button" class="btn btn-info">栏目四</button>
+			<div class="alert-info" style="display: block;">栏目一的内容<br>栏目一的内容<br>栏目一的内容<br>栏目一的内容</div>
+			<div class="alert-info" style="display: none;">栏目二的内容<br>栏目二的内容<br>栏目二的内容<br>栏目二的内容</div>
+			<div class="alert-info" style="display: none;">栏目三的内容<br>栏目三的内容<br>栏目三的内容<br>栏目三的内容</div>
+			<div class="alert-info" style="display: none;">栏目四的内容<br>栏目四的内容<br>栏目四的内容<br>栏目四的内容</div>
+		</div>
+		<script type="text/javascript">
+			var oDiv1 = document.getElementById('div1');
+			var aBtns = oDiv1.getElementsByTagName('button');
+			var aDivs = oDiv1.getElementsByTagName('div');
+			var count = 0;
+			for(var i = 0; i < aBtns.length; i++) {
+				aBtns[i].index = i;
+				aBtns[i].onclick = function() {
+
+					for(var i = 0; i < aBtns.length; i++) {
+						aBtns[i].className = 'btn btn-info';
+						aDivs[i].style.display = 'none';
+					}
+					this.className = 'btn active';
+					aDivs[this.index].style.display = 'block';
+					count = this.index;
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

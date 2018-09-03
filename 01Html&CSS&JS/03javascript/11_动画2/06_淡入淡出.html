@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_淡入淡出.</title>
+		<script src="tools.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#all {
+				width: 200px;
+				height: 200px;
+				background-color: orange;
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			//缓冲运动  透明度变化  1 -> 0.5
+			var oAll = document.getElementById("all");
+			oAll.onmouseover = function(){
+				var speedScale = 15;
+				var timer = setInterval(function(){
+					//	获取属性值
+					var attrValue = getStyle(oAll,"opacity") * 100;
+					console.log(attrValue);
+					
+					var speed = Math.floor((50 -attrValue)/speedScale);
+					
+					console.log(speed);
+					if(attrValue == 50){
+						clearInterval(timer);
+					}else{
+						oAll.style["opacity"] = (attrValue + speed) / 100;
+					}
+				},20)
+			}
+		</script>
+	</body>
+</html>

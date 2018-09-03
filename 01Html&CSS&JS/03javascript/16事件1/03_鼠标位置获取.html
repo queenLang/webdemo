@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_鼠标位置获取</title>
+		<style type="text/css">
+		   
+			div{
+				width: 2000px;
+				height: 200px;
+				background-color: slateblue;
+				margin-left: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			oAll.onclick = function(ev){
+				var ev = ev || window.event;
+				//鼠标距离浏览器窗口位置
+				console.log("距离浏览器窗口X: " + ev.clientX);
+				console.log("距离浏览器窗口Y: " + ev.clientY);
+				
+				//鼠标距离页面本身距离
+				console.log("距页面位置X: " + ev.pageX);
+				console.log("距页面位置Y: " + ev.pageY);
+				
+				//距离显示器的距离
+				console.log("距离显示器的距离X: " + ev.screenX);
+				console.log("距离显示器的距离Y: " + ev.screenY);
+				
+				//鼠标相对于div的位置
+				console.log(ev.pageX - this.offsetLeft);
+				console.log(ev.pageY - this.offsetTop);
+			}
+		</script>
+	</body>
+</html>

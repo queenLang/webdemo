@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_固定定位</title>
+		<style type="text/css">
+			.div1{
+				width: 120px;
+				height: 100px;
+				background-color: yellow;
+				text-align: center;
+				line-height: 100px;
+				/*position定位
+				  fixed : 固定定位
+				  top bottom left right 和position结合使用
+				  
+				 * */
+				position: fixed;
+				right: 10px;
+				bottom: 20px;
+			}
+			.div2{
+				width: 400px;
+				height: 500px;
+				margin-bottom: 10px;
+				background-color: red;
+				
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"> 点击下载拉阿拉</div>
+		<div class="div2"></div>
+		<div class="div2"></div>
+		<!--固定定位:
+			1.不占文档流
+			2.以浏览器窗口为基准
+			3.变成定位元素,默认内容撑开宽高,可以设置宽高
+		-->
+	</body>
+</html>

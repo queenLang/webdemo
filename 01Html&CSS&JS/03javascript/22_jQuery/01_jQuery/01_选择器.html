@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_选择器</title>
+	</head>
+	<body>
+		<ul id="boys">
+			<li id="boy1">李易峰</li>
+			<li class="boy2">邓伦</li>
+			<li class="boy2">黄景瑜</li>
+			<li data-name = "boy3">易烊千玺</li>
+		</ul>
+	    <script src="jquery-1.11.2.min(1).js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		
+		    //document.querySelector("");
+			//document.querySelectorAll()
+		     
+		    // BOM DOM EMAScript
+			// 1. 封装的js
+			// 2. 封装的js中DOM操作
+			// 3. 不用考虑兼容性
+			// 4. 动画更简单
+			// 5. DOM操作简介
+			
+			
+			//页面上所有资源加载完
+			window.onload = function(){
+				
+			}
+			//Dom树加载完成时
+			$(document).ready(function(){
+				
+			})
+			//简写
+			$(function(){
+				// 1. id选择器
+//				var oBoy1 = $("#boy1");
+//				console.log(oBoy1);
+				$("#boy1").html("耶耶耶`");
+				
+				//2. 元素选择器
+				//$("li").html("haha");
+				
+				//$("li:first").html("热巴");
+				//选择标签为li  并且类名是boy2
+				$("li.boy2").html("幂幂");
+				
+				$("#boys .boy2").html("张艺兴");
+				
+				//3. 属性选择器
+				$("[data-name]").html("姜一亲");
+				$("li[class=boy2]").html("胡歌");
+				
+			})
+		</script>
+	</body>
+</html>

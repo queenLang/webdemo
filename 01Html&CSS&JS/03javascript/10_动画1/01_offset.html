@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_offset</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#main{
+				width: 500px;
+				height: 500px;
+				border: 10px solid firebrick;
+				padding: 0;
+			}
+			#all{
+				width: 200px;
+				height: 200px;
+				background-color: lightpink;
+				border: 1px solid black;
+				margin: 20px;
+				padding: 10px;
+				position: absolute;
+				top: 0;
+				left: 20px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div id="all"></div>
+		</div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			//通过  .style.left 获取的是行间样式
+			// .style.left 的值可以修改    是一个字符串  必须要有"px"
+			oAll.style.left = "30px";
+			console.log("left: " +oAll.style.left);
+			
+			//可见边距离定位父级左侧的距离
+			//如果元素有margin值  , 则为left +margin值
+			//如果没有 margin 值  ,  则为 left 值
+			console.log("offsetLeft: " +oAll.offsetLeft);
+			console.log("offsetTop: " +oAll.offsetTop);
+			
+			/*1.定义了 position:re / ab 的元素 才会有 left 属性
+			 *  而每个元素都可以获得 offsetLeft
+			   2. 元素有行内样式 :left 才可以通过 .style.left 获得值
+			   offsetLeft 直接获得 (margin + left)
+			   3.left 可读可写  获得的是字符串
+			   offsetLeft 只读 获取到的是数字
+			 * */
+			
+			
+			//2.整个元素的尺寸
+			//width/height + border + padding 
+			console.log("offsetWidth: "+oAll.offsetWidth);
+			console.log("offsetHeight: "+oAll.offsetHeight);
+			
+			//3.内容区域的尺寸
+			//width / height + padding
+			console.log("clientHeight: "+oAll.clientHeight);
+			console.log("clientWidth: "+oAll.clientWidth);
+			
+			
+		</script>
+	</body>
+</html>

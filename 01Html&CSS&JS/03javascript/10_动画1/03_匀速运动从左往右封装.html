@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>03_匀速运动从左往右封装</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: darkcyan;
+				position: absolute;
+			}
+			
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: darkcyan;
+				position: absolute;
+				top: 110px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all"></div>
+		<div id="box"></div>
+		<script type="text/javascript">
+			//目标元素 ; 目标距离 ; 运动速度
+			//startMove(obj,targetPos, speed)
+			var all = document.getElementById("all");
+			var box = document.getElementById("box");
+			all.onclick = function() {
+				startMove(all, 800, 7,50);
+				startMove(all, 7, 800,50);
+
+			}
+			box.onclick = function() {
+				startMove(box, 2000, 7,50);
+			}
+
+			function startMove(obj, targetPos, speed,time) {
+				clearInterval(obj.timer);
+				 obj.timer = setInterval(function() {
+					if(targetPos - obj.offsetLeft <= speed) {
+						obj.style.left = targetPos + "px";
+						clearInterval(timer);
+					} else {
+						obj.style.left = obj.offsetLeft + speed + "px";
+					}
+					console.log(obj.offsetLeft);
+				}, time)
+
+			}
+		</script>
+	</body>
+
+</html>

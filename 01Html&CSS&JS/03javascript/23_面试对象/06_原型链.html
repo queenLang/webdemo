@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			Array.prototype.a = 88;
+			var arr = [1, 2, 3, 4, 5];
+			console.log(arr.a); //88
+			arr.a = 66;
+			console.log(arr.a); //66
+			var arr1 = [10, 9, 8, 7];
+			console.log(arr1.a); //88
+			//删除arr的属性a
+			delete arr.a;
+			console.log(arr.a); //88
+
+			/*
+			 * 背下来
+			 * 
+			 * 原型链
+			 * 当要获取某个对象的属性值时,
+			 * 1.判断当前对象是否有该属性,如果有,则返回对应的值
+			 * 2.如果没有,则去构造函数的原型上查找,有则返回
+			 * 3.如果没有原型属性,则去object根类上查找
+			 * 4.如果都没有,则返回undefined
+			 */
+
+			Function.prototype.a = "a";
+			Object.prototype.b = "b";
+
+			function Person() {}
+			console.log(Person); //function Person()
+			let p = new Person();
+			console.log(p); //Person {} 对象
+			console.log(p.a); //undefined
+			console.log(p.b);
+		</script>
+	</body>
+
+</html>

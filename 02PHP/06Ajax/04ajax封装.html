@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">获取数据</button>
+<script>
+    var oBtn = document.getElementById("btn");
+    oBtn.onclick = function () {
+        var url = "02接口.php?phone=110&password=123";
+        //获取返回结果
+        ajax_get(url,function (result) {
+            console.log(result);
+        });
+    }
+    function ajax_get(url,callback) {
+        var xhr = null;
+        if (window.XMLHttpRequest){
+            xhr = new XMLHttpRequest();
+        }else {
+            xhr = ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhr.open("get",url,true);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4){
+                 callback(xhr.responseText);
+            }
+        }
+    }
+
+     //ajax  不能进行跨域请求
+    var url1 = "http://c.3g.163.com/recommend/getChanRecomNews?channel=duanzi&passport=91153191bdb987ca2bc10b1d3e7a5004@tencent.163.com&devId=CE80EFE4-9CE9-4E06-B117-DFA8DE7893F1&size=20";
+    ajax_get(url1,function (result) {
+        console.log(result);
+    })
+
+
+</script>
+</body>
+</html>

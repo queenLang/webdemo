@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>01_菜单栏5个小蓝块</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			 div {
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+				margin-bottom: 5px;
+			}
+			
+			 div>span {
+				display: block;
+				width: 200px;
+				height: 100px;
+				background-color: powderblue;
+				position: absolute;
+				left: -100px;
+				z-index: -1;
+				font-size: 30px;
+				line-height: 100px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="div1"><span class="vis">购物车</span></div>
+		<div class="div1"><span class="vis">我的订单</span></div>
+		<div class="div1"><span class="vis">历史足迹</span></div>
+		<div class="div1"><span class="vis">网红达人</span></div>
+		<div class="div1"><span class="vis">精彩推荐</span></div>
+
+		<script type="text/javascript">
+			var divs = document.getElementsByClassName("div1");
+			var vis = document.getElementsByClassName("vis");
+			for (var i = 0; i < divs.length; i++) {
+				divs[i].index = i;
+				divs[i].onmouseover = function() {
+					startMove(vis[this.index], 100, 7);
+				}
+				divs[i].onmouseout = function() {
+					startMove(vis[this.index], -100, -7);
+				}
+			}
+
+			function startMove(obj, targetPos, speed) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					if(Math.abs(obj.offsetLeft - targetPos) <= Math.abs(speed)) {		
+						obj.style.left = targetPos + "px";
+						clearInterval(obj.timer);
+					} else {
+						obj.style.left = obj.offsetLeft + speed + "px";
+					}
+					console.log(obj.offsetLeft);
+				}, 20)
+			}
+		</script>
+	</body>
+
+</html>

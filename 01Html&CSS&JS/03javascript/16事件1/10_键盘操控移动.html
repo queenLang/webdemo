@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>10_键盘操控移动</title>
+		<script src="../11_动画2/tools.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#box {
+				width: 700px;
+				height: 500px;
+				border: 10px solid goldenrod;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			#div {
+				width: 50px;
+				height: 50px;
+				background-color: darkmagenta;
+				position: absolute;
+				left: 300px;
+				top: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="div"></div>
+		</div>
+		<script type="text/javascript">
+			var oBox = document.getElementById("box");
+			var oDiv = document.getElementById("div");
+			var maxW = oBox.clientWidth - oDiv.offsetWidth;
+			var maxH = oBox.clientHeight - oDiv.offsetHeight;
+
+			document.onkeydown = function(ev) {
+
+				console.log(ev.keyCode);
+				switch(ev.keyCode) {
+					case 39:
+						startMoves(oDiv, maxW, 4, "left", 30,function(){
+							oBox.style.borderRightColor = "red";
+						});
+						break;
+					case 37:
+						startMoves(oDiv, 0, -4, "left", 30,function(){
+							oBox.style.borderLeftColor = "red";
+						});
+						break;
+					case 40:
+						startMoves(oDiv, maxH, 4, "top", 30,function(){
+							oBox.style.borderBottomColor = "red";
+						});
+						break;
+					case 38:
+						startMoves(oDiv, 0, -4, "top", 30,function(){
+							oBox.style.borderTopColor = "red";
+						});
+						break;
+				}
+			}
+			document.onkeyup = function(ev) {
+				var ev = ev || window.event;
+				ev.keyCode = 0;
+			}
+
+			function startMoves(obj, torgetPos, speed, attr, time,fn) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					var attrValue = parseInt(getStyle(obj, attr));
+					if(Math.abs(attrValue - torgetPos) <= Math.abs(speed)) {
+						obj.style[attr] = torgetPos + "px";
+						clearInterval(obj.timer);
+//						setTimeout(function(){
+//							
+//						},2s)
+						if(fn){
+							fn();
+						}
+					} else {
+						obj.style[attr] = attrValue + speed + "px";
+					}
+					console.log(getStyle(obj, attr));
+				}, time)
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<script type="text/javascript">
+		   // 随机 50 到 99 的 10 个数，要求数字不能重复
+		   
+		    function getRandom(n, min, max){
+		    	   var arr = [];
+		    	   while (arr.length != n){
+		    	   	   var a = Math.floor(Math.random()*(max - min + 1) + min);
+		    	   	   if(arr.indexOf(a) == -1){
+		    	   	   	arr.push(a);
+		    	   	   }
+		    	   }
+		    	   console.log(arr);
+		    }
+		    getRandom(10,99,50);
+		</script>
+	</body>
+</html>

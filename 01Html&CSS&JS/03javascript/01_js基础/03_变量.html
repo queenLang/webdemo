@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_变量</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//单行注释
+			/*多行注释
+			 * /
+			 
+			 /*1.变量
+			  * 在内存中存储数据的容器
+			  * 把变量理解成盒子,盒子里放着你想要存储的数据
+			  * 通过变量名可以找到盒子
+			  * 
+			  * 2.定义变量
+			  * 语法: 变量修饰符 变量名 = 初始值;
+			  * var 变量修饰符(固定不变)
+			  * a,b,c..... 变量名(自己定义)
+			  *  = 赋值运算符
+			  *  10 初始值
+			  *  分号  一个语句的结束
+			  */
+			  var a = 10;
+			  //控制台打印
+			  console.log("a: " +a);
+			  var b = 100;
+			  console.log("b: " + b);
+			/*3.变量命名规制  ----变量名区分大小写
+			 *  1)变量名由数字 字母 下划线 组成  数字不能作为开头
+			 *  2)不能使用系统关键字命名  (例如:var)
+			 *  3)使用驼峰命名法进行命名,或者是下划线命名多个单词
+			 *  4)见名知意
+			 *  
+			 */
+			var num = 10;
+			var sUserNume = "李易峰";
+			var userName = "lalal";
+			var s_user = "10";
+			var _num = "uaua";
+			/* 4. 其他
+			 * 4.1 定义变量可以不用立即赋值
+			 */
+			var x;
+			x = 5 - 3;
+			console.log("x: " + x);
+			//4.2 可以同时声明多个变量  使用(,)隔开
+			var y = 1, l = 3, z = 4 ;
+			console.log("z: " + z);
+			//4.3 同一个变量可以声明多次
+			var apple = 10;
+			console.log("apple1: " + apple);
+			apple = 16;
+			console.log("apple2: " + apple);
+			
+		</script>
+	</body>
+</html>

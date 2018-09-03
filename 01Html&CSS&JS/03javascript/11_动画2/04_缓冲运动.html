@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>04_缓冲运动</title>
+		<script src="tools.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: rosybrown;
+				position: absolute;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			easeMove(oAll,0,20,"width",40);
+			/*
+			 * 缓冲运动 速度是动态变化的
+			 * 速度逐渐变慢  最后停止
+			 * 距离越远  速度越大
+			 * 速度 = (目标值 - 当前值) / 缩放系数
+			 *   var speedScale = 15;  缩放系数
+			 */
+			// 缓冲变宽 速度逐渐减小  直到1px;
+			// 宽度达到  800px 停止
+			
+			function easeMove(obj, targetPos,speedScale,attr,time) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					var attrValue = parseInt(getStyle(obj, attr));
+						var speed = Math.ceil((targetPos - attrValue) / speedScale);
+					console.log( "speed: " + speed);
+					if(attrValue == targetPos) {
+						clearInterval(obj.timer);
+					} else {
+						obj.style[attr] = attrValue + speed + "px";
+					}
+					console.log(getStyle(obj, attr));
+				}, time)
+			}
+			
+			
+			
+			function easeMove(obj, targetPos,speedScale,attr,time) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					var attrValue = parseInt(getStyle(obj, attr));
+						var speed = Math.ceil((targetPos - attrValue) / speedScale);
+					console.log( "speed: " + speed);
+					if(attrValue == targetPos) {
+						clearInterval(obj.timer);
+					} else {
+						obj.style[attr] = attrValue + speed + "px";
+					}
+					console.log(getStyle(obj, attr));
+				}, time)
+			}
+		</script>
+	</body>
+
+</html>

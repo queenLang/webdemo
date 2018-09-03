@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_二维数组</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a = [1,2,3];
+			var b = [4,5,6];
+			var c = [7,8,9];
+			
+			var arr = [a,b,c];
+			var arr2 = [[1,2,3] ,[4,5,6], [7,8,9]];
+			//遍历二维数组  打印数组中的每一个数
+			for(var i = 0 ; i < arr2.length; i++){
+				for(var j = 0; j < arr2[i].length; j++){
+					console.log(arr2[i][j]);
+				}
+			}
+			
+			for(var i = 0 ; i < arr2.length; i++){
+				var tempArr = arr2[i];
+				for(var j = 0; j < tempArr.length; j++){
+					console.log(tempArr[j]);
+				}
+			}
+		</script>
+	</body>
+</html>

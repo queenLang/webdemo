@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_video</title>
+	</head>
+	<body>
+		<!--支持格式 :ogg MP4 webM
+		    poster: 视频未播放或下载时显示的图像
+		    wigth,height:视频器的宽高
+		    autoplay loop controls muted preload...
+		    
+		-->
+		<video src="source/唱歌.mp4" 
+			controls poster="img/feng.jpg"
+			width="300" height="300">
+			您的浏览器不支持video元素
+		</video>
+		<!--source 媒体元素
+			为audio video 定义媒体资源
+		-->
+		<video controls="controls" poster="img/a.jpg" 
+			width="300" height="300">
+		<source src="source/咋啦爸爸" type="video/ogg"></source>
+		<source src="source/唱歌1.mp4" type="video/mp4"></source>
+		卸了吧
+		</video>
+	</body>
+</html>

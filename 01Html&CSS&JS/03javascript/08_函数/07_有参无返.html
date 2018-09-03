@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>07_有参无返</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//输入 -66 ~66 的随机数,打印其绝对值
+			//有参无返
+			var a = Math.floor(Math.random() * (66 - (-66) + 1) + (-66));
+            console.log("a: " + a);
+			function getRandom(a) {
+				var b = Math.abs(a);
+				console.log(b);
+			}
+			getRandom(a);
+		</script>
+	</body>
+
+</html>

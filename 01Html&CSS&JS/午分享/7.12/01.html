@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+			
+             #div2{
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+			}
+			
+			#div3{
+				width: 100px;
+				height: 100px;
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1" contenteditable="true"></div>
+		<div id="div2" contenteditable="true"></div>
+		<div id="div3" unselectable="on" onselectstart="return false">jhdjhddhw</div>
+		<script type="text/javascript">
+//			document.oncontextmenu = function(){
+//				alert("机密");
+//				return false;
+//			} 
+            
+            var arr = [1,2,3,4,5];
+			console.log(arr.lastIndexOf(2));//找数字的2下标
+			var sum = arr.reduce(function(previous,current){
+				console.log(previous,current);//10 5
+				return previous + current;
+			})
+			console.log(sum);//15
+  
+        
+			
+		</script>
+	</body>
+</html>

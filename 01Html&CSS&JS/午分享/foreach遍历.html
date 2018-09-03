@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>foreach遍历</title>
+	</head>
+	<body>
+		<button id="root">点击</button>
+		<p id="demo"></p>
+		<script type="text/javascript">
+		    var oRoot = document.getElementById("root");
+		    var oDemo = document.getElementById("demo");
+			var number = [1,4,56,7];
+			oRoot.onclick = function(){
+				number.forEach(myFunction)
+			}
+			function myFunction(item,index,arr){
+				oDemo.innerHTML = oDemo.innerHTML + "index[" + index + "]" +item + "<p>";
+				console.log(item,index,arr);
+			}
+		</script>
+	</body>
+</html>

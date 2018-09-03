@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			function TreeNode(x) {
+				this.val = x;
+				this.left = null;
+				this.right = null;
+			}
+			//由先序遍历和中序遍历构造二叉树
+			function TreeNode(x) {
+				this.val = x;
+				this.left = null;
+				this.right = null;
+			}
+			var pre = [1, 2, 4, 7, 3, 5, 6, 8],
+				vin = [4, 7, 2, 1, 5, 3, 8, 6];
+
+			function reConstructBinaryTree(pre, vin) {
+				var T = new TreeNode();
+
+				function createTree(T, pre, vin) {
+					if(pre.length === 0) {
+						T.val = null;
+						return;
+					}
+					var rootnode = pre[0];
+					var index = vin.indexOf(rootnode);
+					var lchildvinarr = vin.slice(0, index),
+						rchildvinarr = vin.slice(index + 1),
+						lchildvinlen = lchildvinarr.length,
+						rchildvinlen = rchildvinarr.length;
+					var lchildprearr = pre.slice(1, lchildvinlen + 1),
+						rchildprearr = pre.slice(lchildvinlen + 1);
+					T.val = rootnode;
+					T.left = new TreeNode();
+					T.right = new TreeNode();
+					if(T.val) {
+						createTree(T.left, lchildprearr, lchildvinarr);
+						createTree(T.right, rchildprearr, rchildvinarr);
+					}
+				}
+				createTree(T, pre, vin);
+				return T;
+			}
+			var T = reConstructBinaryTree(pre, vin);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>09_渐变圆</title>
+		<style type="text/css">
+			.grad {
+				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+				/* Safari 5.1 - 6.0 */
+				background: -webkit-radial-gradient(80% 70%, farthest-side, red,#FF6A6A,#FFA07A,#FFC0CB,#FFF0F5);
+				/* Opera 11.6 - 12.0 */
+				background: -o-radial-gradient(80% 70%, farthest-side, red,#FF6A6A,#FFA07A,#FFC0CB,#FFF0F5);
+				/* Firefox 3.6 - 15 */
+				background: -moz-radial-gradient(80% 70%, farthest-side, red,#FF6A6A,#FFA07A,#FFC0CB,#FFF0F5);
+				/* 标准的语法 */
+				background: radial-gradient(80% 70%, farthest-side, red,#FF6A6A,#FFA07A,#FFC0CB,#FFF0F5);
+			}
+			
+			.circle {
+				width: 300px;
+				height: 300px;
+				border-radius: 50%;
+				/* Safari 5.1 - 6.0 */
+				background: -webkit-repeating-radial-gradient(red, yellow 10%, green 15%);
+				/* Opera 11.6 - 12.0 */
+				background: -o-repeating-radial-gradient(red, yellow 10%, green 15%);
+				/* Firefox 3.6 - 15 */
+				background: -moz-repeating-radial-gradient(red, yellow 10%, green 15%);
+				/* 标准的语法 */
+				background: repeating-radial-gradient(red, yellow 10%, green 15%);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="grad"></div>
+		<div class="circle"></div>
+	</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>08_获取元素</title>
+		<style type="text/css">
+			.div1 {
+				width: 400px;
+				height: 400px;
+				background-color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div1" class="div1"></div>
+		<script type="text/javascript">
+		  //通过id 值 获取id为div1 的 div
+		    var oDiv = document.getElementById("div1");
+		    console.log("oDiv: " + oDiv);
+		    
+		  //生成行间样式
+		  oDiv.style.width = "200px";
+		  oDiv.style.backgroundColor = "green";
+		  //点击事件
+		  //当鼠标点击odiv 时 才会执行 {} 里面的内容
+		  oDiv.onclick = function(){
+		  	 oDiv.style.backgroundColor = "blue";
+		  }
+		  console.log("我是点击事件之后");
+		  oDiv.style.height = "100px";
+		  
+		</script>
+
+	</body>
+
+</html>

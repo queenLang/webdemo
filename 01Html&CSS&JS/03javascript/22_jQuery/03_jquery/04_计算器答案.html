@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body,
+			html {
+				width: 100%;
+			}
+			
+			#warp {
+				width: 464px;
+				height: 640px;
+				margin: 0 auto;
+			}
+			
+			#warp #upDiv {
+				width: 464px;
+				height: 160px;
+				background-color: #929292;
+				color: white;
+				font-size: 100px;
+				line-height: 80px;
+				text-align: right;
+				word-wrap: break-word;
+			}
+			
+			#downDiv {
+				width: 464px;
+				height: 480px;
+			}
+			
+			table {
+				border-collapse: collapse;
+				border: 1px solid gray;
+				text-align: center;
+			}
+			
+			td {
+				width: 115px;
+				border: 3px solid #8e8e8e;
+				background-color: #e0e0e0;
+				font-size: 40px;
+			}
+			
+			.orange {
+				background-color: #f5923e;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="warp">
+			<div id="upDiv">0</div>
+			<div>
+				<table id="downDiv" border="" cellspacing="" cellpadding="">
+					<tr>
+						<td class="orange">AC</td>
+						<td class="orange">+/-</td>
+						<td class="orange">%</td>
+						<td class="orange">÷</td>
+					</tr>
+					<tr>
+						<td class="gray">7</td>
+						<td class="gray">8</td>
+						<td class="gray">9</td>
+						<td class="orange">×</td>
+					</tr>
+					<tr>
+						<td class="gray">4</td>
+						<td class="gray">5</td>
+						<td class="gray">6</td>
+						<td class="orange">-</td>
+					</tr>
+					<tr>
+						<td class="gray">1</td>
+						<td class="gray">2</td>
+						<td class="gray">3</td>
+						<td class="orange">+</td>
+					</tr>
+					<tr>
+						<td colspan="2" class="gray">0</td>
+						<td class="gray">.</td>
+						<td class="orange">=</td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+	</body>
+	<script src="jquery-1.11.2.min(1).js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		// 橙色方块点击变色
+		$(".orange").mousedown(function() {
+			$(this).css({
+				backgroundColor: "#c2732f"
+			});
+		}).mouseup(function() {
+			$(this).css({
+				backgroundColor: "#f5923e"
+			});
+		}).mouseleave(function() {
+			$(this).css({
+				backgroundColor: "#f5923e"
+			});
+		});
+		// 灰色方块点击变色
+		$(".gray").mousedown(function() {
+			$(this).css({
+				backgroundColor: "#a9a9a9"
+			});
+		}).mouseup(function() {
+			$(this).css({
+				backgroundColor: "#e0e0e0"
+			});
+		}).mouseleave(function() {
+			$(this).css({
+				backgroundColor: "#e0e0e0"
+			});
+		});
+		var firstNum = 0;
+		var secondNum = 0;
+		//保存当前的元素符
+		var opeartor = "";
+		//数字点击事件
+		$(".gray").click(function() {
+
+			//获取显示框的内容
+			var nowV = $("#upDiv").html();
+			//如果显示框的数字超过9,点击任何都无效
+			if(nowV.length >= 9) {
+				return;
+			}
+
+			//只能有一个小数点
+			//当存在一个小数点后,点击小数点无效
+
+			//判断显示框是否有小数点
+			//如果有,并且点击的是点,无效.否则没有影响    等于-1 不存在
+			if(nowV.indexOf(".") != -1 && $(this).html() == ".") {
+				return;
+			}
+
+			if(secondNum == undefined) {
+				//显示框的拼接还是替换,是通过nowV判断的
+				nowV = "0";
+			}
+			//当显示框为0  并且点击的不是"小数点"   点击的数字直接替换0
+			if(nowV == "0" && $(this).html() != ".") {
+				$("#upDiv").html($(this).html());
+			} else {
+				var theValue = $("#upDiv").html() + $(this).html();
+				$("#upDiv").html(theValue);
+			}
+
+			//判断如果元素符为空
+			if(opeartor == "") {
+				//当前获取的updown值
+				firstNum = parseFloat($("#upDiv").html());
+			} else {
+				secondNum = parseFloat($("#upDiv").html());
+			}
+		})
+		$(".orange").click(function() {
+			switch($(this).html()) {
+				case "+":
+					//之前一次的运算
+					cel();
+					opeartor = "+";
+					break;
+				case "-":
+					cel();
+					opeartor = "-";
+					break;
+				case "×":
+					cel();
+					opeartor = "×";
+					break;
+				case "÷":
+					cel();
+					opeartor = "÷";
+					break;
+				case "=":
+					cel();
+//					opeartor = "";
+					break;	
+				default:
+					break;
+			}
+		})
+
+		function cel() {
+			var result = firstNum;
+			//解决 1+++++ 出现问题的情况
+			if(secondNum == undefined) {
+				return;
+			}
+			switch(opeartor) {
+				case "+":
+					result = firstNum + secondNum;
+					break;
+				case "-":
+					result = firstNum - secondNum;
+					break;
+				case "×":
+					result = firstNum * secondNum;
+					break;
+				case "÷":
+					result = firstNum / secondNum;
+					break;	
+				default:
+					break;
+			}
+			//保留小数点后4位, 
+			//"1"- 0 = 1 隐式类型转换
+			result = result.toFixed(4) - 0;
+			$("#upDiv").html(result);
+			//把值付给firstNum
+			firstNum = result;
+			//当点击+号后,将secondNum 赋值undefined
+			secondNum = undefined;
+		}
+	</script>
+
+</html>

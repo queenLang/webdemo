@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_return</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function func1(){
+				var a = 1;
+				var b = 2;
+				return a + b;
+			}
+			var c = func1();
+			console.log(c); // 3
+			
+			function func2(){
+				var a =2;
+				var b =3;
+				console.log(b- a);
+			}
+			var d = func2();
+			//如果你的函数没有返回值  获取他的返回值打印为 underfined
+			console.log("d " +d);  //underfined
+			//函数遇到关键字return后,函数后面的代码不再执行
+			function func3(){
+				console.log("李易峰");
+				console.log("黄景瑜");
+				return;
+				console.log("✌️");
+			}
+			//必须要调用才会执行
+			func3();
+		</script>
+	</body>
+</html>

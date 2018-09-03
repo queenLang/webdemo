@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>三角形</title>
+		<style type="text/css">
+			#canvas{
+				/*border: 1px solid blueviolet;*/
+			
+				transition: all 3s;
+			}
+			#canvas:hover{
+				transform: rotate(360deg);
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500px" height="500px"></canvas>
+		<script>
+			var oCanvas = document.getElementById("canvas");
+			var ctx = oCanvas.getContext("2d");
+			ctx.beginPath();
+			ctx.moveTo(100,100);
+			ctx.lineTo(100,400);
+			ctx.lineTo(400,400);
+			ctx.lineWidth = 5;
+			ctx.fillStyle = "red";
+			//实心形状外有描边  需要闭合路径
+			ctx.fill();
+			ctx.closePath();
+            ctx.stroke();
+		</script>
+	</body>
+</html>

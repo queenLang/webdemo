@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_input其他类型</title>
+	</head>
+	<body>
+		<!--input:button;text;password;image;
+			radio;checkbox;file;submit;reset;hidden
+		-->
+		<!--验证邮箱格式是否正确-->
+		<form action="" method="get">
+			邮箱:
+			<input type="email" />
+			<br />
+			数字:
+			<input type="number" id="num" value="10" min="5" max="10" step="5" />
+			<!--step每点一次增加几-->
+			<br />
+			链接:
+			<!--必须http://www开头-->
+			<input type="url"/>
+			<br />
+			颜色:
+			<input type="color"/>
+			<br />
+			滑动条:
+			<input type="range" min="1" max="100" value="33"/>
+			<br />
+			搜索框:
+			<input type="search"/>
+			<br />
+			<!-- input 的 list 必须和 datalist 的 id 保持一致-->
+			下拉列表:
+			<input list="browsers" />
+			<datalist id="browsers">
+				<option value="谷歌"></option>
+				<option value="火狐"></option>
+				<option value="IE"></option>
+				<option value="360"></option>
+				<option value="Safari"></option>
+			</datalist>
+			<br />
+			Date Pickers:
+			<!--value格式yyy-mm-dd -->
+			<input type="date" value="2018-06-18"/>
+			<br />
+			<!-- yyyy-mm -->
+			年月:
+			<input type="month" value="2018-05" />
+			<br />
+			<!-- yyyy-W -->
+			星期:
+			<input type="week" value="2018-W04"/>
+			<br />
+			<!-- HH:mm:ss -->
+			时间:
+			<input type="time" value="12:05:44" />
+			<br />
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>

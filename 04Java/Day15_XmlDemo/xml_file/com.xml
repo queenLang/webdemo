@@ -1,0 +1,29 @@
+<!--
+
+       创建一个交通跟标签 交通里面有飞机 有汽车  有轮船
+       有颜色 价格 型号  承载最大人数
+       进行一个简单的描述 添加一个属性
+-->
+
+<traffic>
+    <car name = "我的">
+        <color>黄色</color>
+        <price>10000</price>
+        <type>小汽车</type>
+        <num>1000人</num>
+    </car>
+    <plane >
+        <color>白色</color>
+        <price>100万</price>
+        <type>滑翔机</type>
+        <num>100000人</num>
+    </plane>
+    <ship>
+        <color>黑色</color>
+        <price>100万</price>
+        <type>珍珠</type>
+        <num>10000人</num>
+
+    </ship>
+
+</traffic>

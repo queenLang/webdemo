@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>楼梯</title>
+		<style type="text/css">
+			div{
+				width: 150px;
+				height: 50px;
+				border-bottom: 2px solid black;
+				margin: 5px;
+				color: black;
+				font-size: 25px;
+				text-align: center;
+				line-height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<script type="text/javascript">
+			var divs = document.getElementsByTagName("div");
+			var arr = ["服饰", "美妆", "手机", "家电", "数码", "运动", "居家", "母婴", "食品", "图书"];
+
+			for(var i = 0; i < divs.length; i++){
+				divs[i].index = i + 1 + "F";
+				divs[i].innerHTML = divs[i].index;
+				divs[i].index1 = arr[i];
+				divs[i].onmouseover = function(){
+					this.style.backgroundColor = "red"
+					this.innerHTML = this.index1;
+					this.style.color  = "white";
+				}
+				divs[i].onmouseout = function(){
+					this.style.backgroundColor = "white"
+					this.innerHTML = this.index;
+					this.style.color  = "black";
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_json练习</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var aJson = {
+				"a": [{
+					"abc": 123,
+					"bc": 34,
+					"cd": 34
+				}, {
+					"abc": 456,
+					"bdc": 123,
+					"mn": 78
+				}, {
+					"abc": 789,
+					"xyz": 123
+				}]
+
+			};
+			var arr = aJson["a"];
+			for (var i in arr) {
+				var oJson = arr[i];
+				var num = oJson["abc"];
+				console.log(num);
+				
+				for (var j in oJson) {
+					console.log("key: "+j+ ", value: "+oJson[j]);
+				}
+				
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_小球</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 5. 一个球从100m高度自由落下，每次落地后反跳回原来高度的一半    
+            //再落下，再反弹。
+            //求它在第10次落地时，共经过多少米？第10次反弹多高
+            
+             var height = 100;
+             var sum = 100;
+            for(var i = 0; i < 10; i++){
+            	  height = height / 2;
+            	  sum = sum + height * 2;
+            }
+            console.log("反弹高度:" + height);
+            console.log("共经过" +(sum - 2* height));
+		</script>
+	</body>
+</html>

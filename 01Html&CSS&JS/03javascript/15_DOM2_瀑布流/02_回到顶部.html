@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>02_回到顶部</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: forestgreen;
+				margin-bottom: 10px;
+			}
+			
+			#top {
+				background-color: black;
+				color: white;
+				position: fixed;
+				right: 0;
+				bottom: 100px;
+				text-align: center;
+				line-height: 100px;
+				font-size: 20px;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="top">回到顶部</div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+
+	<script type="text/javascript">
+		var oTop = document.getElementById("top");
+		var pageHeight = document.documentElement.scrollHeight;
+
+		window.onscroll = function() {
+			var winHeight = document.documentElement.clientHeight;
+			var onscrollTT = document.documentElement.scrollTop;
+			if(onscrollTT >= (pageHeight - winHeight) / 2) {
+				oTop.style.display = "block";
+			}
+		}
+
+		oTop.onclick = function() {
+			var timer = setInterval(function() {
+				var onscrollT = document.documentElement.scrollTop;
+				if(onscrollT <= 0) {
+					clearInterval(timer);
+				} else {
+					document.documentElement.scrollTop = onscrollT - 10;
+				}
+
+			}, 50)
+		}
+	</script>
+
+</html>

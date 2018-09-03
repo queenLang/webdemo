@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>transform3D</title>
+		<style type="text/css">
+			.box{
+				width: 300px;
+				height: 300px;
+				background-color: rgba(12,12,45,0.5);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -150px;
+				margin-left: -150px;
+				/*trfs*/
+				/*开启3D
+				 必须要在具有3d效果的父级或祖先级添加
+				 让子元素都在3D空间中*/
+				-webkit-transform-style: preserve-3d;
+				-moz-transform-style: preserve-3d;
+				-ms-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+				
+				/*透视距离*/
+				/*perspective+teb*/
+				-webkit-perspective: 1000px;
+				-moz-perspective: 1000px;
+				-ms-perspective: 1000px;
+				perspective: 1000px;
+				
+			}
+			.inner{
+				width: 260px;
+				height: 260px;
+				background-color: green;
+				border: 2px solid black;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -132px;
+				margin-left: -132px;
+				
+				-webkit-transition: all 2s;
+				-moz-transition: all 2s;
+				-ms-transition: all 2s;
+				-o-transition: all 2s;
+				transition: all 2s;
+				
+				/*背面是否显示*/
+				backface-visibility: hidden;
+			}
+			.inner:hover{
+				-webkit-transform: rotateZ(60deg);
+				-moz-transform: rotateZ(60deg);
+				-ms-transform: rotateZ(60deg);
+				-o-transform: rotateZ(60deg);
+				transform: rotateZ(60deg);
+				/*trftz*/
+				-webkit-transform: translateZ(-500px);
+				-moz-transform: translateZ(-500px);
+				-ms-transform: translateZ(-500px);
+				-o-transform: translateZ(-500px);
+				transform: translateZ(-500px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="inner">
+				
+			</div>
+		</div>
+	</body>
+</html>

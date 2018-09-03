@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr1 = [];
+			var arr2 = [1,2,3,4];
+			//两个对象直接相等,最终结果,是同时指向同一块内存地址
+//			arr1 = arr2;
+//			arr1[1] = 100;
+			console.log(arr2);
+			
+			//正确
+			for (var i = 0; i < arr2.length; i++) {
+				      arr1[i] = arr2[i];
+			}
+		</script>
+	</body>
+</html>

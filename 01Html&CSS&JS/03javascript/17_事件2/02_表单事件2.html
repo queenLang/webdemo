@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_表单事件2</title>
+	</head>
+	<body>
+		<form action="01_表单事件.html" method="get" id="oform">
+			<input type="text" name="uname" id="uname" value="888" />
+			<select name="city" id="city">
+				<option value="BJ">北京</option>
+				<option value="DL">大连</option>
+				<option value="SH">上海</option>
+			</select>
+			<input type="submit" name="" value="提交" />
+		</form>
+		<script type="text/javascript">
+			var oname = document.getElementById("uname")
+			var ocity = document.getElementById("city")
+			var oform = document.getElementById("oform")
+			
+			// 失去焦点时 input 中 value 值发生改变时响应
+			oname.onchange = function(){
+				console.log("onchange：" + this.value)
+			}
+			
+			// 内容发生改变时响应，h5新增方法
+			oname.oninput = function(){
+				console.log("H5_oninput：" + this.value)
+			}
+			ocity.onchange = function(){
+				console.log("select_onchange: " + this.value);
+			}
+			//表单提交时响应
+			oform.onsubmit = function(){
+				console.log("onsubmit");
+			}
+		</script>
+	</body>
+</html>

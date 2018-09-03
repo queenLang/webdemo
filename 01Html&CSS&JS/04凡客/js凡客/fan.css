@@ -1,0 +1,657 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*头部*/
+
+.header {
+	width: 100%;
+}
+
+
+/*顶部*/
+
+.header_top {
+	width: 100%;
+	color: rgb(128, 128, 128);
+	background-color: rgb(247, 247, 247);
+}
+
+
+/*最上方顶部*/
+
+.top_up {
+	width: 1200px;
+	height: 30px;
+	margin: 0 auto;
+}
+
+.wel_log,
+.wel_login,
+.order {
+	text-decoration: none;
+	color: rgb(128, 128, 128);
+}
+
+.up_welcome,
+.up_order,
+.up_notice {
+	float: right;
+	font-size: 11px;
+	text-align: center;
+	line-height: 30px;
+}
+
+
+/*logo标志图*/
+
+.a {
+	width: 1200px;
+	height: 40px;
+	margin: 0px auto;
+}
+
+.header_logo {
+	position: fixed;
+	width: 1200px;
+	/*top: 0;*/
+	height: 40px;
+	z-index: 110;
+	background-color: rgba(0,0,0,0.2);
+	
+}
+
+.pic {
+	float: left;
+	margin-left: 15px;
+	color: red;
+	font-size: 40px;
+	line-height: 48px;
+}
+
+.Tou {
+	float: left;
+	margin-top: 10px;
+}
+.Tou>a{
+	text-decoration: none;
+}
+
+.cata {
+	/*float: left;*/
+	margin-top: 13px;
+	margin-left: 30px;
+	border-right: 1px solid white;
+	padding-right: 30px;
+	/*color: white;*/
+}
+.pull {
+	height: 0;
+	overflow: hidden;
+	margin-top: 5px;
+}
+
+.pull>li {
+	width: 91px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background-color: white;
+	list-style: none;
+}
+
+.pull li:first-of-type {
+	border-top: 5px solid red;
+}
+
+
+/*搜索购物车*/
+
+.header_search {
+	width: 1200px;
+	height: 60px;
+	margin: 0px auto;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	position: relative;
+}
+
+
+/*购物车*/
+
+.search_shop {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 1px solid white;
+	z-index: 500;
+}
+
+.shopping {
+	position: absolute;
+	top: 8px;
+	right: 15px;
+	font-size: 11px;
+	color: white;
+	text-decoration: none;
+}
+
+
+/*隐藏框*/
+
+.shop_box {
+	width: 300px;
+	/*height: 400px;*/
+	border: 1px solid red;
+	background-color: white;
+	position: absolute;
+	right: 0;
+	top: 28px;
+	z-index: 300;
+	display: none;
+	/*padding-top: 20px;*/
+}
+.shop_wold{
+	color: slategray;
+	font-size: 13px;
+	margin: 10px;
+}
+#shop_hidden{
+	width: 300px;
+	position: relative;
+	top: 0;
+	/*height: 300px;*/
+	
+}
+#shop_bottom{
+	width: 280px;
+	position: relative;
+	bottom: 0;
+	left: 10px;
+	color: slategray;
+	line-height: 60px;
+	font-size: 13px;
+}
+#shop_bottom strong{
+	color: red;
+	font-size: 17px;
+}
+/*立即结算*/
+.new_ok{
+	width: 60px;
+	height: 25px;
+	background-color: firebrick;
+	border-radius: 10px;
+	color: white;
+	text-align: center;
+	line-height: 25px;
+	position: absolute;
+	right: 0;
+	bottom: 20px;
+	
+}
+/*添加到shopHidden的样式*/
+
+.hidden_new {
+	position: relative;
+	width: 280px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.hidden_img {
+	position: absolute;
+	left: 0;
+	width: 50px;
+	height: 50px;
+}
+
+.hidden_intro {
+	width: 150px;
+	height: 25px;
+	font-size: 12px;
+	/*background-color: rosybrown;*/
+	position: absolute;
+	top: 0;
+	left: 60px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 130px;
+	/*//文本不换行，这样超出一行的部分被截取，显示...*/
+}
+.hidden_After{
+	width: 50px;
+	height: 25px;
+	font-size: 12px;
+	color: red;
+	position: absolute;
+	bottom: 0;
+	left: 60px;
+}
+/*加减号*/
+.getall_num{
+	width: 100px;
+	height: 30px;	
+	/*background-color: blueviolet;*/
+	position: absolute;
+	right: 30px;
+	top: 18px;
+}
+.getall_num input{
+	width: 20px;
+	height: 20px;
+	color: black;
+}
+/*删除*/
+.hidden_btn{
+	width: 50px;
+	height: 30px;
+	position: absolute;
+	right: 0;
+	top: 10px;
+	background-color: white;
+	border: 1px solid white;
+	color: darkblue;
+	outline: none;
+}
+
+
+
+
+/*搜索栏*/
+
+.button {
+	position: absolute;
+	right: 160px;
+	top: 0;
+	width: 50px;
+	height: 29px;
+	color: white;
+	background-color: #B22222;
+}
+
+.search {
+	position: absolute;
+	right: 210px;
+	width: 200px;
+	height: 29px;
+}
+
+.header_search p {
+	color: rgb(128, 128, 128);
+	font-size: 12px;
+	position: absolute;
+	top: 35px;
+	right: 100px;
+}
+
+.header_search>p>a {
+	color: rgb(128, 128, 128);
+	text-decoration: none;
+}
+
+
+/*轮播图*/
+
+
+/*轮播图部分*/
+
+#myCarousel {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.carousel-inner {
+	width: 100%;
+}
+
+.carousel-inner img {
+	background-size: 100%;
+}
+
+
+/*中间身体*/
+
+
+/*身体主体*/
+
+.con_main {
+	width: 1200px;
+	margin: 0 auto;
+	/*background-color: yellow;*/
+}
+
+
+/*第一排  秒杀css样式*/
+
+
+/*充100送100*/
+
+
+/*秒杀*/
+
+.clo_show {
+	margin-bottom: 10px;
+}
+
+.seckill_t1 {
+	margin-top: 30px;
+	width: 1200px;
+	overflow: hidden;
+}
+
+
+/*第一排 秒杀第一件css样式*/
+
+.seckill_t1 div:last-of-type {
+	margin-right: 0;
+}
+
+.seckill_clothes {
+	width: 232px;
+	height: 330px;
+	background-color: white;
+	margin-right: 10px;
+	float: left;
+}
+.main_seckill{
+	position: relative;
+	width: 1200px;
+	overflow: hidden;
+}
+/*时分秒*/
+#_h{
+     position: absolute;
+     font-size: 16px;
+     color: red;
+	top: 103px;
+	right: 148px;
+}
+#_m{
+	 position: absolute;
+     font-size: 16px;
+     color: red;
+	top: 103px;
+	right: 85px;
+}
+#_s{
+	position: absolute;
+     font-size: 16px;
+     color: red;
+	top: 103px;
+	right: 22px;
+}
+
+/*衣服介绍*/
+
+.clo_introduce {
+	margin-top: 10px;
+	width: 230px;
+	height: 42px;
+	list-style-type: none;
+}
+
+
+/*包裹价格的div*/
+
+.clo_price {
+	position: relative;
+	width: 230px;
+	height: 35px;
+}
+
+
+/*原价*/
+
+.price_brfore {
+	color: silver;
+	text-decoration: line-through;
+	position: absolute;
+	font-size: 12px;
+	top: 0;
+}
+
+
+/*现价*/
+
+.price_after {
+	position: absolute;
+	bottom: 0;
+	color: #B22222;
+}
+
+
+/*充值后的价格*/
+
+.price_money {
+	position: absolute;
+	right: 40px;
+	bottom: 0;
+}
+
+.price_money strong {
+	color: #B22222;
+	font-size: 22px;
+}
+
+
+/*小购物车*/
+
+.price_add {
+	position: absolute;
+	bottom: 0;
+	right: 10px;
+	margin-bottom: 0;
+}
+
+
+/*第二排熊本熊*/
+
+.main_bear {
+	width: 1200px;
+	overflow: hidden;
+}
+
+.bear_t2 {
+	width: 1200px;
+	overflow: hidden;
+}
+
+.main_bear div:last-of-type {
+	margin-right: 0;
+}
+
+.bear_clothes {
+	width: 267px;
+	height: 425px;
+	float: left;
+	margin-right: 30px;
+}
+
+.bear_t2 div:nth-of-type(1):hover{
+	transform: rotate(5deg);
+}
+.bear_t2 div:nth-of-type(2):hover{
+	transform: rotate(2deg);
+}
+.bear_t2 div:nth-of-type(3):hover{
+	transform: rotate(-5deg);
+}
+.bear_t2 div:nth-of-type(4):hover{
+	transform: rotate(4deg);
+}
+
+/*新品预售*/
+
+.main_new {
+	width: 1200px;
+	overflow: hidden;
+}
+
+.new_t3 {
+	width: 1200px;
+	overflow: hidden;
+}
+
+.main_new div:last-of-type {
+	margin-right: 0;
+}
+
+.new_clothes {
+	width: 267px;
+	height: 425px;
+	float: left;
+	margin-right: 30px;
+}
+.new_clothes:hover{
+	transform: scale(1.2);
+}
+
+/*精品部分*/
+
+.con_boutique {
+	width: 1200px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+
+/*标题*/
+
+.bou_title {
+	width: 1200px;
+	height: 80px;
+	color: grey;
+	font-size: 15px;
+	text-align: center;
+	line-height: 80px;
+}
+
+.main_up {
+	width: 1200px;
+	overflow: hidden;
+	margin-bottom: 20px;
+	/*background-color: yellow;*/
+}
+
+
+/*左边*/
+
+.up_left {
+	width: 590px;
+	height: 509px;
+	float: left;
+	margin-right: 10px;
+}
+
+
+/*中间*/
+
+.up_min {
+	width: 290px;
+	height: 509px;
+	float: left;
+	margin-right: 10px;
+}
+
+
+/*中上*/
+
+.min_up {
+	width: 290px;
+	height: 249px;
+	margin-bottom: 10px;
+}
+
+
+/*中下*/
+
+.min_down {
+	width: 290px;
+	height: 249px;
+}
+
+
+/*右边*/
+
+.up_right {
+	width: 286px;
+	height: 509px;
+	float: left;
+}
+
+
+/*左文字*/
+
+.lefta,
+.min,
+.righta {
+	height: 67px;
+	border-bottom: 1px solid silver;
+	border-left: 1px solid silver;
+	border-right: 1px solid silver;
+	/*background-color: saddlebrown;*/
+}
+
+.lefta {
+	width: 589px;
+}
+
+.min {
+	width: 288px;
+}
+
+.righta {
+	width: 284px;
+}
+
+.lefta span,
+.min span,
+.righta span {
+	margin-left: 20px;
+	height: 67px;
+	line-height: 67px;
+	float: left;
+}
+
+.lefta img,
+.min img,
+.righta img {
+	float: right;
+	margin-top: 20px;
+	margin-right: 20px;
+}
+
+/*尾部*/
+.footer{
+	width: 100%;
+	margin-top: 50px;
+	border-top: 1px solid black;
+}
+.footerArea{
+	width: 1200px;
+	height: 150px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 30px;
+}
+.subFooter img{
+	width: 8%;
+	height: 8%;
+	margin: 15px;
+}
+.subFooter img:nth-child(5){
+	width: 3%;
+	height: 3%;
+}
+.footer_right img{
+	position: fixed;
+	right: 10px;
+	bottom: 100px;
+}

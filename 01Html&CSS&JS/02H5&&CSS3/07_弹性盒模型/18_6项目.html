@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>18_6项目</title>
+		 <style type="text/css">
+		 	body {
+				background-color: gray;
+			}
+			
+			.box1,.box2,.box3{
+				width: 200px;
+				height: 200px;
+				background-color: white;
+				margin: 20px auto;
+				border-radius: 8%;
+				display: flex;
+				justify-content: space-between;
+			}
+			div>span{
+				display: block;
+				width: 40px;
+				height: 40px;
+				background-color: black;
+				margin: 8px;
+				border-radius: 50%;
+			}
+			.box1{
+				flex-direction: column;
+			}
+			 .box1 div{
+			 	display: flex;
+				justify-content: space-between;
+			 }
+			 .box2 div{
+			 	display: flex;
+			 	flex-direction: column;
+				justify-content: space-between;
+			 }
+			 .box2 div:nth-child(1) span:nth-child(2){
+			 	background-color: red;
+			 }
+			 .box2 div:nth-child(1) span:nth-child(3){
+			 	background-color: blue;
+			 }
+			 .box3{
+			 	flex-direction: column;
+			 }
+			 .box3 div{
+			 	display: flex;
+				justify-content: space-between;
+			 }
+			 .box3 div:nth-child(2){
+			 	align-self: center;
+			 }
+			 
+		 </style>
+	</head>
+	<body>
+		<div class="box1">
+			<div>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<div>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<div class="box2">
+			<div>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<div>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<div class="box3">
+			<div>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<div>
+				<span></span>
+			</div>
+			<div>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</body>
+</html>

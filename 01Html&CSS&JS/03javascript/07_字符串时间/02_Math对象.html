@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_Math对象</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+		    var p = Math.PI; 
+		    console.log(p);  //圆周率 π
+		    
+		    var s = Math.pow(4,2);
+		    console.log(s);   //返回4的2次幂
+		    
+			// 调研	
+			//1. 取绝对值
+			 var a = Math.abs(-7);
+			 console.log(a);
+			//2. 向上取整
+			var b = Math.ceil(1.2);
+			console.log(b);
+			//3. 向下取整
+			var c = Math.floor(1.8);
+			console.log(c);
+			//4. 四舍五入
+			var d = Math.round(4.5);
+			console.log(d);
+			//5. 两个数最大值
+			var max = Math.max(1,4,6,2,8,9);
+			console.log(max);
+			//6. 两个数最小值
+			var min = Math.min(1,474,7,15,7,12,4);
+			console.log(min);
+			//7. 随机数 0 ~ 1之间的随机数
+			var i = Math.random();
+			console.log(i);
+			//[min,max] min 到 max 之间的随机数
+			var x = Math.floor(Math.random() * (max - min +1) + min);
+		</script>
+	</body>
+</html>

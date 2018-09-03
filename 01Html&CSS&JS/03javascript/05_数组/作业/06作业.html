@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>06作业.</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//6.随机1到33的7个数，要求数字不能重复 
+			/*   注意: 随机次数不固定 
+              随机的数 和 数组中所有数进行比较 都不相等，放进数组中
+           * */
+			var arr = [];
+			while(arr.length != 7){
+				var num = Math.floor(Math.random() * (33 - 1 + 1) + 1);
+				var flag = true;
+				for(var i = 0; i < arr.length; i++){
+					if(num == arr[i]){
+						flag = false;
+						break;
+					}
+				}
+				if(flag){
+					arr.push(num);
+				}
+			}
+			console.log(arr);
+		</script>
+	</body>
+
+</html>

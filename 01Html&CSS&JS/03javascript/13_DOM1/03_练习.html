@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_练习</title>
+		<script src="../11_动画2/tools.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="button" name="add" id="add" value="添加" />
+		<input type="button" name="del" id="del" value="删除" />
+		<div id="box"></div>
+		<script type="text/javascript">
+			var oAdd = document.getElementById("add");
+			var oDel = document.getElementById("del");
+			var oBox = document.getElementById("box");
+			
+			oAdd.onclick =function(){
+				var div = document.createElement("div");
+				div.style.width = "100px";
+				div.style.height = "100px";
+				div.style.backgroundColor = getRandomColor();
+				oBox.appendChild(div);
+				div.onclick = function(){
+					div.remove();
+					oDel.removeAttribute("disabled");
+				}
+			}
+			oDel.onclick = function(){				
+				//oBox.removeChild(oBox.children[oBox.children.length-1]);	
+				oBox.removeChild(oBox.lastChild);
+				if(oAll.children.length == 0){
+					//oDel.disabled = "disabled";
+					oDel.setAttribute("disabled","disabled");
+				}
+			}
+		</script>
+	</body>
+</html>

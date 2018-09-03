@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #all {
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        #top {
+            width: 100%;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        #top #nav {
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        #top #nav #nav_left {
+            float: left;
+            font-size: 25px;
+            color: #FFA500;
+        }
+
+        #top #nav #nav_right {
+            float: right;
+            font-size: 25px;
+            color: #FFA500;
+        }
+
+        #middle {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        #top #middle #textarea {
+            width: 600px;
+            margin: 0 auto;
+            resize: none;
+        }
+
+        #top .top_bottom {
+            overflow: hidden;
+        }
+
+        #top .top_bottom .t_bottom_left {
+            padding-top: 10px;
+            float: left;
+            overflow: hidden;
+        }
+
+        .t_bottom_left button {
+            float: left;
+            margin-right: 20px;
+            font-size: 20px;
+            outline: none;
+        }
+
+        #t_bottom_right {
+            float: right;
+            background-color: #FFA280;
+            width: 90px;
+            height: 30px;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+        }
+
+        #bottom {
+            width: 100%;
+            padding: 20px;
+            height: 1000px;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+
+        /*给js的样式*/
+
+        #bottom .small {
+            width: 600px;
+            margin: 0 auto;
+            padding: 10px;
+            border: 1px solid black;
+            height: 100px;
+            border-radius: 10px;
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .small .name {
+            margin-bottom: 5px;
+        }
+
+        .small .text {
+            width: 100%;
+            height: 60px;
+            word-wrap: break-word;
+        }
+
+        .small .delete {
+            width: 50px;
+            height: 20px;
+            position: absolute;
+            top: 10px;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="all">
+
+    <div id="top">
+        <div id="nav">
+            <div id="nav_left">LOGO</div>
+            <!--还可以输入137个字-->
+            <div id="nav_right">点击领取红包</div>
+        </div>
+        <div id="middle">
+            <textarea name="" rows="12" cols="100" id="textarea"></textarea>
+        </div>
+        <div class="top_bottom">
+            <div class="t_bottom_left">
+                <button>表情</button>
+                <button id="img">图片</button>
+                <button id="mp4">视频
+                    <input id="img_file" type="file" style="display: none;"/>
+                </button>
+                <button>话题</button>
+                <button>文章</button>
+            </div>
+            <div id="t_bottom_right">发 布</div>
+        </div>
+    </div>
+
+    <div id="bottom">
+
+        <!--<div class="small">
+            <div class="name">何文静</div>
+            <div class="text">1111</div>
+            <div class="time">10月26日 21: 07 发布</div>
+            <div class="delete">删除</div>
+        </div>-->
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    //文本输入框
+    var oTextArea = document.getElementById("textarea");
+    //发布按钮
+    var oBtn = document.getElementById("t_bottom_right");
+    //下面框
+    var oBottom = document.getElementById("bottom");
+
+    //打开页面显示 =>02查询接口
+    select();
+    function select() {
+        var url = "02查询接口.php?username=小可爱&time=a&content=a";
+        //获取返回结果
+        ajax_get(url, function (result) {
+            //JSON.parse()  js的方法将字符串转换成json
+            var newResult = JSON.parse(result);
+//            console.log(newResult);
+            for (i = 0; i < newResult.length; i++) {
+                create_div(newResult[i]["id"],newResult[i]["time"],newResult[i]["content"]);
+            }
+        });
+    }
+
+
+    //点击添加 =>03提交接口
+
+    oBtn.onclick = function () {
+        if (oTextArea.value.length == 0) {
+            alert("请输入内容，才能发布");
+        } else {
+            //1.发布成功
+            alert("发布成功~~");
+            var submitUrl = "03提交接口.php?username=小可爱&time=" + getDate() + "&content=" + oTextArea.value;
+            ajax_get(submitUrl, function (submitResult) {
+                if (submitResult) {
+//                    console.log(submitResult);
+                    var newId = 0;
+                    var subResult = JSON.parse(submitResult);
+//                    console.log(subResult);
+                    for (var i = 0; i < subResult.length; i++){
+                        newId = subResult[subResult.length-1]["id"];
+                    }
+                    console.log(newId);
+                    create_div(newId,getDate(),oTextArea.value);
+                }
+                //3.文本框清空
+                oTextArea.value = "";
+            })
+        }
+    }
+
+    //删除数据 =>04删除接口
+    oBottom.onclick = function (ev) {
+        var ev = ev || window.event;
+        var target = ev.target || ev.srcElement;
+        console.log(target);
+        if (target.className == "delete") {
+            target.parentNode.remove();
+            var delId = target.parentNode.index;
+        }
+        var deleteUrl = "04删除接口.php?id="+ delId +"username=小可爱&time=a&content=a";
+        ajax_get(deleteUrl,function (result) {
+            var delResult = JSON.parse(result);
+            console.log(delResult);
+        })
+    }
+
+    function getDate() {
+        var nowDate = new Date();
+        var month = nowDate.getMonth() + 1;
+        var day = nowDate.getDate();
+        var hour = nowDate.getHours();
+        var min = nowDate.getMinutes();
+        return addZero(month) + "月" + addZero(day) + "日  " + addZero(hour) + "时" + addZero(min) + "分 发布";
+    }
+
+    function addZero(num) {
+        return num >= 10 ? num : "0" + num;
+    }
+
+    function createEle(tagName, className) {
+        var ele = document.createElement(tagName);
+        ele.className = className;
+        return ele;
+    }
+    function create_div(theId,theTime,theText) {
+        var smallDiv = createEle("div", "small");
+        smallDiv.index = theId;
+        //删除
+        var deleteDiv = createEle("div", "delete");
+        deleteDiv.innerHTML = "X";
+        smallDiv.appendChild(deleteDiv);
+        //发布人姓名
+        var nameDiv = createEle("div", "name");
+        nameDiv.innerHTML = "小可爱";
+        smallDiv.appendChild(nameDiv);
+        //发布的时间
+        var timeDiv = createEle("div", "time");
+        timeDiv.innerHTML = theTime;
+        smallDiv.appendChild(timeDiv);
+        //输入的内容
+        var textDiv = createEle("div", "text");
+        textDiv.innerHTML = theText;
+        smallDiv.appendChild(textDiv);
+
+        oBottom.insertBefore(smallDiv, oBottom.children[0]);
+    }
+
+    function ajax_get(url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", url, true);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                callback(xhr.responseText);
+            }
+        }
+    }
+
+</script>
+
+</html>

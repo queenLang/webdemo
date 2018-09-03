@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>02_jq对象</title>
+	</head>
+
+	<body>
+		<div id="div1"></div>
+		<script src="jquery-1.11.2.min(1).js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		
+		    /*
+		     通过jQuery选择器获取到的都是Jquery对象,不是原生js
+		     jQuery对象,不能使用原生的`dom 对象的任何方法和属性
+		     原生dom对象也无法使用jq的方法和属性
+		     */
+		    
+		    
+		    
+			//原生dom对象
+			var oDiv1 = document.getElementById("div1");
+			console.log(oDiv1);
+			//jq对象
+			var $theDiv1 = $("#div1");
+			console.log($theDiv1);
+
+			//原生转jq
+			console.log($(oDiv1));
+			//jq转原生
+			console.log($theDiv1[0]);
+		</script>
+
+	</body>
+
+</html>

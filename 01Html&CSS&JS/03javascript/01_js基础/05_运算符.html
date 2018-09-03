@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_运算符</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//[1] 加减乘除  + - * /
+			var a =  10;
+			var b = 3;
+			var c = a / b;
+			console.log("c: " + c);   //c: 3.3333333333333335
+			
+			/*浮点数 的最高精度是17位
+			 * 浮点数计算会产生误差问题
+			 */
+			var num1 = 0.1;
+			var num2 = 0.2;
+			console.log("浮点数和: " + (num1 + num2));   //浮点数和: 0.30000000000000004
+			//隐式转换
+			//-  * / % 等运算符号会把操作的内容转成数字
+			//但 + 很特殊 , 某些时候是算术符号  ,某些时候是字符串链接符
+			var n1 = "2" - 1;
+			console.log("n1的类型: " + typeof n1 + ", 值 " + n1);  //n1的类型: number, 值 1
+			var n2 = "2" + 1;
+			console.log("n2的类型: " + typeof n2 + ", 值 " + n2);  //n2的类型: string, 值 21
+			
+			var n3 = 1 + 2 + "3";
+			console.log("n3的类型: " + typeof n3 + ", 值 " + n3);   //n3的类型: string, 值 33
+			
+			//[2] 取余
+			var d = a % b;
+			console.log("取余: " + d);   //取余: 1
+			
+			//得到偶数  num % 2 == 0
+			
+			//[3] 复合运算符  += -= *= /= %=
+			var aa = 4;
+			aa += 1;    //aa = aa + 1;
+			console.log("aa的值: " + aa);    //aa的值: 5
+			
+			var m = 2;
+			m *= 10;
+			console.log("m=" + m); 
+			
+			//[4]  自加 自减  ++   --
+			// x++ 先返回值  再自加1
+			///  ++x  先自加后返回
+			var x = 5;
+			var y = x++;
+			console.log("x= " + x);  //6
+			console.log("y= " + y);   //5
+			
+			var xx = 5;
+			var yy = ++xx;
+			console.log("xx= " + xx);  //6
+			console.log("yy= " + yy);   //6
+			
+			var z = 0;
+			//自增  ,仅自增
+//			z++;
+			++z;
+			console.log("z= " + z);  //1
+			
+			//练习题
+			var zz = 2;
+			var xyz = zz+++1;
+			console.log("xyz: " + xyz);   //3
+			console.log("zz: " + zz);     //3
+			
+			var z2 = 2;
+			var xyz2 = ++z2 +1 +z2++;
+			console.log("xyz2: " + xyz2 + " z2: " + z2);  //7  4
+			
+			var z3 = 2;
+			var xyz3 = ++z3+"1"+z3++;
+			console.log("xyz3: " + xyz3 + " z3: " + z3);   //xyz3: 313 z3: 4
+			
+			var lx1 = false + 1;
+			console.log("lx1: " + lx1);  //1
+			//true 1;  false 0;
+			//隐式转换, false-->0;
+			
+		</script>
+	</body>
+</html>

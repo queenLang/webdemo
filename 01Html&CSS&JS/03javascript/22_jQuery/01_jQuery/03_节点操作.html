@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_节点操作</title>
+	</head>
+	<body>
+		<ul id="girls">
+			<li id="girl1">热巴</li>
+			<li class="girl2">舒淇</li>
+			<div>~~~~~~~~~~~~~~~~~~~</div>
+			<li id="girl3">王湃</li>
+			<li class="girl2">刘涛</li>
+			<li>宋茜</li>
+		</ul>
+		<img src="https://www.baidu.com/img/bd_logo1.png"/>
+		<script src="jquery-1.11.2.min(1).js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//节点分类?
+			
+			//1. 操作文本节点
+			$("#girl1").html("林志玲");
+			//获取文本
+			console.log($("#girl1").html());
+			
+			
+			//2.操作属性(系统自带, 自定义属性)
+			var imgUrl = "https://m.360buyimg.com/babel/jfs/t21808/32/2475173951/82325/3d89f7b6/5b5a7427N0911d253.jpg";
+			$("img").attr("src",imgUrl);
+			
+			
+			//设置自定义属性
+			$("img").attr("index",1);
+			console.log($("img").attr("index"));
+			
+			
+			//删除属性
+			$("img").removeAttr("index");
+			
+			
+			//3.插入节点
+			//创建元素
+			var $thediv = $("<div>王子文</div>");
+			
+			//向一个元素内容的尾部追加内容
+			$(".girl2").append($thediv);
+			$("#girl1").append("<div>江一燕</div>");
+			
+			var $thediv1 = $("<div>孙俪</div>");
+			$thediv1.appendTo($("#girl1"));
+			
+			
+			//向一个元素内容的头部添加元素
+			$("#girls").prepend("<li>高圆圆</li>");
+			$("<li>范冰冰</li>").prependTo($("#girls"));
+			
+			
+			//插入
+			$("<li>阚清子</li>").insertBefore($("#girl3"));
+			$("<li>江疏影</li>").insertAfter($("#girl3"));
+			
+			
+			//4. 移出节点
+			//$("#girl1").remove();
+			//$("#girls").remove();
+			
+			
+			//清除节点的内容
+			//$("#girl1").empty();
+			//$("#girls").empty();
+			
+			
+			//5. 替换节点
+			//$(".girl2").replaceWith("<li>蒋欣</li>");
+			
+			
+			//6. 包裹节点
+			//$("#girl1").wrap("<div></div>");
+			//$("li").wrapAll("<div></div>");
+			
+			$("li").wrapInner("<div></div>");
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body onload="main()">
+		<canvas id="canvas" width="600" height="600"></canvas>
+		<script type="text/javascript">
+			var angle = 0;
+			function main(){
+				window.setInterval(function(){
+					var canvas = document.getElementById("canvas");
+					var ctx = canvas.getContext("2d");
+					ctx.save();
+					ctx.translate(300,300);
+					ctx.rotate(angle);
+					ctx.beginPath();
+					ctx.arc(0,0,290,0,Math.PI*2,true);
+					ctx.stroke();
+					ctx.beginPath();
+					ctx.arc(0,0,290,0,Math.PI*2,true);
+					ctx.fill();
+					
+					ctx.fillStyle ="white";
+					ctx.beginPath();
+					ctx.arc(0,0,290,0,Math.PI,true);
+					ctx.fill();
+					
+					ctx.fillStyle = "white";
+					ctx.beginPath();
+					ctx.arc(145,-0.6,145,0,Math.PI*2,false);
+					ctx.fill();
+					
+					ctx.fillStyle = "black";
+					ctx.lineWidth = 0;
+					ctx.beginPath();
+					ctx.arc(-145,0,145,0,Math.PI*2,true);
+					ctx.fill();
+					
+					ctx.fillStyle = "white";
+					ctx.beginPath();
+					ctx.arc(-145,0,40,0,Math.PI*2,false);
+					ctx.fill();
+					
+					ctx.beginPath();
+					ctx.fillStyle = "black";
+					ctx.arc(145,0,40,0,2*Math.PI,false);
+					ctx.fill();
+					ctx.stroke();
+					
+					ctx.restore();
+					angle+=0.04;
+					
+				
+				},30)
+			}
+		</script>
+	</body>
+</html>

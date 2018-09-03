@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>01_时间作业.</title>
+		<style type="text/css">
+			body {
+				background-color: black;
+			}
+			
+			.box {
+				color: white;
+				font-size: 60px;
+				width: 600px;
+				margin: 200px auto;
+			}
+			
+			.box img {
+				width: 50px;
+				height: 80px;
+				margin: 10px;
+				vertical-align: text-top;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box" id="box">
+			<img src="images/0.png" />
+			<img src="images/0.png" /> :
+			<img src="images/0.png" />
+			<img src="images/0.png" /> :
+			<img src="images/0.png" />
+			<img src="images/0.png" />
+		</div>
+		<script type="text/javascript">
+			var box = document.getElementById("box");
+			var imgs = box.getElementsByTagName("img");
+			 
+			var timer = setInterval(function() {
+				var nowDate = new Date();
+				var h = nowDate.getHours();
+				var m = nowDate.getMinutes();
+				var s = nowDate.getSeconds();
+				console.log("时间为: " + ":" + h + ":" + m + ":" + s);
+				var a = parseInt(h / 10);
+				var b = parseInt(h % 10);
+				var c = parseInt(m / 10);
+				var d = parseInt(m % 10);
+				var e = parseInt(s / 10);
+				var f = parseInt(s % 10);
+				var arr = [a,b,c,d,e,f];
+				for (var i = 0; i < imgs.length; i++) {
+					imgs[i].src = "images/" + arr[i] + ".png";
+				}
+			}, 1000)
+		</script>
+	</body>
+
+</html>

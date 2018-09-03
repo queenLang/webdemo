@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>08_缓冲运动封装最终版2</title>
+		<script src="../11_动画2/tools.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#all {
+				width: 200px;
+				height: 200px;
+				background-color: fuchsia;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			oAll.onmouseover = function() {
+				var attrJson = {
+					"width": 800,
+					"height": 800,
+					"opacity": 30,
+				};
+				easeMove(this, attrJson, 10, 30);
+			}
+			oAll.onmouseout = function() {
+				var aJson = {
+					"width": 200,
+					"height": 200,
+					"opacity": 100
+				};
+				easeMove(this, aJson, 10, 30);
+			}
+
+			function easeMove(obj, attrJson, speedScale, time) {
+
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					var isStop = true; //记录是否清除当前属性的定时器 true 清除
+					for(var attr in attrJson) {
+						console.log("attr: " + attr + " isStop" + isStop);
+						var targetPos = attrJson[attr];
+
+						var attrValue = getStyle(obj, attr);
+						attrValue = attr == "opacity" ? attrValue * 100 : parseInt(attrValue);
+
+						var speed = (targetPos - attrValue) / speedScale;
+						speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+						//console.log("speed: " + speed + "attrValue: " + attrValue + "targetPos: " + targetPos);
+
+						if(attrValue != targetPos) {
+							//如果当前属性的值与目标值不相同,定时器不能清除
+							isStop = false;
+							obj.style[attr] = attr == "opacity" ? (attrValue + speed) / 100 : attrValue + speed + "px";
+						}
+					}
+					console.log("--------------");
+					//如果是 true ,说明完成运动,所以可以清除
+					if(isStop) {
+						clearInterval(obj.timer);
+					}
+					console.log(getStyle(obj, attr));
+				}, time)
+			}
+		</script>
+	</body>
+
+</html>

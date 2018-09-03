@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#all{
+				width: 200px;
+				height: 200px;
+				background-color: seagreen;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all">
+			
+		</div>
+		<script type="text/javascript">
+			
+			//	链式动画：顾名思义，就是在该次运动停止时，开始下一次运动。
+			//  使用回调函数：运动停止时,执行函数
+			//  添加 func 形参（回调函数）
+			
+			var oDiv1 = document.getElementById("all"); 
+			
+		
+			
+			oDiv1.onmouseover = function () {
+				// 不这样写, 再下一层的 this 就是 windows 了.	
+				var _this = this;
+				easeMove(_this,{"width":300},10,function () {
+					easeMove(_this,{"height":500},10,function(){
+						easeMove(_this,{"opacity":50},3,function () {
+							easeMove(_this,{"left":100},5,function(){
+								easeMove(_this,{"top":100},5)
+							})
+						})
+					})
+				});
+			}
+			oDiv1.onmouseout =function(){
+				var _this = this;
+				easeMove(_this,{"width":200},10,function () {
+					easeMove(_this,{"height":200},10,function(){
+						easeMove(_this,{"opacity":100},3,function () {
+							easeMove(_this,{"left":0},5,function(){
+								easeMove(_this,{"top":0},5)
+							})
+						})
+					})
+				});
+			}
+
+			function easeMove(obj, attrJson, speed,fn) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					var isStop = true; //记录是否清除定时器 true 清除 
+					for (var attr in attrJson) {
+						var iTarget = attrJson[attr];
+						var attrValue = getStyle(obj, attr);
+						attrValue = attr == "opacity" ? attrValue * 100 : parseInt(attrValue);
+						var speedEnd = (iTarget - attrValue) / speed;
+						speedEnd = speedEnd > 0 ? Math.ceil(speedEnd) : Math.floor(speedEnd);
+						if (attrValue != iTarget) {
+							//如果当前属性的值与目标值不相同，定时器不能清除
+							isStop = false;
+							obj.style[attr] = attr == "opacity" ? (attrValue + speedEnd) / 100 : attrValue + speedEnd + "px"
+						}
+					}
+					
+					if (isStop) {
+						clearInterval(obj.timer);
+						if (fn) {
+							fn();
+						}
+					}
+				}, 30);
+			}
+
+			function getStyle(obj, attr) {
+				if (obj.currentStyle) {
+					return obj.currentStyle[attr];
+				} else {
+					return getComputedStyle(obj)[attr];
+				}
+			}
+			
+			
+			
+		</script>
+	</body>
+
+</html>

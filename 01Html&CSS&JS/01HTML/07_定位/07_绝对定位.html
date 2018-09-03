@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>07_绝对定位</title>
+		<style type="text/css">
+			.all{
+				width: 500px;
+				border: 5px solid violet;
+				margin: 0 auto;
+				position: relative;
+			}
+			.all img{
+				width: 500px;
+				height: 500px;
+				
+			}
+			.all div{
+				width: 100px;
+				height: 100px;
+				background-color: green;
+				color: white;
+				text-align: center;
+				line-height: 100px;
+				/*绝对定位*/
+				position: absolute;
+				left: 0px;
+				bottom: -20px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<img src="img/feng.jpg"/>
+			<div>1111</div>
+			<!--绝对定位
+				1.不占文档流
+				2.当前元素变为定位元素,不再是行或块标签
+				3.默认内容撑开宽高
+				4.也可以设置宽高
+				5.基于祖宗辈最近的定位元素[absolute;relative]进行定位
+				如果所有父级标签都没有定位元素,相对于浏览器窗口进行定位
+				6.一般用于堆叠效果
+			-->
+		</div>
+	</body>
+</html>

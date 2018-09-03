@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_随机颜色</title>
+		<style type="text/css">
+			.box div{
+				width: 100px;
+				height: 100px;
+				margin: 10px;
+				float: left;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<!--每个小div背景颜色不同,每点击一次也更改一次
+			随机颜色封装到函数里
+		-->
+		<script type="text/javascript">
+			var box = document.getElementById("box");
+			var divs = box.getElementsByTagName("div");
+			for (var i = 0; i < divs.length; i++) {
+				divs[i].style.backgroundColor = getRandomRGBA();
+				divs[i].onclick = function(){
+					this.style.backgroundColor =  getRandomRGBA();
+				}
+				function getRandomRGBA(){
+					var r = Math.floor(Math.random()* 256);
+					var g = Math.floor(Math.random()* 256);
+					var b = Math.floor(Math.random()* 256);
+					var a = Math.random();
+					return "rgba(" +r+ ","+g+ ","+b+","+a+")"; 
+				}
+			}
+		</script>
+	</body>
+</html>

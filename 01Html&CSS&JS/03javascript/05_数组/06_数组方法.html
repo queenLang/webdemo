@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_数组方法</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [1,2,3,4,5,6];
+			//1. push 向数组的末尾添加一个或多个数据
+			arr.push(7);
+			var a = arr.push(8,9,10);
+			console.log(arr);
+			//返回值返回的是添加元素后新数组的个数
+			console.log("a: " + a);  //10
+			
+			//2 .unshift 向数组的开头添加一个或多个数据
+			arr.unshift(0);
+			var b =  arr.unshift(-1,-2);
+			console.log(arr);
+			console.log("b " + b); //13
+			
+			//3 . pop 删除并返回数组中的最后一个元素
+			var c = arr.pop();
+			console.log(arr);
+			console.log("c " + c);  //10
+			
+			//对空数组进行 pop 时,不会产生影响
+			//但返回值是 undefined
+			var arr1 = [];
+			var d = arr1.pop();
+			console.log(arr1);
+			console.log("d " + d); 
+			
+			// 栈区: 先进后出
+			// 堆区: 先进先出
+			
+			//4. shift 删除并返回数组的第一个元素
+			var e = arr.shift();
+			console.log(arr);
+			console.log("e " + e);
+			
+			//对空数组进行 pop 时,不会产生影响
+			//但返回值是 undefined
+			
+			//5. splice 
+			//第一个参数: 必写 开始删除的下标
+			//第二个参数: 必写  删除的个数
+			//第三个参数: 选填  删除位置添加一个或多个内容
+			
+			console.log(arr);
+			//[-2, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+			//从下标为2的元素开始删除 删除3个  包含下标为2的元素
+			var x = arr.splice(2,3);
+			console.log(arr);   //[-2, 0, 4, 5, 6, 7, 8, 9]
+			//返回值是数组  返回的是删除的元素
+			console.log(x);  //[1, 2, 3]
+			
+			arr.splice(1,2,666,555,444);
+			console.log(arr);
+			
+			//6 . concat  拼接
+			var arrA = [1,2,3];
+			var arrB = [4,5,6];
+			var arrC = [7,8,9];
+			//拼接多个数组  并返回新数组
+			var arrD = arrA.concat(arrB);
+			console.log(arrD); //[1, 2, 3, 4, 5, 6]
+			console.log(arrA);  // [1, 2, 3]
+			
+			var arrD = arrA.concat(arrB,arrC);
+			console.log(arrD);  //[1, 2, 3, 4, 5, 6, 7, 8, 9]
+			
+			//7. join 数组变成字符串 
+			var arrE = ["李易峰", "黄景瑜", "井柏然","邓伦"];
+			//var str = arrE.join("阮经天");
+			var str = arrE.join(" ");
+			str = arrE.join();  //默认用逗号拼接
+			console.log(str);
+			
+			//reverse() 方法用于颠倒数组中元素的顺序。
+		</script>
+	</body>
+</html>

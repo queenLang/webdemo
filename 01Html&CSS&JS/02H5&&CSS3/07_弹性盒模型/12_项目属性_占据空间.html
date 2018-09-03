@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>12_项目属性_占据空间</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.box {
+				margin: 30px auto;
+				border: 5px solid black;
+				display: flex;
+				
+			}
+			
+			.box div {
+				width: 200px;
+				height: 200px;
+				line-height: 200px;
+				text-align: center;
+				font-size: 50px;
+				color: white;
+				margin: 5px;
+				background-color: red;
+			}
+			/*flex-basis属性定义了在分配多余空间之前,
+			 * 项目占据的主轴空间(main size)。
+			 * 浏览 器根据这个属性,计算主轴是否有多余空间。
+			 * 它的默认值为auto,即项目的本来大 小。*/
+			.box .div2{
+				flex-basis: 400px;
+			}
+			.box .div4{
+				flex-basis: auto;  /*默认值*/
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="div1">1</div>
+			<div class="div2">2</div>
+			<div class="div3">3</div>
+			<div class="div4">4</div>
+		</div>
+	</body>
+</html>

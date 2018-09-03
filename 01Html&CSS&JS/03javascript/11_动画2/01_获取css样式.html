@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_获取css样式</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: rosybrown;
+				position: absolute;
+				top:  0;
+			    left: 100px;
+			    border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			//offsetLeft : Margin + left
+			var oAll = document.getElementById("all");
+			//获取当前元素所有最终的css属性值
+			var border = getComputedStyle(oAll)["border"];
+			console.log(border);
+			console.log(getComputedStyle(oAll));
+			console.log(getComputedStyle(oAll)[0]);
+			console.log(getComputedStyle(oAll)["left"]);
+		</script>
+	</body>
+</html>

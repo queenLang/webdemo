@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_基本数据类型</title>
+	</head>
+	<body>
+		<!--数据类型
+			js弱类型的语言
+			变量的数据类型根据赋值的类型进行判断
+			5种基本数据类型  和  一种复杂类型(object对象)
+			
+		-->
+		<script type="text/javascript">
+			//[1] 数字类型 number
+			//整数
+			var num1 = 10;
+			console.log("num1: " + typeof num1);  //number
+			
+			//浮点数
+			var num2 = 11.11;
+			console.log("num2: " + typeof(num2));   //number
+			 
+			 //非数字类型 NaN
+			   // 特点: 1涉及到任何NaN的操作都会返回NaN
+			         // 2.NaN不等于自身
+			         //3.isNaN() 用于检测其参数是否是非数字
+			         
+			   //123是数字  所以不属于非数字      
+			  console.log("123是不是非数字:" + isNaN(123));       //false
+			  
+			  //[2] 字符串  String  单引号双引号都可以
+			  var str = "字符串";
+			  console.log("str的类型: " + typeof(str));  //String
+			  
+			  var num3 = "11.11";
+			  console.log("num3的类型: " + typeof(num3));  //String
+			  
+			   var str2 = num3;
+			  console.log("str2的类型: " + typeof str2 + ",值: " + str2);   //String,11.11
+			  
+			    var str2 = "num3";
+			  console.log("str2的类型: " + typeof str2 + ",值: " + str2);   //String,num3
+			  
+			  var num4 = 11.11;
+			  var str4 = num4;
+			  console.log("str4类型: " + typeof(str4) + ", 值: " + str4);  //str4类型: number, 值: 11.11
+			  
+			  var num5 = 11.11;
+			  var str5 = num5;
+			  str5 = "22.22";
+			  console.log("str5的类型: " + typeof(str5) + ", 值 " + str5);  //str5的类型: string, 值 22.22
+			  console.log("num5的类型: " + typeof num5 + ", 值 " + num5);    //num5的类型: number, 值 11.11
+			  
+			  //字符串长度 length
+			   console.log("字符长度: "  + str5.length);  //字符长度: 5
+			   
+			  //字符串拼接
+			  var s1 = "李";
+			  var s2 = "易峰";
+			  var s3 = s1 + s2 ;
+			  var s4 = "黄" + "鲸鱼";
+			  console.log("拼接: " + s3 + " ❤ " + s4);   //拼接: 李易峰 ❤ 黄鲸鱼
+			  
+			  //转义字符
+			  var string1 = 'You\'re so 恶心';
+			  document.write(string1 + "<br>");
+			  document.write("<h1>" + string1 + "</h1>" + "<br>");
+			  document.write("Your name is \"WHAT\" ?");
+			  
+			  //[3] 布尔类型  boolean
+			  // true false 一般用于if语句的判断条件或者条件表达式的返回值
+			  var bol = true;
+			  console.log("bol的类型: " + typeof(bol) + ", 值: " + bol);  //bol的类型: boolean, 值: true
+			  var tf = 3 > 5;
+			  console.log("tf:" + tf);  //flase
+			  
+			  //[4] 未定义 Undefined
+			  //使用 var 声明了变量,但是未赋初始值
+			  var un; //只声明
+			  console.log("un: "  + typeof un);  //un: undefined
+			  un = 1.1;
+			  console.log("un1: "  + typeof un); //un1: number
+//			  console.log(height);  // Uncaught ReferenceError: height is not defined
+			  
+			  //[5] 空值 null
+			  //可以通过赋值null 来清除变量
+			  var n = null;
+			  console.log("n的类型: " + typeof n + ", 值: " + n); //n的类型: object, 值: null
+			  //object null ; null会被当做一个空对象的引用
+			  
+			  
+			  
+		</script>
+	</body>
+</html>

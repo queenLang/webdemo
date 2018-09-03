@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_transform_倾斜</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				margin-bottom: 50px;
+				background-color: lightcoral;
+				-webkit-transition: all 2s;
+				-moz-transition: all 2s;
+				-ms-transition: all 2s;
+				-o-transition: all 2s;
+				transition: all 2s;
+			}
+			/*skew  扭曲  倾斜*/
+			.div1:hover{
+			    /*trfskx*/
+			   -webkit-transform: skewX(30deg);
+			   -moz-transform: skewX(30deg);
+			   -ms-transform: skewX(30deg);
+			   -o-transform: skewX(30deg);
+			   transform: skewX(30deg);
+			}
+			.div2:hover{
+				/*trfsky*/
+				-webkit-transform: skewY(45deg);
+				-moz-transform: skewY(45deg);
+				-ms-transform: skewY(45deg);
+				-o-transform: skewY(45deg);
+				transform: skewY(45deg);
+			}
+			.div3:hover{
+				-webkit-transform: skew(45deg,60deg);
+				-moz-transform: skew(45deg,60deg);
+				-ms-transform: skew(45deg,60deg);
+				-o-transform: skew(45deg,60deg);
+				transform: skew(45deg,60deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+	</body>
+</html>

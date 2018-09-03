@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_audio</title>
+	</head>
+	<body>
+		<!--  audio  音频标签 source[资源]
+			audio支持的格式:ogg mp3  wav
+			标签中的文本内容在浏览器不支持audio标签时显示
+		-->
+		<audio src="source/咋啦爸爸.mp3" controls autplay loop muted>
+			您的浏览器不支持audio标签
+		</audio>
+		<!--controls  显示音频控件(播放,暂停,音量等	)
+			autoplay  自动播放
+			loop      循环播放
+			preload	  如果出现该属性，则音频在页面加载时进行加载，并预备播放。
+                      如果使用 "autoplay"，则忽略该属性。
+            muted     音频输出为静音播放        
+            src       音频绝对或相对地址        
+		-->
+	</body>
+</html>

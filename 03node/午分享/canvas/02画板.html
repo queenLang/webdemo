@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+<script>
+    let oCanvas = document.getElementById("canvas");
+    let ctx = oCanvas.getContext("2d");
+
+    oCanvas.onmousedown = function (ev) {
+        var ev = ev || window.event;
+        ctx.moveTo(ev.offsetX,ev.offsetY);
+        oCanvas.onmousemove = function (ev) {
+            ctx.lineTo(ev.offsetX,ev.offsetY);
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "red";
+            ctx.stroke();
+        }
+        oCanvas.onmouseup = function () {
+            oCanvas.onmousemove = null;
+        }
+    }
+
+</script>
+</body>
+</html>

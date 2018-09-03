@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas</title>
+		<style type="text/css">
+			#canvas{
+				border: 1px solid black;
+				/**/
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500px" height="500px">
+			<!---->
+		</canvas>
+		<script>
+		   //获取canvas标签
+			var oCanvas = document.getElementById("canvas");
+			//2d画板
+			var ctx = oCanvas.getContext("2d");
+			//开始路径
+			ctx.beginPath();
+			//开始起始点
+			ctx.moveTo(100,100);
+			//设置终点
+			ctx.lineTo(300,300);
+			//设置线宽
+			ctx.lineWidth =20;
+			//设置颜色
+			ctx.strokeStyle = "red";
+			//绘制线
+			ctx.stroke();
+		</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>h5拖放</title>
+		<style type="text/css">
+			#div1{
+				height: 200px;
+				width: 200px;
+				background-color: green;
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+				border: 5px solid rosybrown;
+			}
+		</style>
+	</head>
+	<body>
+		<!--1. ondrop 当元素放置的时候触发
+			2. ondragover 在何处放置被拖到元素
+		-->
+		
+		<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		
+		<!--1. draggable="true" 允许拖动 
+			2. ondragstart 元素开始拖动的时候触发
+		-->
+		<div id="div2" draggable="true" ondragstart="drag(event)"></div>
+		<script type="text/javascript">
+			//允许放置元素
+			function allowDrop(ev){
+				//阻止对事件的默认处理方式
+				ev.preventDefault();
+			}
+			function drag(ev){
+				//记录被拖动元素的数据
+				//数据类型 , 数据
+				//ev.target 返回触发此事件的元素
+			  	ev.dataTransfer.setData("Text",ev.target.id);
+			}
+			//放置元素方法
+			function drop(ev){
+				ev.preventDefault();
+				//得到被拖到元素数据
+				var data = ev.dataTransfer.getData("Text");
+				//将被拖到元素添加到需要放置的元素中去
+				ev.target.appendChild(document.getElementById(data));
+			}
+		</script>
+	</body>
+</html>

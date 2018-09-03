@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>12_练习2</title>
+	<style type="text/css">
+			table {
+				border: 3px solid black;
+				border-radius: 20px;
+				overflow: hidden;
+				width: 700px;
+				height: 300px;
+				font-size: 18px;
+				margin: 0 auto;
+			}
+			
+			td{
+				border: 1px solid gray;
+				
+			}
+			tr{
+				text-align: center;
+			}
+			
+			tr:first-of-type {
+				font-size: 20px;
+				font-weight: 700;
+			}
+			
+			tr:nth-of-type(odd):hover {
+				background-color: skyblue;
+			}
+			tr:nth-of-type(even):hover{
+				background-color: burlywood;
+			}
+			tr:first-child:hover{
+				background-color: yellowgreen;
+				color: white;
+			}
+			tr:nth-of-type(even):hover{
+				color: blue;
+				text-align: right;
+			}
+			tr:nth-of-type(3):hover{
+				text-align: left;
+			}
+			tr:nth-of-type(3)>td:nth-of-type(2):hover{
+				color: red;
+				text-decoration: line-through;
+			}
+			tr:nth-of-type(5):hover{
+				text-align: left;
+			}
+			tr:nth-of-type(5)>td:nth-of-type(2):hover{
+				color: red;
+				text-align: left;
+				text-decoration: line-through;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table cellspacing="0">
+			<tr>
+				<td>#</td>
+				<td>豆瓣排名前5的电影</td>
+				<td>年份</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>肖申克的救赎</td>
+				<td>1994</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>这个杀手不太冷</td>
+				<td>1994</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>霸王别姬</td>
+				<td>1997</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>阿甘正传</td>
+				<td>1994</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>美丽人生</td>
+				<td>1994</td>
+			</tr>
+		</table>
+	</body>
+
+</html>

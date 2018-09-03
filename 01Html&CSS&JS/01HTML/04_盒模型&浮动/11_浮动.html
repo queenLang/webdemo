@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>11_浮动</title>
+		<style type="text/css">
+			.in{
+				width:150px;
+				height:150px;
+				border: 1px solid black;
+			}
+			.div1{
+				background-color: darkslategrey;
+			}
+			.div2{
+				background-color: palevioletred;
+			}
+			.div3{
+				background-color: darkblue;
+			}
+			/*float  有三个值
+			 * none 不浮动  所有元素默认值
+			 * left 向左浮动
+			 * right 向右浮动
+			 */
+			.right{
+				float: right;
+			}
+			.left{
+				float: left;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<!--正常的HTML标签在网页显示时
+			从上往下  块级会占一行
+			行标签  从左往右  这叫做正常的文档流
+			
+			什么是浮动:让标签从当前的正常文档流中浮起来 脱离了原来的文档流
+			这一层叫做浮动层
+		-->
+		<div class="in div1 left"></div>
+		<div class="in div2 left"></div>
+		<div class="in div3 "></div>
+		<!--当标签设置了float之后 一般称为浮动元素
+			会将元素转换成行内块标签
+		-->
+	</body>
+</html>

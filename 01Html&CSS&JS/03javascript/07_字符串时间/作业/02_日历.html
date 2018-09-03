@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>简易年历</title>
+		<style type="text/css">
+			.date-wrap {
+				width: 300px;
+				height: auto;
+				background: #999;
+				margin-right: auto;
+				margin-left: auto;
+				padding: 10px 0;
+			}
+			
+			.date,
+			.date-active {
+				padding: 10px;
+			}
+			
+			.date:after {
+				content: "";
+				clear: both;
+				display: block;
+			}
+			
+			ul li {
+				float: left;
+			}
+			
+			li {
+				width: 50px;
+				height: 50px;
+				color: white;
+				background: #424242;
+				margin: 5px;
+				line-height: 20px;
+				text-align: center;
+				padding: 5px;
+				list-style: none;
+			}
+			
+			ul li span,
+			.date-active span {
+				font-size: 14px;
+				font-weight: bold;
+			}
+			
+			ul li p,
+			.date-active p {
+				font-size: 12px;
+			}
+			
+			.li-c {
+				color: red;
+				background: #FFF;
+				border: 1px solid black;
+			}
+			
+			.date-active {
+				background: #e3e4e5;
+				width: 170px;
+				margin-left: auto;
+				margin-right: auto;
+				border: 1px solid white;
+				height: 100px;
+			}
+		</style>
+		<link rel="stylesheet" href="style/reset.css">
+         
+	</head>
+
+	<body>
+		<div class="date-wrap">
+			<div class="date" id="i-date">
+				<ul>
+					<li class="li-c">
+						<span>14</span>
+						<p>一月</p>
+					</li>
+					<li>
+						<span>14</span>
+						<p>二月</p>
+					</li>
+					<li>
+						<span>14</span>
+						<p>三月</p>
+					</li>
+					<li>
+						<span>14</span>
+						<p>四月</p>
+					</li>
+					<li>
+						<span>14</span>
+						<p>五月</p>
+					</li>
+					<li>
+						<span>14</span>
+						<p>六月</p>
+					</li>
+					<li>
+						<span>14</span>
+						<p>七月</p>
+					</li>
+					<li>
+						<span>14</span>
+						<p>八月</p>
+					</li>
+					<li>
+						<span>14</span>
+						<p>九月</p>
+					</li>
+					<li>
+						<span>14</span>
+						<p>十月</p>
+					</li>
+					<li>
+						<span>14</span>
+						<p>十一月</p>
+					</li>
+					<li>
+						<span>14</span>
+						<p>十二月</p>
+					</li>
+				</ul>
+			</div>
+			<div class="date-active">
+				<span>1月情人节</span>
+				<p>日记情人节</p>
+			</div>
+		</div>
+		<script>
+			var c = document.getElementById('i-date');
+			var cBtn = c.getElementsByTagName('li');
+			var c2 = document.getElementsByClassName('date-active')[0];
+			var yArr = [
+				'日记情人节',
+				'西方情人节',
+				'白色情人节',
+				'黑色情人节',
+				'黄色与玫瑰情人节',
+				'亲吻情人节',
+				'银色情人节',
+				'绿色情人节',
+				'音乐与相片情人节',
+				'葡萄酒情人节',
+				'橙色与电影情人节',
+				'拥抱情人节'
+			];
+			for(var i = 0; i < cBtn.length; i++) {
+				cBtn[i].index = i;
+				cBtn[i].onclick = function() {
+					for(var i = 0; i < cBtn.length; i++) {
+						cBtn[i].className = "";
+					}
+					this.className = "li-c";
+					c2.innerHTML = '<span>' + (this.index + 1) + '月情人节</span><p>' + yArr[this.index] + '</p>'; //动态改变每个月份输出的值，月份是从0-11所以需要+1
+				}
+			}
+		</script>
+		<h3>时钟</h3>
+		<div id="iTime"></div>
+		<script>
+			window.onload = function() {
+				startTime()
+			};
+
+			function startTime() {
+				var today = new Date();
+				var year = today.getFullYear();
+				var month = today.getMonth();
+				var day = today.getDate();
+				var week = today.getDay();
+				var h = today.getHours();
+				var m = today.getMinutes();
+				var s = today.getSeconds();
+				m = checkTime(m);
+				s = checkTime(s);
+				month = checkTime(month + 1);
+
+				switch(week) {
+					case 0:
+						x = "周天";
+						break;
+					case 1:
+						x = "周一";
+						break;
+					case 2:
+						x = "周二";
+						break;
+					case 3:
+						x = "周三";
+						break;
+					case 4:
+						x = "周四";
+						break;
+					case 5:
+						x = "周五";
+						break;
+					case 6:
+						x = "周六";
+				}
+				//可以使用数组的方式来实现arr[‘周日’，‘周一’，...]
+				document.getElementById('iTime').innerHTML = year + "年" + month + "月" + day + "日" + h + ":" + m + ":" + s + x;
+			}
+			var time = setInterval(startTime, 1000);
+
+			function checkTime(i) {
+				if(i < 10) {
+					i = "0" + i;
+				}
+				return '' + i;
+			}
+		</script>
+	</body>
+
+</html>

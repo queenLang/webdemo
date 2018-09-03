@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>03_位置获取</title>
+		<style type="text/css">
+			#wrap {
+				width: 500px;
+				height: 1000px;
+				border: 1px solid black;
+				position: relative;
+			}
+			
+			#box {
+				width: 200px;
+				height: 300px;
+				background-color: red;
+				position: absolute;
+				/*margin: 20px;
+				padding: 10px;*/
+				top: 20px;
+				left: 40px;
+				/*border: 2px solid blue;*/
+			}
+			
+			#box2 {
+				width: 50px;
+				height: 50px;
+				background-color: seagreen;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div id="box2"></div>
+			<div id="box"></div>
+		</div>
+
+		<script src="jquery-1.11.2.min(1).js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//内容 + padding
+			console.log($("#box").innerHeight());
+			console.log($("#box").innerWidth());
+			//内容 + padding + border
+			console.log($("#box").outerHeight());
+			console.log($("#box").outerWidth());
+			//获取元素宽,高度
+			console.log($("#box").width());
+			console.log($("#box").height());
+			//	    	   $("#box").width(20);
+
+			$("#box2").click(function() {
+				$("#box").width(function(index, width) {
+					console.log("index: " + index);
+					console.log("width: " + width);
+					//返回要设置的宽度
+					return width + 10;
+				})
+			})
+
+			window.onscroll = function() {
+				console.log($("#box2").scrollTop());
+				$("#box2").scrollTop(300);
+			}
+			//相对于父元素的偏移
+			console.log($("#box").position().left);
+			console.log($("#box").position().top);
+			//相对于浏览器定位
+			console.log($("#box").offset().left);
+			console.log($("#box").offset().top);
+			
+			console.log($("#box").css("width"));
+			
+		</script>
+	</body>
+
+</html>

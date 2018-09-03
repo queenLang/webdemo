@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>点名</title>
+		<style type="text/css">
+			.box {
+				width: 300px;
+				height: 400px;
+				border: 2px solid black;
+				text-align: center;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				margin: 0 auto;
+			}
+			div{
+				-webkit-transition: all 1s ease-out;
+				-moz-transition: all 1s ease-out;
+				-ms-transition: all 1s ease-out;
+				-o-transition: all 1s ease-out;
+				transition: all 1s ease-out;
+			}
+			
+			.div {
+				width: 300px;
+				height: 100px;
+				font-size: 60px;
+				line-height: 120px;
+			}
+			
+			button {
+				width: 100px;
+				height: 50px;
+				background-color: black;
+				margin: 10px;
+				color: white;
+				font-size: 30px;
+				line-height: 50px;
+			}
+			
+			.div1 {
+				transform: scale(1.5, 1.5);	
+			}
+			
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div id="div" class="div"><点名册></div>
+			<button id="btn1">开始</button>
+			<button id="btn2">结束</button>
+		</div>
+		<script type="text/javascript">
+			var div = document.getElementById("div")
+			var btn1 = document.getElementById("btn1");
+			var btn2 = document.getElementById("btn2");
+			var timer = null;
+			var nameArr = ["齐颜", "刘斌", "刘新楠", "宋玉壮", "张家林",
+			               "张爱雪", "吴大渣", "姜一亲", "李晶晶", "宋红红",
+			               "郑红岩", "尹玉龙", "马硕", "张涛", "战延平", "薛馨亮", "高泽民"];
+
+			btn1.onclick = function() {
+				clearInterval(timer);
+				timer = setInterval(function() {
+					for(var i = 0; i < nameArr.length; i++) {
+						var a = Math.floor(Math.random() * 17);
+						div.innerHTML = nameArr[a];
+					}
+					var r = Math.floor(Math.random() * (255 + 1));
+					var g = Math.floor(Math.random() * (255 + 1));
+					var b = Math.floor(Math.random() * (255 + 1));
+					div.style.color = "rgb(" + r + "," + g + "," + b + ")";
+				}, 50);
+				btn2.onclick = function() {
+					clearInterval(timer);
+				}
+			}
+
+			div.onmouseover = function() {
+				div.classList.add("div1");
+			}
+			div.onmouseout = function() {
+				div.classList.remove("div1");
+
+			}
+		</script>
+	</body>
+
+</html>

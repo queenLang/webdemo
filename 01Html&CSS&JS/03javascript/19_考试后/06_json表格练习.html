@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				font-size: 20px;
+				text-align: center;
+				margin: 0 auto;
+			}
+			
+			table,
+			th,
+			td {
+				border: 1px solid black;
+				border-collapse: collapse;
+				width: 400px;
+				height: 40px;
+			}
+			
+			thead {
+				font-size: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<th>科目</th>
+					<th colspan="2">成绩</th>
+				</tr>
+			</thead>
+
+			<tbody id="tBody">
+			</tbody>
+
+			<tfoot>
+				<tr>
+					<td colspan="2">总平均</td>
+					<td id="avg" colspan="2"></td>
+				</tr>
+			</tfoot>
+		</table>
+		<script type="text/javascript">
+			var aJson = {
+				"班级1": [{
+					"刘金花": [{
+						"数学": 93
+					}, {
+						"英语": 90
+					}, {
+						"语文": 89
+					}]
+				}, {
+					"王大顶": [{
+						"数学": 67
+					}, {
+						"英语": 60
+					}, {
+						"语文": 99
+					}]
+				}, {
+					"陈佳影": [{
+						"数学": 100
+					}, {
+						"英语": 100
+					}, {
+						"语文": 100
+					}]
+				}],
+				"班级2": [{
+					"唐仁": [{
+						"数学": 79
+					}, {
+						"英语": 44
+					}, {
+						"语文": 66
+					}]
+				}, {
+					"秦风": [{
+						"数学": 100
+					}, {
+						"英语": 100
+					}, {
+						"语文": 100
+					}]
+				}, {
+					"宋义": [{
+							"数学": 79
+						},
+
+						{
+							"语文": 70
+						}
+					]
+				}],
+				"班级3": [{
+					"李白": [{
+						"生存": 40
+					}, {
+						"攻击": 60
+					}, {
+						"技能": 50
+					}, {
+						"难度": 90
+					}]
+				}, {
+					"娜可露露": [{
+						"生存": 40
+					}, {
+						"攻击": 85
+					}, {
+						"技能": 65
+					}, {
+						"难度": 55
+					}]
+				}, {
+					"兰陵王": [{
+						"生存": 20
+					}, {
+						"技能": 40
+					}, {
+						"难度": 50
+					}]
+				}]
+
+			}
+
+			var tbody = document.getElementById("tBody");
+			//遍历最外层aJson  得到班级名字
+			for(var className in aJson) {
+				console.log("班级为: " + className);
+				//创建班级 td
+				var classTd = document.createElement("td");
+				classTd.innerHTML = className;
+				classArr = aJson[className];
+				//遍历每个班级所在的数组
+				var classcount = 0;
+				for(var i in classArr) {
+					var stuJson = classArr[i];
+					//得到学生名字
+                     var count = 0;
+					for(var stuName in stuJson) {
+						console.log("学生名字: " + stuName);
+						//创建学生名字  td
+						var stuNameTd = document.createElement("td");
+						stuNameTd.innerHTML = stuName;
+						//装有科目成绩的数组
+						var subjectArr = stuJson[stuName];
+						//遍历数组  得到3个集合
+						for(var j in subjectArr) {
+							var subJson = subjectArr[j];
+							//遍历集合
+							
+							for(var subName in subJson) {
+								console.log("科目: " + subName + ":" + subJson[subName]);
+								//创建 科目 td 
+								var subjectTd = document.createElement("td");
+								subjectTd.innerHTML = subName;
+								// 创建成绩 td 
+								var scoreTd = document.createElement("td");
+								scoreTd.innerHTML = subJson[subName];
+								//创建tr
+								var trr = document.createElement("tr");
+								//添加名字
+								if(count == 0 && classcount == 0){
+									trr.appendChild(classTd);
+								}
+								
+								if(count == 0){
+									trr.appendChild(stuNameTd);
+								}
+								
+								trr.appendChild(subjectTd);
+								trr.appendChild(scoreTd);
+								tbody.appendChild(trr);
+								count++;
+								classcount++;
+							}
+							
+						}
+
+					}
+                    console.log("count: " + count);
+                    stuNameTd.rowSpan = count;
+				}
+               console.log("classcount: " + classcount); 
+               classTd.rowSpan = classcount;
+			}
+		</script>
+	</body>
+
+</html>

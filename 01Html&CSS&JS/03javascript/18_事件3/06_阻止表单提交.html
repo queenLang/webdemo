@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_阻止表单提交.</title>
+	</head>
+	<body>
+		<!--
+			表单中有名字,年龄
+			点击提交进行表单验证
+			如果名字== lanou 验证通过 正常提交
+			如果名字不符合  那么阻止表单提交得默认行为
+		-->
+		<form action="" method="get" id="theform">
+			<label for="uname">名字</label>
+			<input type="text" name="" id="uname" value=""/>
+			<label for="age">年龄</label>
+			<input type="number" name="" id="age" value=""/>
+			<input type="submit" value="提交" id="sub"/>
+		</form>
+		<script type="text/javascript">
+			var uname = document.getElementById("uname");
+			var age = document.getElementById("age");
+			var sub = document.getElementById("sub");
+			document.getElementById("theform").onsubmit = function(ev){
+				if(uname.value == "lanou"){
+					alert("提交成功~~");
+				}else{
+					return false;
+					stopDefault(ev);
+				}
+			}
+			
+			
+			function stopDefault(ev){
+				if(ev&& ev.preventDefault){
+					ev.preventDefault();
+				}else{
+					window.event.returnValue = false;
+				}
+				return false;
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <style>
+
+        form{
+            width: 400px;
+            height: 300px;
+            background-color: slateblue;
+            text-align: center;
+            margin: 200px auto;
+            color: beige;
+            font-size: 22px;
+            padding: 20px;
+            box-shadow: 2px 2px 5px 5px antiquewhite inset;
+        }
+        .sub{
+            width: 80px;
+            height: 80px;
+            font-size: 25px;
+            margin-top: 50px;
+            background-color: white;
+            color: black;
+        }
+    </style>
+
+</head>
+<body>
+<form class="form-horizontal" action="登录文件.php" method="post" enctype="multipart/form-data">
+    <h2>用户登录</h2>
+    <div>
+        <label for="uname">姓名:</label>
+        <input type="text" name="uname" id="uname" placeholder="姓名">
+    </div>
+    <div>
+        <label>密码:</label>
+        <input type="password" name="pass" placeholder="密码">
+    </div>
+    <input type="submit" value="登录" class="sub" >
+</form>
+
+</body>
+</html>

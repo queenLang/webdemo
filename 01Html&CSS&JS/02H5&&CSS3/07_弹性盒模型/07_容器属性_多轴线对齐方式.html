@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>07_容器属性_多轴线对齐</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.box {
+				height: 1000px;
+				margin: 30px auto;
+				border: 5px solid black;
+				display: flex;
+				flex-direction: column;
+                flex-wrap: wrap;
+                align-content: stretch ;
+                /*align-content属性定义了多根轴线的对齐方式。
+				 * 如果项目只有一根轴线，该属性不起作用。*/
+				
+				/*
+				 flex-start 	与交叉轴的起点对齐。
+				 flex-end 	与交叉轴的终点对齐。
+				 center 	与交叉轴的中点对齐。
+				 space-between 	与交叉轴两端对齐，轴线之间的间隔平均分布。
+				 space-around 	每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+				 stretch（默认值） 	轴线占满整个交叉轴。 (宽度注掉)
+				 */
+				
+				/*主轴水平  不要宽  充满纵轴
+				  主轴竖直  不要高  充满横轴*/
+			}
+			
+			.box div {
+				/*width: 300px;*/
+				height: 300px;
+				line-height: 150px;
+				text-align: center;
+				font-size: 50px;
+				color: white;
+				margin: 5px;
+				background-color: red;
+			}
+			 /*.div1,.div4,.div8{
+			 	width: 200px;
+			 }
+			 .div2,.div6{
+			 	width: 400px;
+			 }
+			 .div3,.div7,.div9{
+			 	width: 300px;
+			 }
+			 .div5,.div10{
+			 	width: 100px;
+			 }*/
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="div1">1</div>
+			<div class="div2">2</div>
+			<div class="div3">3</div>
+			<div class="div4">4</div>
+			<div class="div5">5</div>
+			<div class="div6">6</div>
+			<div class="div7">7</div>
+			<div class="div8">8</div>
+			<div class="div9">9</div>
+			<div class="div10">10</div>
+		</div>
+	</body>
+</html>

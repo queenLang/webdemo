@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_定时器</title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<button id="btn">停止</button>
+		<script type="text/javascript">
+		
+		
+			var obtn = document.getElementById("btn");
+			//每隔一段时间来执行一次function 中的内容
+			var timer = setInterval(function(){
+				console.log("拜拜");
+			} ,1000)
+			console.log("白扯");
+			
+			obtn.onclick = function(){
+				//清除定时器   将定时器从内存中清除
+				clearInterval(timer);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>15_双项目练习</title>
+		<style type="text/css">
+			body {
+				background-color: gray;
+			}
+			
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: white;
+				margin: 10px auto;
+				border-radius: 5%;
+				display: flex;
+			}
+			
+			div span {
+				display: block;
+				width: 40px;
+				height: 40px;
+				margin: 13px;
+				background-color: black;
+				border-radius: 50%;
+			}
+			
+			.box1 {
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: flex-end;
+			}
+			
+			.box2 span:nth-child(2) {
+				align-self: center;
+			}
+			
+			.box3,
+			.box5,
+			.box6 {
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			
+			.box3 span:nth-child(2) {
+				align-self: flex-end;
+			}
+			
+			.box4 {
+				justify-content: space-between;
+			}
+			
+			.box6 {
+				align-items: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box1">
+			<span></span>
+			<span></span>
+		</div>
+		<div class="box2">
+			<span></span>
+			<span></span>
+		</div>
+		<div class="box3">
+			<span></span>
+			<span></span>
+		</div>
+		<div class="box4">
+			<span></span>
+			<span></span>
+		</div>
+		<div class="box5">
+			<span></span>
+			<span></span>
+		</div>
+		<div class="box6">
+			<span></span>
+			<span></span>
+		</div>
+	</body>
+
+</html>

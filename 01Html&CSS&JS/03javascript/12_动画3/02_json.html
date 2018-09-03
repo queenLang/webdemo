@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_json</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: #5F9EA0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			/*
+			 JSON (JavaScript Object Notation)
+			 1.json 是什么
+			 它是js提供的一种数据交换格式
+			 2.json的语法
+			 一堆花括号{} 代表一个对象
+			 属性名1:属性值1,
+			 属性名2:属性值2,
+			 ............
+			 使用,相隔
+			 > 属性名使用双引号括起来
+			 > 属性值: 
+			     *null
+			     * 数值
+			     * 字符串
+			     * 数组 [] 括起来
+			     * boolean 值
+			     * 对象{}
+			 * */
+			//健值对 以健值对的形式存储数据 
+			//key: 键 value: 值
+			
+			var aJson = {
+				"name":"峰峰",
+				"age": 18,
+				"sex": "男"
+			}
+			console.log(aJson);
+			console.log(aJson["sex"]);
+			console.log(aJson.age);
+			
+			var oDiv = document.getElementById("all");
+			oDiv.innerHTML = aJson["name"]+aJson["age"]+aJson["sex"];
+			//赋值
+			//如果jason数据中存在key值
+			//那么直接修改key 所对应的value值
+			//如果不存在,就添加一组新的健值对
+			aJson.name = "鲸鱼";
+			aJson["height"]=178;
+			console.log(aJson);
+			var weight = "weight";
+			aJson[weight] = 80;
+			
+			
+			var name = "表哥";
+			var age = "32";
+			var sex = "男";
+			var bJson = {name,age,sex};
+			console.log(bJson);
+			
+			
+			//遍历
+			//for ..in ..
+			for (var key in aJson) {
+				console.log("key: " + key + ", value: " + aJson[key]);
+			}
+			for (var i in bJson) {
+				console.log("i: " + i + ", value: " + bJson[i]);
+			}
+			
+			//for ..in 遍历数组
+			var arr = [1,5,86,14,4,50];
+			for (var i in arr) {
+				console.log(i + "🍎" + arr[i]);
+			}
+			
+			//json数据 <==> json字符串
+			var jsonStr = "{\"name\":\"花花\",\"age\":\"13\"}";
+	        //aJson -->json串
+	        var aJsonStr = JSON.stringify(aJson);
+	        console.log(aJsonStr);
+	        //ajson串 -->json
+	        console.log(JSON.parse(aJsonStr));
+		</script>
+	</body>
+</html>

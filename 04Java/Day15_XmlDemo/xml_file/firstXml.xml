@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--注释-->
+<!--
+        所有的xml数据必须要有一个根节点也叫跟标签 (最外层必须由一个<></>包裹)
+        其他也要写在跟标签之中
+        -->
+<!--这里是中间-->
+<root>
+    <person desc="中国人" color="黄种人">
+        <name desc = "外国人">张三</name>
+        <sex>男</sex>
+        <age>14</age>
+        <hobby>
+            <play>玩游戏</play>
+        </hobby>
+    </person>
+
+    <person>
+        <name>王五</name>
+        <sex>女</sex>
+        <age>16</age>
+    </person>
+    <animal>
+        <kind name = "哺乳动物">
+            <tiger>老虎</tiger>
+
+        </kind>
+    </animal>
+</root>
+

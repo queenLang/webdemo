@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05作业</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 5.生成10个0-50之间的随机数，求第二大的值
+			var arr = [];
+			for(var i = 0; i < 10; i++){
+				var a = Math.floor(Math.random() * (50 - 1));
+				arr[i] = a;
+			}
+			document.write("数组为: " + arr);
+			
+			var max = arr[0];
+			var j = 0;
+			for(var i = 0; i < arr.length; i++){
+				if(arr[i] > max){
+					max = arr[i];
+					j = i;
+				}
+			}
+	          
+			document.write("最大值为: " + max);
+			document.write("<br />");
+			
+			
+			var x = arr.splice(j,1);
+			document.write("新数组为: " + arr);
+			var max = arr[0];
+			for(var i = 0; i < arr.length; i++){
+				if(arr[i] > max){
+					max = arr[i];
+				}
+			}
+			 document.write("第二大值为: " + max);
+		</script>
+	</body>
+</html>

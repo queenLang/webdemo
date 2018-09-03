@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //1.ajax优缺点
+    //2.ajax请求流程
+
+    //Ajax
+    //异步的JavaScript 和 XML
+
+    /*
+     * 面试题:
+     *
+     * Ajax
+     * 1.节省用户操作时间,减少不必要的数据请求和加载
+     * 2.可以在不刷新页面时,发送网络请求,对页面的Dom节点进行其他操作
+     * 3.可以异步加载数据,加载数据过程中,可以进行其他操作
+     *
+     * 缺点:不能跨域请求
+     *
+     * */
+
+    /*
+     * 1.创建ajax(xhr)对象 有浏览器
+     * */
+
+    var xhr = new XMLHttpRequest();
+
+    //2.设置请求的方式 url 打开浏览器 网址栏输入网址
+
+    var url = "02接口.php?phone=110&password=123";
+    //
+    xhr.open("get", url, true);
+
+    //3.发送请求   网址栏回车
+    xhr.send();
+
+    //4.等待请求结果
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState == 4) {
+            console.log(xhr.responseText);
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

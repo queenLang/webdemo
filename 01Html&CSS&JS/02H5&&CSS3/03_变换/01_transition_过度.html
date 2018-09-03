@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_transition_过度</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+				margin-bottom: 10px;
+			}
+			.div1{
+				/*css3标准不固定,所以需要对不同的浏览器进行兼容
+				 前缀不同代表不同的浏览器
+				 webkit safari
+				 ms  微软  ie
+				 o opera
+				 * */
+				/*trs*/
+				/*cmd+shitf+d*/
+				-webkit-transition: width 2s;
+				-moz-transition: width 2s;
+				-ms-transition: width 2s;
+				-o-transition: width 2s;
+				transition: width 2s;
+				
+			}
+			.div1:hover{
+				width: 300px;
+			}
+			
+			.div2:hover{
+				width: 300px;
+				height: 300px;
+			}
+			
+			/*多个样式同时添加使用逗号相隔*/
+			.div2{
+				-webkit-transition: width 2s, height 3s;
+				-moz-transition: width  2s, height 3s;
+				-ms-transition: width  2s, height 3s;
+				-o-transition: width  2s, height 3s;
+				transition: width  2s, height 3s;
+			}
+			/*过渡属性
+			 transition-property 	规定应用过渡的 CSS 属性的名称。 	
+             transition-duration 	定义过渡效果花费的时间。默认是 0。 	
+             transition-timing-function 	规定过渡效果的时间曲线。默认是 "ease"。 	
+             transition-delay 	规定过渡效果何时开始。默认是 0。*/
+            
+            .div3{
+            	 /*trsp 属性名称 property*/
+            	-webkit-transition-property: width;
+            	-moz-transition-property: width;
+            	-ms-transition-property: width;
+            	-o-transition-property: width;
+            	transition-property: width;
+            	/*trsd (d出不来在后面加u) 过渡时间*/
+            	-webkit-transition-duration: 2s;
+            	-moz-transition-duration: 2s;
+            	-ms-transition-duration: 2s;
+            	-o-transition-duration: 2s;
+            	transition-duration: 2s;
+            /*trst 过渡效果
+             linear 	规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）。
+             ease 	规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）。
+             ease-in 	规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）。
+             ease-out 	规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）。
+             ease-in-out 	规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）。
+             cubic-bezier(n,n,n,n) 	在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值。*/
+              -webkit-transition-timing-function: linear;
+              -moz-transition-timing-function: linear;
+              -ms-transition-timing-function: linear;
+              -o-transition-timing-function: linear;
+              transition-timing-function: linear;
+              /*trsde 延迟时间*/
+            -webkit-transition-delay: 2s;
+            -moz-transition-delay: 2s;
+            -ms-transition-delay: 2s;
+            -o-transition-delay: 2s;
+            transition-delay: 2s;
+            }
+            .div3:hover{
+            	width: 400px;
+            }
+            .div4{
+            	  -webkit-transition: width 2s linear .5s;
+            	  -moz-transition: width 2s linear .5s;
+            	  -ms-transition: width 2s linear .5s;
+            	  -o-transition: width 2s linear .5s;
+            	  transition: width 2s linear .5s;
+            }
+            .div4:hover{
+            	width: 350px;
+            }
+            .div5{
+             /*-webkit-transition: width 2s, heigth 2s, background-color 2s;
+             -moz-transition: width 2s, heigth 2s, background-color 2s;
+             -ms-transition: width 2s, heigth 2s, background-color 2s;
+             -o-transition: width 2s, heigth 2s, background-color 2s;
+             transition: width 2s, heigth 2s ,background-color 2s;*/
+            -webkit-transition: all 2s;
+            -moz-transition: all 2s;
+            -ms-transition: all 2s;
+            -o-transition: all 2s;
+            transition: all 2s;
+            }
+            .div5:hover{
+            	width: 200px;
+            	height: 200px;
+            	background-color: salmon;
+            }
+		</style>
+	</head>
+	<body>
+		<!--css3过度是元素从一种样式逐渐改变成另一种样式
+			1,效果添加到哪个属性上
+			2,规定效果的时长
+		-->
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+		<div class="div4"></div>
+		<div class="div5"></div>
+	</body>
+</html>

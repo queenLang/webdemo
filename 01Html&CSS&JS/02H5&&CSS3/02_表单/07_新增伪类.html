@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>07_新增伪类</title>
+		<style type="text/css">
+			/*<!--required 必须填写项-->*/
+			/*可选项*/
+			input:optional{
+				background-color: gold;
+				
+			}
+			input:required{
+				background-color: red;
+			}
+			/*<!--readonly 只读   readwrite  读写-->*/
+			input:read-only{
+			    background-color: aqua;
+			}
+			/**/
+			input:read-only+.title{
+				color: red;
+			}
+			input:read-write{
+				background-color: fuchsia;
+			}
+			/*当input(idd)有readonly属性时,span.title字体变成红色*/
+			/*兄弟选择器 + (紧跟着)*/
+			#idd:read-only+span.title{
+				color: red;
+			}
+			 /*1. + 选择器
+　　         如果需要选择紧接在另一个元素后的元素，而且二者有相同的父元素，可以使用相邻兄弟选择器。 */
+             /*２. ~ 选择器
+　         　作用是查找某一个指定元素的后面的所有兄弟结点。 */
+
+          /*输入值有效  符合要求*/
+         input:valid{
+         	background-color: aqua;
+         }
+         /*输入值无效,不符合要求*/
+        input:invalid{
+        	background-color: olive;
+        }
+		</style>
+	</head>
+	<body>
+		
+		
+		姓名:<input type="text" /><br />
+		年龄:<input type="text"  required /><br />
+		身份证号码:<input type="text"  id="idd" value="210281xxxxxx" readonly  /><span class="title">身份号码只读</span><br />
+		<hr />
+		邮箱:<input type="email" />
+	</body>
+</html>

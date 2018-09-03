@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_新增伪类.</title>
+		<style type="text/css">
+			*{
+				font-size: 20px;
+				letter-spacing: 5px;
+				margin-bottom: 10px;
+			}
+			input{
+				background-color: blue;
+			}
+			/*获取焦点时*/
+			input:focus{
+				background-color: yellow;
+			}
+			/*不可选*/
+			input:disabled{
+				background-color: red;
+			}
+			/*可用*/
+			input:enabled{
+				background-color: gold;
+			}
+			/*值在指定区间内*/
+			input:in-range{
+				border: 5px dotted green;
+			}
+			/*值超出区间*/
+			input:out-of-range{
+				border: 5px solid red;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<form action="" method="get">
+			姓名:<input type="text"  id="text" value="" /><br />
+			年龄:<input type="text" id="age" value="" disabled /><br />
+			成绩:<input type="number" max="10" min="5" value="2" />
+			<!--<input type="submit" value="提交"/>-->
+		</form>
+	</body>
+</html>

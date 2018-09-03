@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style type="text/css">
+			div{
+				width: 300px;
+				height: 300px;
+				border: 1px solid black;
+			}
+			.all{
+				background-color: seagreen;
+				height: 100px;
+			}
+		</style>
+		<title>04_设置css样式</title>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script src="jquery-1.11.2.min(1).js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#all").css("background-color","saddlebrown");
+			var cssJson = {
+				"width":"200px",
+				"background-color":"red"
+			}
+			$("#all").css(cssJson);
+			//添加一个css类名
+			$("#all").addClass("all");
+			//删除class类名
+			//$("#all").removeClass("all");
+			
+			//$("#all").attr("class","wrap");
+			
+			//判断某个元素时候是否具有某个类名
+			var flag = $("#all").hasClass("all");
+			console.log(flag);
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>json</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				font-size: 20px;
+				text-align: center;
+				margin: 0 auto;
+			}
+			
+			table, th,td {
+				border: 1px solid black;
+				border-collapse: collapse;
+				width: 400px;
+				height: 40px;
+			}
+			
+			thead {
+				font-size: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<th>科目</th>
+					<th colspan="2">成绩</th>
+				</tr>
+			</thead>
+			<tbody id="tBody">
+
+				<!--<tr>
+					<td rowspan="9">班级1</td>
+					<td rowspan="3">刘金花</td>
+					<td>数学</td>
+					<td>99</td>
+				</tr>
+				<tr>
+					<td>语文</td>
+					<td>43</td>
+				</tr>
+				<tr>
+					<td>英语</td>
+					<td>33</td>
+				</tr>
+				
+				
+				<tr>
+					<td rowspan="3">刘金花2</td>
+					<td>数学</td>
+					<td>99</td>
+				</tr>
+				<tr>
+					<td>语文</td>
+					<td>43</td>
+				</tr>
+				<tr>
+					<td>英语</td>
+					<td>33</td>
+				</tr>
+				
+				<tr>
+					<td rowspan="3">刘金花3</td>
+					<td>数学</td>
+					<td>99</td>
+				</tr>
+				<tr>
+					<td>语文</td>
+					<td>43</td>
+				</tr>
+				<tr>
+					<td>英语</td>
+					<td>33</td>
+				</tr>
+				
+				
+				
+				-->
+
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2">总平均</td>
+					<td id="avg" colspan="2"></td>
+				</tr>
+			</tfoot>
+		</table>
+
+		<script type="text/javascript">
+			var aJson = {
+				"班级1": [{
+					"刘金花": {
+						"数学": 93,
+						"英语": 90,
+						"语文": 89
+					},
+					"王大顶": {
+						"数学": 67,
+						"英语": 60,
+						"语文": 99
+					},
+					"陈佳影": {
+						"数学": 100,
+						"英语": 100,
+						"语文": 100
+					}
+				}],
+				"班级2": [{
+					"唐仁": {
+						"数学": 79,
+						"英语": 44,
+						"语文": 66
+					},
+					"秦风": {
+						"数学": 100,
+						"英语": 100,
+						"语文": 100
+					},
+					"宋义": {
+						"数学": 79,
+						"英语": 55,
+						"语文": 70
+					}
+				}],
+				"班级3": [{
+					"李白": {
+						"生存": 40,
+						"攻击": 60,
+						"技能": 50,
+						"难度": 90
+					},
+					"娜可露露": {
+						"生存": 40,
+						"攻击": 85,
+						"技能": 65,
+						"难度": 55
+					},
+					"兰陵王": {
+						"生存": 20,
+						"攻击": 90,
+						"技能": 40,
+						"难度": 50
+					}
+				}]
+			}
+
+			var oBox = document.getElementById("box");
+			// 计算成绩
+			var sum = 0;
+			
+		     for (var className in aJson) {
+		     	console.log("班级名称: " + className);
+		     	//创建班级名称td
+		     	var classTd = document.createElement("td");
+		     	classTd.innerHTML = className;
+		     	//找到每个班级的数组
+		     	var classArr = aJson[className];
+		     	//记录是第几个学生
+		     	var stucount = 0;
+		     	//班级里的每个学生
+		     	for(var stuName in classArr[0]){
+		     		console.log("学生名字: " + stuName);
+		     		var peoNameTd = document.createElement("td");
+		     		peoNameTd.innerHTML = stuName;
+		     		//取出装有成绩的json 数据
+		     		var peoJson = classArr[0][stuName];
+		     		//遍历 成绩
+		     		//记录tr是第几个
+		     		var count = 0;
+		     		for (var scoreName in peoJson) {
+		     			console.log(scoreName + ": " + peoJson[scoreName]);
+		     			
+		     			//创建tr
+		     			var trr = document.createElement("tr");
+		     			
+		     			// 把班级  放在每个班级的第一个学生的第一个成绩的tr里
+		     			if(stucount == 0 && count == 0){
+		     				trr.appendChild(classTd);
+		     			}
+		     			
+		     			// 把名字  放在每一个学生的第一个成绩的tr里
+		     			if(count == 0){
+		     				trr.appendChild(peoNameTd);
+		     			}
+		     			
+		     			
+		     			//成绩名称td
+		     			var scoreNameTd = document.createElement("td");
+		     			//成绩td
+		     			var scoreTd = document.createElement("td");
+		     			scoreNameTd.innerHTML = scoreName;
+		     			scoreTd.innerHTML = peoJson[scoreName];
+		     			
+		     			//添加标签
+		     			trr.appendChild(scoreNameTd);
+		     			trr.appendChild(scoreTd);
+		     			tBody.appendChild(trr);
+		     			
+		     			count++;
+		     		}
+		     		console.log("count:" + count);
+		     		//设置 合并行数
+		     		peoNameTd.rowSpan = 	count;
+		     	stucount++;
+		     	}
+		     	console.log("stucount: " + stucount);
+		     	//设置合并的行数   外层*内层
+		     	classTd.rowSpan = stucount * count;
+		     }
+		     
+		</script>
+	</body>
+
+</html>

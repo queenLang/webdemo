@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//1 arr = [20,33,79,80,91,3,100] 求数组中的最大值
+			// 
+
+			var arr = [20, 33, 79, 80, 91, 3, 100];
+			var max = arr[0];
+			//假设最大值是arr[0]  第一个元素
+			for(var i = 1; i < arr.length; i++) {
+				//取出数组中的每个元素和最大值进行比较
+				//如果数组的元素大  那么最大值 max 应该变成数组的元素
+				if(arr[i] > max) {
+					max = arr[i];
+					console.log("max: " + max);
+				}
+			}
+			console.log("m: " + max);
+
+			//2  生成10个 0- 50 之间的随机数  求最大值
+			var arr1 = [];
+			for(var i = 0; i < 10; i++) {
+				var a = Math.floor(Math.random() * (50 - 0 + 1) + 0);
+				console.log(a);
+				arr1[i] = a;
+			}
+			console.log(arr1);
+			var max = arr1[0];
+			for(var j = 1; j < arr1.length; j++) {
+				if(arr1[j] > max) {
+					max = arr1[j];
+				}
+			}
+			console.log("m: " + max);
+
+			//3.输入连个数作为范围 求在这个范围内的五个数的和
+
+			var a = parseInt(prompt("请输入第一个数"));
+			var b = parseInt(prompt("请输入第二个数"));
+			if(a >= b) {
+				alert("傻");
+			} else {
+				var aa = 0;
+				for(var i = 0; i < 5; i++) {
+					var c = Math.floor(Math.random() * (b - a + 1) + a);
+					aa+= c;
+					document.write("数为: " +c + " ");
+				}
+				document.write("和为: " +aa);
+			}
+			
+			//4 随机输入10个数  求最小值
+			
+			var arr3 = [];
+			for(var i = 0; i < 10 ; i++){
+				var xx = parseInt(prompt("请输入数字: "));
+				arr3[i] = xx;
+			}
+			var min = arr3[0];
+			document.write("数组为: " +arr3);
+			for(var i = 0; i < arr3.length; i++){
+				if(arr3[i] < min){
+					min = arr3[i];
+				}
+			}
+			document.write("最小为: " + min);
+		</script>
+	</body>
+
+</html>

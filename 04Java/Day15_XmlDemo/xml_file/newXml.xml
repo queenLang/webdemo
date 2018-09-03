@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root desc="这是一个根标签">
+      <traffic>
+            <brand>五菱</brand>
+            <price>4万元</price>
+            <color>茶色</color>
+      </traffic>
+</root>

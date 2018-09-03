@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_媒体查询</title>
+		<style type="text/css">
+			.div1{
+				width: 200px;
+				height: 200px;
+				background-color: black;
+				/*501~599  801~979*/
+			}
+			/*建议:使用媒体查询时,相同的标签使用一致的选择器*/
+			
+			/*screen 显示器
+			 and 与  左右两个条件同时满足才成立
+			 min-width 最小宽度
+			 max-width 最大宽度
+			 * */
+			/*max-width: 500px 小于等于500时*/
+			@media only screen and (max-width: 500px) {
+				.div1{
+					width: 100px;
+					height: 100px;
+					background-color: red;
+				}
+			}
+			@media only screen and (min-width: 600px) and (max-width: 800px) {
+				.div1{
+					width: 300px;
+					height: 300px;
+					background-color: yellow;
+				}
+			}
+			/*屏幕>=980*/
+			@media only screen and (min-width: 980px) {
+				.div1{
+					width: 400px;
+					background-color: darkmagenta;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+	</body>
+</html>

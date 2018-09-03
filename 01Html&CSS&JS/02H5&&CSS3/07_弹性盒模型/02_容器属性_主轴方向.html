@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_容器属性_主轴方向</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.box {
+				margin: 30px auto;
+				border: 5px solid black;
+				display: flex;
+				/*主轴方向*/
+				/*flex-direction: row | row-reverse | column | column-reverse;
+				  row      默认值 水平  从左往右               
+				  row-reverse     水平反向   从右往左           
+				  column       主轴为垂直方向   从上往下            
+				  column-reverse      主轴为垂直方向   从下往上
+				 * */
+				flex-direction: row-reverse;
+			}
+			
+			.box div {
+				width: 200px;
+				height: 200px;
+				line-height: 200px;
+				text-align: center;
+				font-size: 50px;
+				color: white;
+				margin: 5px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!--.box>div{$}*5-->
+		<div class="box">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>07_缓冲运动封装最终版1带透明度</title>
+		<script src="tools.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#all {
+				width: 200px;
+				height: 200px;
+				background-color: fuchsia;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+             oAll.onmouseover = function(){
+             	easeMove(oAll,1,15,"opacity",100);
+             }
+             oAll.onmouseout = function(){
+             	easeMove(oAll,100,15,"opacity",100);
+             }
+			function easeMove(obj, targetPos, speedScale, attr, time) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+
+					var attrValue = getStyle(obj, attr);
+					attrValue = attr == "opacity" ? attrValue * 100 : parseInt(attrValue);
+
+					var speed = (targetPos - attrValue) / speedScale;
+					speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+					console.log(speed);
+					if(attrValue == targetPos) {
+						clearInterval(obj.timer);
+					} else {
+						obj.style[attr] = attr == "opacity" ? (attrValue + speed) / 100 : attrValue + speed + "px";
+					}
+					console.log(getStyle(obj, attr));
+				}, time)
+			}
+		</script>
+	</body>
+
+</html>

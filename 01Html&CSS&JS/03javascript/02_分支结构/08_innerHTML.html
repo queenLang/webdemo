@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>08_innerHTML</title>
+	</head>
+	<body>
+		<div id="div1">李易峰</div>
+		<div id="div2">
+			<span>黄</span>
+			<span>鲸</span>
+			<span>鱼</span>
+		</div>
+		<script type="text/javascript">
+			var oDiv1 = document.getElementById("div1");
+			var oDiv2 = document.getElementById("div2");
+			//获取 div1 标签里面的内容
+			console.log(oDiv1.innerHTML);
+			console.log(oDiv2.innerHTML);
+			//修改内容
+			oDiv1.innerHTML += "爱️";
+		</script>
+	</body>
+</html>

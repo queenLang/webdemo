@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>02作业</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//2. 创建一个数组, 10个元素, 随机为元素赋值, 取值范围[-66, 99]  
+			//. 求最大值和最小值, 及其所在的下标
+
+			var arr = [];
+			for(var i = 0; i < 10; i++) {
+				var a = Math.floor(Math.random() * (99 - (-66) + 1) + (-66));
+				arr[i] = a;
+			}
+			document.write("arr: " + arr);
+			var max = arr[0];
+			var min = arr[1];
+			var a;
+			var b;
+			for(var i = 0; i < arr.length; i++) {
+				if(arr[i] > max) {
+					max = arr[i];
+					a = i;
+				}
+				if(arr[i] < min) {
+					min = arr[i];
+					b = i;
+				}
+			}
+			document.write("<br />");
+			document.write("最大值为: " + max);
+			document.write("下标为: " + a);
+			
+			document.write("<br />");
+			document.write("最小值为: " + min);
+			document.write("下标为: " + b);
+			
+			
+			
+
+		</script>
+	</body>
+
+</html>

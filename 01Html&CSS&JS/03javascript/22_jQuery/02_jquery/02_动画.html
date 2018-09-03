@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>02_动画</title>
+		<style type="text/css">
+			#wrap {
+				width: 200px;
+				height: 200px;
+				background-color: lightcoral;
+				/*display: none;*/
+			}
+			
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: goldenrod;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">今天立秋</div>
+		<div id="all"></div>
+		<script src="jquery-1.11.2.min(1).js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#all").click(function() {
+				//$("#wrap").show();
+				//	    	    	   $("#wrap").show(2000,function(){
+				//	    	    	   	console.log("动画执行完成");
+				//	    	    	   });
+				//	    	    	   $("#wrap").show("slow",function(){
+					    	    	   	console.log("动画执行完成");
+				//	    	    	   });
+//				 $("#wrap").hide();
+//				$("#warp").hide(1000, function() {
+//					$("#all").css("background-color", "red");
+//				})
+
+               //$("#wrap").slideDown(1000);
+              // $("#wrap").slideUp(1000);    //匀速向上
+              
+//            $("#wrap").animate({
+//            	"width":"500px",
+//            	"fontSize":"30px"
+//            },2000);
+
+            //$("#wrap").fadeOut();
+                
+               $("#wrap").fadeTo(2000,0.1); 
+                
+                
+                
+                
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>/*
+ *
+ * jsonp原理
+ *
+ * 接口实现jsonp
+ *
+ * 接口以函数调用的形式输出,利用script标签src属性可以跨域求值
+ *
+ * 接口输出形式例如 getdata("123")
+ *
+ *
+    /*
+    *
+    * jsonp原理
+    *
+    * 接口实现jsonp
+    *
+    * 接口以函数调用的形式输出,利用script标签src属性可以跨域求值
+    *
+    * 接口输出形式例如 getdata("123")
+    *
+    *
+    * 缺点:不能做post请求
+    *
+    *
+    * */
+    function abc(result) {
+        console.log(result);
+    }
+
+
+</script>
+<script src="http://c.3g.163.com/recommend/getChanRecomNews?channel=duanzi&passport=91153191bdb987ca2bc10b1d3e7a5004@tencent.163.com&devId=CE80EFE4-9CE9-4E06-B117-DFA8DE7893F1&size=20&callback=abc"></script>
+</body>
+</html>

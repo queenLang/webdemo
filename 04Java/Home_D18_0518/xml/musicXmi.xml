@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<music>
+      <song name="1">
+            <singer>周杰伦</singer>
+            <picUrl>http://h.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=20db947098504fc2a20ab801d0edcb27/08f790529822720e0306fa8278cb0a46f31fabf9.jpg</picUrl>
+      </song>
+      <song name="1">
+            <singer>陈奕迅</singer>
+            <picUrl>http://aliimg.changba.com/cache/photo/111841589_640_640.jpg</picUrl>
+      </song>
+      <song name="1">
+            <singer>黄渤</singer>
+            <picUrl>http://img5.imgtn.bdimg.com/it/u=1691753904,2820749325&amp;fm=27&amp;gp=0.jpg</picUrl>
+      </song>
+</music>

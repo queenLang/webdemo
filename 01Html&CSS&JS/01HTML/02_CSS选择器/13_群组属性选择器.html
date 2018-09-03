@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3_群组属性选择器</title>
+		<style type="text/css">
+			/*群组选择器 使用,逗号*/
+			ul,li{
+				/*去掉点*/
+				list-style: none;
+			}
+			/*属性选择器 attribute*/
+			/*选择 type 为 text 的input 更改背景颜色*/
+			input[type=text]{
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>yayayayay</li>
+			<li>hahahahahah</li>
+		</ul>
+		1 <input type="password"/>
+		2 <input type="text" />
+	</body>
+</html>

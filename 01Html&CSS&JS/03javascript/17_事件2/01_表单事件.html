@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_表单事件</title>
+	</head>
+	<body>
+		<label for="name">姓名</label>
+		<input type="text" name="name" id="name" value="uname"/>
+		<script type="text/javascript">
+			var nameInp = document.getElementById("name");
+			//获得焦点
+			nameInp.onfocus = function(){
+				console.log("onfocus");
+			}
+			//失去焦点
+			nameInp.onblur =function(){
+				console.log("onblur");
+			}
+		</script>
+	</body>
+</html>

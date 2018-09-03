@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>08_正则常用方法</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 1. exec
+			// 执行一次正则匹配操作
+			// lastIndex ：记录的就是下一次捕获从哪个索引开始。当未开始捕获时，这个值为0。 
+			// 如果当前次捕获结果为null。那么lastIndex的值会被修改为0。
+			
+			var str = "abc123cba456aaa789";
+			var reg = /\d+/g;
+			console.log(reg.lastIndex);  // 0
+			console.log(reg.exec(str));  //123
+			console.log(reg.lastIndex);  //6
+			console.log(reg.exec(str));  //456
+			console.log(reg.lastIndex);  //12
+			console.log(reg.exec(str));  //789
+			console.log(reg.lastIndex);
+			console.log(reg.exec(str));
+			
+			//2 test
+			//如果含有匹配的文本返回 true 否则 false
+			var str = "abc";
+			var reg = /\w+/;
+			console.log(reg.test(str));   //true
+			
+			//3  match 与  exec 相似
+			var str = "1sss23sss456ss789ss45";
+			var reg = /\d{2}/g;
+			console.log(str.match(reg));   //["23", "45", "78", "45"]
+			
+			// 4. search  返回匹配的首字符的下标 没有就返回 -1
+			// 忽略全局标志g
+			var str = "1sss23sss456ss789ss45";
+			var reg = /\d{2}/;
+			console.log("search" +str.search(reg));   //4
+			
+			//5 replace
+			//返回替换的值 
+			var str = "1sss23sss45";
+			var reg = /\d{2}/g;
+			var result = str.replace(reg,"?");
+			console.log("replace: " + result);   //replace: 1sss?sss?
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				font-size: 20px;
+				text-align: center;
+				margin: 0 auto;
+			}
+			
+			table, th,td {
+				border: 1px solid black;
+				border-collapse: collapse;
+				width: 400px;
+				height: 40px;
+			}
+			
+			thead {
+				font-size: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<th>科目</th>
+					<th>成绩</th>
+				</tr>
+			</thead>
+			<tbody id="tBody">
+
+				<!--<tr>
+					<td rowspan="9">班级1</td>
+					<td rowspan="3">刘金花</td>
+					<td>数学</td>
+					<td>99</td>
+				</tr>
+				<tr>
+					<td>语文</td>
+					<td>43</td>
+				</tr>
+				<tr>
+					<td>英语</td>
+					<td>33</td>
+				</tr>
+				
+				
+				<tr>
+					<td rowspan="3">刘金花2</td>
+					<td>数学</td>
+					<td>99</td>
+				</tr>
+				<tr>
+					<td>语文</td>
+					<td>43</td>
+				</tr>
+				<tr>
+					<td>英语</td>
+					<td>33</td>
+				</tr>
+				
+				<tr>
+					<td rowspan="3">刘金花3</td>
+					<td>数学</td>
+					<td>99</td>
+				</tr>
+				<tr>
+					<td>语文</td>
+					<td>43</td>
+				</tr>
+				<tr>
+					<td>英语</td>
+					<td>33</td>
+				</tr>
+				
+				
+				
+				-->
+
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2">总平均</td>
+					<td id="avg" colspan="2"></td>
+				</tr>
+			</tfoot>
+		</table>
+
+		<script type="text/javascript">
+			//	 解析 json, 显示在 table 
+			var aJson = {
+				"班级1": [{
+					"刘金花": {
+						"数学": 93,
+						"英语": 90,
+						"语文": 89
+					},
+					"王大顶": {
+						"数学": 67,
+						"英语": 60,
+						"语文": 99
+					},
+					"陈佳影": {
+						"数学": 100,
+						"英语": 100,
+						"语文": 100
+					}
+				}],
+				"班级2": [{
+					"唐仁": {
+						"数学": 79,
+						"英语": 44,
+						"语文": 66
+					},
+					"秦风": {
+						"数学": 100,
+						"英语": 100,
+						"语文": 100
+					},
+					"宋义": {
+						"数学": 79,
+						"英语": 55,
+						"语文": 70
+					}
+				}],
+				"班级3": [{
+					"李白": {
+						"生存": 40,
+						"攻击": 60,
+						"技能": 50,
+						"难度": 90
+					},
+					"娜可露露": {
+						"生存": 40,
+						"攻击": 85,
+						"技能": 65,
+						"难度": 55
+					},
+					"兰陵王": {
+						"生存": 20,
+						"攻击": 90,
+						"技能": 40,
+						"难度": 50
+					}
+				}]
+
+			};
+
+			var tBody = document.getElementById("tBody");
+			// 计算总成绩
+			var sum = 0;
+			// 计算一共多少科目成绩
+			var len = 0;
+			for(var className in aJson) {
+				var classArr = aJson[className];
+				var classNameTd = document.createElement("td");
+				classNameTd.innerHTML = className;
+				for(var stuName in classArr[0]) {
+					var peoJson = classArr[0][stuName];
+					console.log("班级学生: " + stuName);
+					var peoNameTd = document.createElement("td");
+					peoNameTd.innerHTML = stuName;
+					var count = 0;
+					for(var scoreName in peoJson) {
+						len++;
+						var trr = document.createElement("tr");
+						var scoreNameTd = document.createElement("td");
+						scoreNameTd.innerHTML = scoreName;
+						var scoreTd = document.createElement("td");
+						scoreTd.innerHTML = peoJson[scoreName];
+						sum += peoJson[scoreName];
+						// 在数学所在 tr 中添加学生名字td
+						if(count == 0) {
+							trr.appendChild(peoNameTd);
+						}
+						trr.appendChild(scoreNameTd);
+						trr.appendChild(scoreTd);
+						tBody.appendChild(trr);
+						count++;
+					}
+					console.log("count: " +count);
+					peoNameTd.rowSpan = count;
+				}
+			}
+
+			var avg = document.getElementById("avg");
+			avg.innerHTML = (sum / len).toFixed(2);
+		</script>
+
+	</body>
+
+</html>

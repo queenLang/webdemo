@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_变量作用域.</title>
+	</head>
+	<body>
+		<!-- 了解:js 内存 栈区堆区-->
+		<script type="text/javascript">
+			/*
+			 作用域  scope
+			 js 的作用域: 函数作用域和全局作用域
+			 
+			 * */
+			var a = 10;
+			//全局变量   全局作用域  在任何地方都可以使用 
+			
+			function func1 () {
+				console.log(a);
+				var b = 1;  //局部变量  只作用于函数类
+				console.log("func1: " + b);
+			}
+			func1();
+			console.log("a: " + a);
+		</script>
+	</body>
+</html>

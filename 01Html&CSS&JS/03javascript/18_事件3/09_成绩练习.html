@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>09_成绩练习</title>
+		<style type="text/css">
+			#box {
+				width: 200px;
+				margin: 50px auto 0;	
+				/*border: 2px solid blueviolet;*/
+			}
+			
+			#timer {
+				font-size: 18px;
+			}
+			
+			table,
+			td {
+				border-collapse: collapse;
+				width: 200px;
+				height: 50px;
+				border: 2px solid gray;
+				text-align: center;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<!-- 题目：某班的成绩出来了，现在老师要把班级的成绩打印出来。
+			var scoreStr = "小明:87;小花:81;小红:97;小天:76;小张:74;小小:94;小西:90;小伍:76;小迪:64;小曼:76";
+			效果如下：xxx年xx月x日  星期x--班级平均分为：81 显示成绩表格
+		-->
+		<div id="box">
+			<div id="timer">xxx年xx月x日</div>
+			<table border="" cellspacing="" cellpadding="" id="table">
+				<tr>
+					<th>序号</th>
+					<th>姓名</th>
+					<th>成绩</th>
+				</tr>
+			</table>
+
+			<script type="text/javascript">
+				var scoreStr = "小明:87;小花:81;小红:97;小天:76;小张:74;小小:94;小西:90;小伍:76;小迪:64;小曼:76";
+				var oBox = document.getElementById("box");
+				var timer = document.getElementById("timer");
+				otable = document.getElementById("table");
+				timer.innerHTML = getTimer();
+				console.log(scoreStr.length);
+				var arr = scoreStr.split(";").join(" ").split(":").join(" ").split(" ");
+				console.log(arr);
+				var a = 0;
+				var aver = 0;
+				for (var i = 0; i < 10; i++) {
+					a++;
+					var trs = document.createElement("tr");
+					otable.appendChild(trs);
+					for (var j = 0; j < 3; j++) {
+						var tds = document.createElement("td");
+						trs.appendChild(tds);
+					}
+					trs.children[0].innerHTML = a;
+					trs.children[1].innerHTML = arr[2*i];
+					trs.children[2].innerHTML = arr[2*i+1];
+					aver += parseInt(arr[2*i+1]);
+				}
+				console.log("pingjun: " + aver);
+				var otr = document.createElement("tr");
+				var otd1 = document.createElement("td");
+				var otd2 = document.createElement("td");
+				otd1.innerHTML = "平均";
+				otd2.innerHTML = aver/10;
+				otd2.colSpan = "2";
+				otr.appendChild(otd1);
+				otr.appendChild(otd2);
+				otable.appendChild(otr);
+				
+				
+				function getTimer(){
+					var nowDate = new Date();
+					var year = nowDate.getFullYear();
+					var month = nowDate.getMonth();
+					var day = nowDate.getDate();
+					var week = nowDate.getDay();
+					var arrS = ["零","一","二","三","四","五","六","日"];
+					return  year + "年" + (month+1) + "月" + day + "日 星期" + arrS[week];
+				}
+			</script>
+
+		</div>
+	</body>
+
+</html>

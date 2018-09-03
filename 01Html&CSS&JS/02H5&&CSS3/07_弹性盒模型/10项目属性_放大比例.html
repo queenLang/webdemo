@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>10项目属性_放大比例</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.box {
+				margin: 30px auto;
+				border: 5px solid black;
+				display: flex;
+				
+			}
+			
+			.box div {
+				width: 200px;
+				height: 200px;
+				line-height: 200px;
+				text-align: center;
+				font-size: 50px;
+				color: white;
+				margin: 5px;
+				background-color: red;
+				flex-grow: 1;
+			}
+			/*flex-grow属性定义项目的放大比例,默认为0,即如果存在剩余空间,也不放大。*/
+			.box .div2{
+				flex-grow: 2;
+			}
+			.box .div1{
+				flex-grow: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="div1">1</div>
+			<div class="div2">2</div>
+			<div class="div3">3</div>
+		</div>
+	</body>
+</html>

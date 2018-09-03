@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>09_闰年</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/* 3. 输入一个年份，判断是否是闰年（
+			 * 能被4整除却不能被100整除的年份, 世纪年份能被400整除的是闰年
+			 * */
+			var year = prompt("请输入年份");
+			if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+				alert("是闰年");
+			}else{
+				alert("是平年");
+			}
+		</script>
+	</body>
+</html>

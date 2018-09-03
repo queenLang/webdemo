@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>05_新增标签2</title>
+	</head>
+
+	<body>
+		<!--<details> 标签用于描述文档或文档某个部分的细节。
+         open: 设置open之后,可见内容
+		-->
+		<details open>
+			<p>小猪佩奇身上纹</p>
+			<p>掌声送给社会人</p>
+			<img src="img/feng.jpg" />
+		</details>
+
+		<!--<summary> 标签包含 details 元素的标题，
+			"details" 元素用于描述有关文档或文档片段的详细信息。-->
+		<details open>
+			<summary>社会人</summary>
+			<p>小猪佩奇身上纹</p>
+			<p>掌声送给社会人</p>
+			<img src="img/feng.jpg" />
+		</details>
+		<p>下面是进度条</p>
+		<!--<progress> 标签定义运行中的进度（进程）。
+			values:当前进度
+			max:需要完成进度
+			可以使用 <progress> 标签来显示 JavaScript 中耗费时间的函数的进度
+		-->
+		<progress value="30" max="100"></progress>
+
+		<!--<ruby> 标签定义 ruby 注释（中文注音或字符）。
+          	与 <ruby> 以及 <rt> 标签一同使用：
+          -->
+		<ruby>汉<rt>han</rt>字<rt>zi</rt></ruby>
+
+		<!--<figure> 标签规定独立的流内容（图像、图表、照片、代码等等）。
+          	figure 元素的内容应该与主内容相关，但如果被删除，则不应对文档流产生影响。
+          -->
+		<figure>
+			<figcaption>我是图片的标题</figcaption>
+			<img src="img/黄景瑜1.jpg" />
+		</figure>
+
+		<!--<time> 标签定义公历的时间（24 小时制）或日期，时间和时区偏移是可选的。-->
+		<p>我们在每天早上 <time>9:00</time> 开始营业。</p>
+		<p>我在 <time datetime="2008-02-14">情人节</time> 有个约会。</p>
+
+		<!--画布标签,渲染到网页上为图片
+          	<canvas> 标签定义图形，比如图表和其他图像。
+          	<canvas> 标签只是图形容器，您必须使用脚本来绘制图形。
+          -->
+		<canvas id="myCanvas" width="500" height="500" style="border: 2px solid black;"></canvas>
+            	<script type="text/javascript">
+             var canvas=document.getElementById('myCanvas');
+              var ctx = bg.getContext('2d');
+                //填充三角形（等边）
+                ctx.beginPath();
+                 var height = 200*Math.sin(Math.PI/3);//计算等边三角形的高
+                 ctx.moveTo(100,0); //从A（100,0）开始
+                 ctx.lineTo(0,height);//从A(100,0)开始，画到B (0,173)结束
+                 ctx.lineTo(200,height); //B(0,173)-C(200,173)
+                //ctx.fillStyle='#00ff00';//以纯色绿色填充
+                  var grd = ctx.createLinearGradient(0,0,200,0);//使用渐变颜色填充,从(0,0)到(200,0) （左到右）
+               grd.addColorStop(0,"#4CE8B2"); //起始颜色
+               grd.addColorStop(1,"#EFD458"); //终点颜色
+               ctx.fillStyle=grd; //以上面定义的渐变填充
+               ctx.fill(); //闭合形状并且以填充方式绘制出来
+
+            // 直角三角形 : 有边框有填充颜色
+			ctx.beginPath();
+			ctx.lineJoin = "round"; //两条线交汇时的边角类型（miter 尖角默认  bevel斜角 round 圆角 ）
+			ctx.moveTo(200, 200);
+			ctx.lineTo(200, 400);
+			ctx.lineTo(400, 400);
+			ctx.closePath(); //closePath() 关闭路径  闭合
+
+			ctx.strokeStyle = "#6495ED"; // strokeStyle 只能填充该路径的颜色
+			ctx.lineWidth = 10;
+
+			ctx.fillStyle = "hotpink"; // fillStyle 填充字体颜色、填充路径区域、图形区域
+			ctx.fill();
+			ctx.stroke();
+           </script>
+	</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>循环</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			for(var i = 0; i < 5; i++){
+//				for(var j = 0; j < i + 1; j++){
+//					document.write("🍎");
+//				}
+//				document.write("<br />");
+//			}
+			
+			for (var i = 0; i < 4; i++) {
+            for (var i1 = 0; i1 < 3 - i; i1++) {
+                document.write("🍌");
+            }
+
+            for (var i2 = 0; i2 < 2 * i + 1; i2++) {
+                document.write("🍎");
+            }
+            document.write("<br />");
+        }
+
+		</script>
+	</body>
+</html>

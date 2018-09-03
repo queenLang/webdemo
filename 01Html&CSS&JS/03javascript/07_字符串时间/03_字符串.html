@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_字符串</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str = "hello  world?";
+			//1 字符串长度
+			console.log(str.length); //13
+			//2 获得某个下标对应的字符  下标从0开始
+			console.log(str.charAt(2));   //l
+			//3 返回某字符串中首次出现的位置
+			console.log("index1: " + str.indexOf("l"));  //2
+			console.log("index2: " + str.indexOf("lo")); //3
+			console.log("index3: " + str.indexOf("2"));  // -1  找不到返回-1
+			console.log("index4: " + str.indexOf("l",7)); //10
+			
+			//4 截取字符串
+			 //从下标2开始  截取到最后 包含下标2的元素
+			 var str1 = str.substring(2);
+			 console.log("str1: " + str1);  //llo  world?
+			 
+			 //5. 从下标2开始  到下标8  不包含下标为8的元素
+			 var str2 = str.substring(2,8);
+			 console.log("str2: " + str2);  //llo  w   左闭右开
+			 
+			 //6. 从下标2开始 截取6个  包含2
+			 var str3 = str.substr(2,6);
+			 console.log("str3: " + str3);  //llo  w
+			 
+			 //字符串切割 (字符串 -> 数组)
+			 var strA = "What are you 弄啥嘞?";
+			 var strs = strA.split("");
+			 console.log(strs);  //["What", "are", "you", "弄啥嘞?"]
+			 
+			 //数组 --> 字符串`
+			 console.log(strs.join(" "));  //What are you 弄啥嘞?
+			 
+			 // 8. 字符串拼接
+			 var str4 = "峰峰";
+			 var str5 = "鲸鱼";
+			 var newStr = str4.concat(str5);  //峰峰鲸鱼
+			 console.log(newStr);
+			 var newStr = str4.concat("❤",str5);   //峰峰❤鲸鱼
+			 console.log(newStr);
+			 
+			 //9 . 大小写转换
+			 var str3 = "good good";
+			 var str4 = str3.toUpperCase();
+			 console.log(str4);  //GOOD GOOD
+			 console.log(str4.toLowerCase());
+		</script>
+	</body>
+</html>

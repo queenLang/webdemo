@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jquery-1.11.2.min(1).js"></script>
+<script>
+    //1.id选择器
+    window.onload = function () {
+        //页面上所有资源加载完
+    }
+    $(document).ready(function () {
+        //Dom树加载完成时
+    })
+    //简写
+    $(function () {
+        //1.1 id选择器
+        var oBoy1 = $("#boy");  //选择id为boy的标签
+        //1.2  元素选择器
+        $("li").html("哈哈"); //选择li标签 , 内容为哈哈
+        //1.3属性选择器
+        $("li[class=boy]"); //选择class为boy的li标签
+    })
+
+    //2.jq对象
+    /*
+    通过jQuery选择器获取到的都是jquery对象,不是原生js,
+    jQuery对象,不能使用原生dom对象的任何方法和属性
+    原生dom对象也无法使用jq的方法和属性
+    * */
+    //2.1原生dom操作
+    var oDiv = document.getElementById("div");
+    //2.2jq对象
+    var $theDiv = $("#div");
+    //2.3原生转jq
+    $(oDiv);
+    //2.4jq转原生
+    $theDiv[0];
+
+    //3节点操作
+    //3.1操作文本节点
+    $("#girl").html("丫丫");
+    $("#girl").html(); //获取文本
+    //3.2操作属性(系统自带,自定义属性)
+    var imgUrl = "";
+    $("img").attr("src",imgUrl); //设置属性
+    //3.3设置自定义属性
+    $("img").attr("index",1); //添加自定义属性
+    console.log($("img").attr("index")); //打印属性值
+    //3.4删除属性
+    $("img").removeAttr("index"); //删除index属性
+    //3.5插入节点
+    //3.5.1创建元素
+    var $theDiv = $("<div>哈哈</div>");
+    //3.5.2向一个元素内容的尾部追加内容
+    $("girl").append($theDiv);
+    $("#girl1").append("<div>啦啦</div>");
+    var $theDiv1 = $("<div>丽丽</div>");
+    $theDiv1.appendTo($("#girl")); //将$theDiv1添加到$("#girl")
+    //3.5.3向一个元素的头部添加
+    $("#a").prepend("<li></li>");
+    $("<li></li>").prependTo($("#a"));
+    //3.5.4插入
+    insertBefore
+    insertAfter
+    //4.移出节点
+    remove
+    //4.1清除节点的内容
+    $("a").empty();
+    //5.替换节点
+    $("#aaa").replaceWith("<li>哈哈</li>");
+    //6.包裹节点
+    $("#girl1").wrap("<div></div>");
+    $("li").wrapAll("<div></div>");
+    $("li").wrapInner("<div></div>");
+
+
+
+
+    //04.设置CSS样式
+    $("#all").css("background-color","red");
+    var cssJson = {
+        "width":"200px",
+        "background-color":"red"
+    }
+    $("#all").css(cssJson);
+    //4.1添加一个css类名
+    $("#all").css("all");
+    //4.2删除类名
+    $("#all").removeClass("all");
+
+    var flag = $("#all").hasClass("all"); //判断某个元素是否具有某个类名  返回值为true/false
+
+    //05_事件
+    $("#all").click(function () {
+        
+    })
+    $("#all").on("click",function () {
+        
+    })
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

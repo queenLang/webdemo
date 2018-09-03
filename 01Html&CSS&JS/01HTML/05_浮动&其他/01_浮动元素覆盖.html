@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_浮动元素覆盖</title>
+		<style type="text/css">
+			.in{
+				font-size: 30px;
+				width: 200px;
+				height: 200px;
+				color: white;
+				text-align: center;
+				line-height: 200px;
+			}
+			.left{
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<!--1首先确定元素在正常文档流(流布局)中位置
+			2 根据元素原来的位置进行左右浮动(浮不到中间)
+			3浮起来的元素会脱离原来的文档流 浮动元素原来的位置会被下一个元素占据 所以框3在框2原来的位置
+		-->
+		<div class="in" style="background-color: red;">1</div>
+		<div class="in left" style="background-color: blue;">2</div>
+		<div class="in" style="background-color: yellow;">3</div>
+		<p>框3不见了 框3在框2下面</p>
+	</body>
+</html>

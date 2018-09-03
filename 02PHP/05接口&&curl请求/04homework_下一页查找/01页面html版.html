@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="ajax请求封装.js"></script>
+</head>
+<body>
+<table border="1" id="tables">
+
+</table>
+<button id="upBtn">上一页</button>
+
+<button id="btn">下一页</button>
+
+<script>
+    var oTable = document.getElementById("tables");
+    var oBtn = document.getElementById("btn");
+    var oUpBtn = document.getElementById("upBtn");
+
+    var url = "02接口.php?pageNum=1";
+    select(url);
+    function select(url) {
+        ajax_get(url, function (result) {
+            var newResult = JSON.parse(result);
+//            console.log(newResult);
+//            console.log(newResult[0]);
+            var titleTr = document.createElement("tr");
+            oTable.appendChild(titleTr);
+            for (var key in newResult[0]) {
+//                console.log(newResult[0][key]);
+//                console.log(key);
+                var titleTh = document.createElement("th");
+                titleTh.innerHTML = key;
+                titleTr.appendChild(titleTh);
+            }
+
+            for (var i = 0; i < newResult.length; i++) {
+                var conTr = document.createElement("tr");
+                oTable.appendChild(conTr);
+                for (var value in newResult[i]) {
+                    var conTd = document.createElement("td");
+                    conTd.innerHTML = newResult[i][value];
+                    conTr.appendChild(conTd);
+                }
+            }
+        })
+    }
+    var num = 1;
+    oBtn.onclick = function () {
+        num = num + 1;
+        change_td(num);
+
+    }
+    oUpBtn.onclick = function () {
+        num = 1 ? 1 : num - 1;
+        change_td(num);
+    }
+    var newTds = document.getElementsByTagName("td");
+    function change_td(num) {
+        var url = "02接口.php?pageNum=" + num;
+        ajax_get(url, function (result) {
+            var newResult = JSON.parse(result);
+            var arr = [];
+            for (var i = 0; i < newResult.length; i++) {
+                for (var key in newResult[i]) {
+                    arr.push(newResult[i][key]);
+
+                }
+            }
+            for (var i in newTds) {
+                newTds[i].innerHTML = arr[i];
+            }
+        })
+
+
+    }
+
+</script>
+
+</body>
+</html>

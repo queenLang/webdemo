@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>14_项目属性_对齐方式</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.box {
+				height: 1000px;
+				margin: 30px auto;
+				border: 5px solid black;
+				display: flex;
+				/*align-items: center;*/
+				justify-content: center;
+			}
+			
+			 .box div {
+				width: 200px;
+				line-height: 200px;
+				text-align: center;
+				font-size: 50px;
+				color: white;
+				margin: 5px;
+				background-color: red;
+			}
+			/*align-self属性允许单个项目有与其他项目不一样的对齐方式,
+			 * 可覆盖align-items属 性。默认值为auto,表示继承父元素的align-items属性,
+			 * 如果没有父元素,则等同于 stretch。*/
+			/*该属性可能取6个值,除了auto,其他都与align-items属性完全一致。
+			  flex-start          
+              flex-end          
+              center          
+              baseline:                
+              stretch             
+              auto       */
+			.div1{
+				height: 200px;
+			}
+			.div2{
+				height: 300px;
+				align-self: flex-end;
+			}
+			.div3{
+				height: 600px;
+			}
+			.div4{
+				height: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="div1">1</div>
+			<div class="div2">2</div>
+			<div class="div3">3</div>
+			<div class="div4">4</div>
+		</div>
+	</body>
+</html>

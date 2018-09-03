@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>内心生活</title>
+		<script src="https://cdn.bootcss.com/limonte-sweetalert2/7.21.1/sweetalert2.all.js"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#head {
+				width: 100%;
+				height: 200px;
+				background-color: red;
+			}
+			
+			#name {
+				width: 120px;
+				font-size: 28px;
+				color: white;
+				display: block;
+				padding-top: 50px;
+				padding-bottom: 20px;
+				margin: 0 auto;
+			}
+			
+			#search {
+				width: 700px;
+				margin: 0 auto;
+			}
+			
+			#text {
+				width: 500px;
+				height: 40px;
+				font-size: 18px;
+				line-height: 40px;
+			}
+			
+			#btn {
+				width: 150px;
+				height: 44px;
+				font-size: 18px;
+				text-align: center;
+				line-height: 40px;
+				background-color: silver;
+				border: 0;
+				outline: none;
+			}
+			
+			.all {
+				width: 100%;
+				height: 45px;
+				line-height: 45px;
+			}
+			
+			.all:hover,
+			.all:nth-child(odd):hover {
+				background-color: rgba(0, 0, 0, 0.2);
+			}
+			/*文字*/
+			
+			.word {
+				height: 45px;
+				float: left;
+				text-indent: 2em;
+				font-size: 20px;
+				line-height: 45px;
+			}
+			/* 对号 √ */
+			/* 伪元素: 在 li 的前面加一个伪元素 */
+			
+			.change_word::before {
+				content: '';
+				/*position: absolute;*/
+				border-color: #fff;
+				border-style: solid;
+				border-width: 0 2px 2px 0;
+				top: 10px;
+				left: 16px;
+				transform: rotate(45deg);
+				height: 15px;
+				width: 7px;
+			}
+			
+			.change_word {
+				height: 45px;
+				float: left;
+				color: white;
+				/*设置中划线*/
+				text-decoration: line-through;
+				text-indent: 2em;
+				font-size: 20px;
+				line-height: 45px;
+			}
+			/*文字x*/
+			
+			.x {
+				width: 50px;
+				height: 45px;
+				float: right;
+				text-align: center;
+			}
+			
+			.all:nth-child(odd) {
+				background-color: rgba(0, 0, 0, 0.05);
+			}
+			
+			#footer {
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="head">
+				<span id="name">内心生活</span>
+				<div id="search">
+					<input type="text" id="text" placeholder="Title..." value="" /><input type="button" id="btn" value="Add" />
+				</div>
+			</div>
+			<div id="footer">
+			</div>
+
+			<script type="text/javascript">
+				//获取文本输入框
+				var otext = document.getElementById("text");
+				//获取点击按钮
+				var obtn = document.getElementById("btn");
+				//获取底部添加的div
+				var ofooter = document.getElementById("footer");
+				//按钮点击后
+				obtn.onclick = function() {
+					if(otext.value != "") {
+						swal("添加成功~", " ", "success")
+
+						//创建底部文字div
+						var divs = document.createElement("div");
+						//创建底部 X
+						var divb = document.createElement("div");
+						//创建大div包裹 文字和 X
+						var oAll = document.createElement("div");
+						divs.className = "word";
+						divs.innerHTML = otext.value;
+						divb.innerHTML = "X️";
+						divb.className = "x";
+						oAll.className = "all";
+						oAll.appendChild(divs);
+						oAll.appendChild(divb);
+						//将大div添加到 尾部中
+						ofooter.appendChild(oAll);
+						console.log(otext.value)
+					} else {
+						swal({
+							title: "请添加小秘密",
+							text: "了解(*^▽^*)！",
+							type: "warning",
+							confirmButtonColor: "skyblue",
+							confirmButtonText: "Ok",
+						});
+					}
+
+					var flag = true;
+					oAll.onclick = function() {
+						if(flag) {
+							divs.className = "change_word";
+							
+							oAll.style.backgroundColor = "rgba(0,0,0,0.5)";
+							flag = false;
+						} else {
+							divs.className = "word";
+							oAll.style.backgroundColor = "";
+							flag = true;
+						}
+					}
+					divb.onmouseover = function() {
+						divb.style.backgroundColor = "red";
+					}
+					divb.onmouseout = function() {
+							divb.style.backgroundColor = "";
+						}
+						//点击  x  号
+					divb.onclick = function() {
+						swal({
+								title: "确定删除小秘密？",
+								text: "你将无法恢复的哦！",
+								type: "warning",
+								showCancelButton: true,
+								confirmButtonColor: "#DD6B55",
+								confirmButtonText: "确定删除！",
+								cancelButtonText: "取消删除！",
+								closeOnConfirm: false,
+								closeOnCancel: false
+							},
+							function(isConfirm) {
+								if(isConfirm) {
+									swal("删除！", "你的小秘密已经被删除。",
+										"success");
+									this.parentNode.remove();
+								} else {
+									swal("取消！", "你的小秘密是安全的:)",
+										"error");
+								}
+							});
+
+					}
+				}
+			</script>
+		</div>
+	</body>
+
+</html>

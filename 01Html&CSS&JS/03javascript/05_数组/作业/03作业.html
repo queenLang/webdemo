@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_作业</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//3. 随机生成数组A，20个元素，取值范围[6, 66]，
+			//将奇数位置元素存到B数组中，偶数元素存到C数组中
+ 
+              var arrA = [];
+              var arrB = [];
+              var arrC = [];
+              for(var i = 0; i < 20; i++){
+              	var a = Math.floor(Math.random()* (66 - 6 + 1) + 6);
+              	arrA[i] = a;
+              }
+              document.write("数组为: " + arrA);
+              document.write("<br />");
+              
+              for(var i = 0 ; i < arrA.length; i++){
+              	    
+              	 if(i % 2 == 1){
+              	 	arrB[i] = arrA[i];
+              	 }
+              	 if(arrA[i] % 2 == 0){
+              	 	arrC[i] = arrA[i];
+              	 }
+              }
+              document.write("数组B: " + arrB);
+              document.write("<br />");
+              document.write("数组C: " + arrC);
+		</script>
+	</body>
+</html>

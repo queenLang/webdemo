@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_字符大小写不可以重复</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [];
+			while(arr.length != 5) {
+				var a = prompt("请输入字符");
+				var flag = true;
+
+				for(var i = 0; i < arr.length; i++) {
+					console.log(arr[i]);
+					if( arr[i].toUpperCase() == a.toUpperCase()) {
+						flag = false;
+						break;
+					}
+				}
+				if(flag) {
+					arr.push(a);
+				}
+			}
+			console.log(arr);
+		</script>		
+	</body>
+</html>

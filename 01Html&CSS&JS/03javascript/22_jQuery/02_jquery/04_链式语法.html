@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>04_链式语法.</title>
+	</head>
+
+	<body>
+		<div id="all"></div>
+		<script src="jquery-1.11.2.min(1).js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#all").html("峰哥最帅了,哈哈哈")
+				.click(function() {
+					alert("阮经天也帅,啦啦");
+				}).css({
+					"width": "300px",
+					"background-color": "red"
+				})
+		</script>
+	</body>
+
+</html>

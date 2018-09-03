@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<button id="btn" onclick="btn()">点击</button>
+<button id="btn1">按钮1</button>
+<script>
+    var oDiv1 = document.getElementById("div1");
+
+    //第一种
+    oDiv1.onclick = function () {
+        console.log(this); //oDiv1
+        abc();  //window
+    }
+
+    //全局变量和全局函数 都是 window的属性和方法
+    //在任何地方调用全局函数,其this指向都是window
+
+    function abc() {
+        console.log(this);
+    }
+
+
+    /*
+    如果想让abc函数里的this指向oDiv1,可以
+    oDiv1的自定义方法,是一个函数
+    oDiv1.onclick = function () {
+        console.log(this); //oDiv1
+        oDiv1.ab = abc;
+    }
+    oDiv1.ab();  //oDiv
+    */
+
+    //第二种
+    function count() {
+        mmm();
+    }
+    function mmm() {
+        console.log(this);
+    }
+
+    count();  //window
+
+    //第三种
+
+    //在标签中写 onclick="btn()" 相当于如下执行
+    var oBtn = document.getElementById("btn");
+    oBtn.onclick = function () {
+        btn();  //window
+    }
+
+    function btn() {
+        console.log(this);   //window
+    }
+
+    //第四种
+   var oBtn1 = document.getElementById("btn1");
+    oBtn1.onclick = theClick;
+    function theClick() {
+        console.log(this);  //oBtn1
+    }
+
+    /*
+    oBtn1.onclick = function () {
+        theClick(this);
+    }
+    function theClick(ele) {
+        console.log(ele);
+    }
+    */
+
+</script>
+</body>
+</html>

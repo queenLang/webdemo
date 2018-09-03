@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>00晨测</title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 50px;
+				background-color: yellow;
+				margin: 5px;
+				display: inline-block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			for(var i = 1; i <= 9; i++) {
+				for(var j = 1; j < i + 1; j++) {
+					var k = i * j;
+					document.write("<div> " + i + "*" + j + " =" + k + " </div>")
+				}
+				document.write("<br />");
+			}
+
+			var arr = [8, 7, 6, 5, 12, 4, 1];
+			for(var i = 0; i < arr.length - 1; i++) {
+				for(var j = 0; j < arr.length - 1 - i; j++) {
+					if(arr[j] > arr[j + 1]) {
+						var temp = arr[j];
+						arr[j] = arr[j + 1];
+						arr[j + 1] = temp;
+					}
+				}
+			}
+			document.write(arr);
+
+			// 过滤数组中的数字，删除非数字 
+			var arr = ["a", "b", 1, 3, 4, 5, "b", 2];		
+			var flag = true;
+			for(var i = 0; i < arr.length; i++) {
+				//var a = typeof(arr[i]);
+				//document.write(a);
+				if(isNaN(arr[i])){
+					arr.splice(i,1);
+					i--;
+				}
+			}
+			document.write(arr);
+		</script>
+	</body>
+
+</html>

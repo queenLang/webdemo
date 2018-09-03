@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			form{
+				width: 500px;
+				height: 350px;
+				margin: 100px auto;
+				box-shadow: 2px 2px 10px 5px lightgrey;
+			}
+			h3{
+				text-align: center;
+				padding-bottom: 30px;
+				padding-top: 30px;
+			}
+		
+			.o-input{
+				width: 460px;
+				height: 50px;
+				position: relative;
+				left:70px;
+			}
+
+			button{
+				width: 320px;
+				height: 40px;
+				background-color: dodgerblue;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		
+	</head>
+
+	<body>
+		<form class="form-horizontal">
+			<h3>系统登录</h3>
+			<div class="form-group o-input">
+				<!--<label for="inputEmail3" class="col-sm-2 control-label"></label>-->
+				<div class="col-sm-10 col-xs-10">
+					<input type="text" class="form-control" id="inputEmail3" placeholder="账号">
+				</div>
+			</div>
+			
+			<div class="form-group o-input">
+				<!--<label for="inputPassword3" class="col-sm-2 control-label"></label>-->
+				<div class="col-sm-10 col-xs-10">
+					<input type="password" class="form-control " id="inputPassword3" placeholder="密码">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-xs-offset-2 col-sm-10 col-xs-10">
+					<button type="submit" class="btn btn-primary btn_a">登录</button>
+				</div>
+			</div>
+		</form>
+         <!--<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="js/jquery-1.11.2.min(1).js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".btn_a").click(function(){
+				if($("#inputEmail3").val() != "" && $("#inputPassword3").val() != "")
+				window.open("项目.html");
+			})
+		</script>
+	</body>
+     
+</html>

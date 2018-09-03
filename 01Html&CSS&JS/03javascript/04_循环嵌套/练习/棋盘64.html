@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>棋盘64</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			// 3. 有一个棋盘，有64个方格，
+			//在第一个方格里面放1粒芝麻重量是0.00001kg，
+			//第二个里面放2粒，第三个里面放4，棋盘上放的所有芝麻的重量
+			var a = 0;
+			for(var n = 1; n <= 8; n++) {
+				for(var m = 1; m <= 8; m++) {
+					var con = m * n;
+					document.write(con + " ");
+					b = Math.pow(2, con) * 0.00001;
+//					document.write(b + " ");
+					a += b;
+				}
+			}
+			document.write("芝麻的重量" + a);
+		</script>
+	</body>
+
+</html>

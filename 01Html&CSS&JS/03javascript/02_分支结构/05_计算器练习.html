@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_计算器练习</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var num1 = parseInt(prompt("请输入第一个数字"));
+			var ari = prompt("请输入运算符号");
+			var num2 = parseInt(prompt("请输入第二个数字"));
+			var result;
+			switch (ari){
+				case "+":
+				    result = num1 + num2;
+					break;
+				case "-":
+				    result = num1 - num2;
+					break;
+				case "*":
+				    result = num1 * num2;
+					break;
+				case "/":
+				    result = num1 / num2;
+					break;	
+				default:
+				    alert("算不出来吧");
+					break;
+			}
+              //引入弹框
+			alert("result: " +result);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板字符串</title>
+</head>
+<body>
+<div id="all"></div>
+<script>
+
+    // document.write("<div>哈哈哈</div>");
+
+    let oAll = document.getElementById("all");
+    let movie = "蚁人";
+    let theDiv = "<div>" + movie + "</div>";
+    let getMovie = () => {
+        return "一出好戏";
+    }
+
+
+    //模板字符串
+    let str = `
+      <div>
+          <h1>最近上映的电影</h1>
+          <h1>${movie}</h1>
+          <h1>${getMovie()}</h1>
+      </div>
+    `;
+    oAll.innerHTML = str;
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_循环嵌套</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//0~100所有的两位数
+			 for(var i = 10; i < 100; i++){
+			 	if(i % 10 == 0){
+			 		console.log(i);
+			 	}
+			 }
+			 //10~99两位数
+			 for(var i = 1; i < 10; i++){
+				for(var j = 0; j < 10;j++){
+					console.log("i,j: " + i + j);
+					//console.log(  i*10 + j);
+				}
+			}
+			 //100~999三位数
+			 for(var i = 1; i < 10; i++){
+			 	for(var j = 0; j <10; j++){
+			 		for(var k = 0; k < 10; k++){
+			 			console.log("i,j,k: " +i +j +k);
+			 		}
+			 	}
+			 }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = ["吴大渣", "姜一亲", "马大爷", "峰"];
+
+    let result = arr.map((value, index, array) => {
+        console.log(value, index, array);
+        return "大猪蹄子:" + value;
+    });
+    console.log(result);
+
+    //map 遍历数组 值  下标
+    //执行之后 可以返回一个数组
+
+    for(var i = 0; i < 5; i++){
+        setInterval(function () {
+            console.log(i);   //5
+        },1000)
+    }
+
+
+    for(let i = 0; i < 5; i++){
+        setInterval(function () {
+            console.log(i);
+        },1000)
+    }
+
+
+</script>
+</body>
+</html>

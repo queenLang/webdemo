@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>00_练习</title>
+		<style type="text/css">
+			*{
+				-webkit-transition: all .5s;
+				-moz-transition: all .5s;
+				-ms-transition: all .5s;
+				-o-transition: all .5s;
+				transition: all .5s;
+			}
+			
+			.all{
+				width: 1200px;
+				text-align: center;
+				margin: 0 auto;
+			}
+			
+			.btn{
+				width: 100px;
+				height: 50px;
+				margin-bottom: 20px;
+				background-color: #4169E1;
+				outline: none;
+				border: 0;
+				font-size: 20px;
+				color: white;
+				
+			}
+			
+			.btn2{
+				background-color: lightcoral;
+			}
+			
+			.box {
+				width: 980px;
+				overflow: hidden;
+				border: 1px solid deeppink;
+				margin: 0 auto;
+				padding: 10px;
+			}
+			
+			.box div {
+				width: 50px;
+				height: 50px;
+				background-color: plum;
+				float: left;
+				margin: 10px;
+				box-sizing: border-box;
+			}
+						
+			.box .div2{
+				background-color: yellow;
+				border-radius: 50%;
+			}
+			</style>
+	</head>
+	<body>
+		<div class="all">
+			<button class="btn" id="btn">变色</button>
+			<div id="box" class="box">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var oDiv = document.getElementById("box");
+			var divs = oDiv.getElementsByTagName("div");
+			var btn = document.getElementById("btn");
+			var arr = [];
+			var flag = true;
+			for (var i = 0; i < divs.length; i++) {
+				divs[i].index = i;
+				divs[i].onclick = function(){
+					//得到元素在arr中的下标 
+					//如果 == -1 说明不存在
+					if(arr.indexOf(this.index) == -1){
+						arr.push(this.index);
+					    this.style.border = "2px solid black"; 
+					}else{
+						arr.splice(arr.indexOf(this.index),1);
+						this.classList.remove("div2");
+						this.style.border = 0;
+					}
+					
+				}
+				btn.onclick = function(){
+					if(flag){
+						btn.innerHTML = "变色";
+						
+					}else{
+						btn.innerHTML = "不变色";
+					}
+					btn.classList.toggle("btn2");
+					flag = !flag;
+					
+					for (var j = 0; j < arr.length; j++) {
+						divs[arr[j]].classList.toggle("div2");
+					}
+					
+				}
+			}
+		</script>
+	</body>
+</html>

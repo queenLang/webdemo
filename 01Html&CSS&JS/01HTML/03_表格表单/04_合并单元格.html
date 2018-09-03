@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>04_合并单元格.</title>
+	</head>
+
+	<body>
+		<table border="1">
+			<tr>
+				<th>姓名</th>
+				<!--colspan 占据了几列
+					横向占据了两个单元格的宽度
+				-->
+				<th colspan="2">电话</th>
+
+			</tr>
+			<tr>
+				<td>李易峰</td>
+				<td>13724253147</td>
+				<td>13475247147</td>
+			</tr>
+		</table>
+		<table border="1">
+			<tr>
+				<th>姓名</th>
+				<td>随便</td>
+				
+			</tr>
+			<tr>
+				<!--rowspan 纵向占据两个单元格-->
+				<th rowspan="2">电话</th>
+				<td>123456</td>
+			</tr>
+			<tr>
+				
+				<td>14527</td>
+			</tr>
+		</table>
+		<table border="1" cellpadding="20" cellspacing="5">
+			<tr>
+				<th colspan="2">刘小光</th>
+				
+				<td rowspan="3">二人转演员</td>
+			</tr>
+			<tr>
+				<th>刘小光</th>
+				<td>二人转演员</td>
+				
+			</tr>
+			<tr>
+				<th>刘小光</th>
+				<td>二人转演员</td>
+				
+			</tr>
+		</table>
+	</body>
+
+</html>

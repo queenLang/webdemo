@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_if_else</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//单分支
+			/*if(条件表达式){
+				 语句
+				 //条件表达式满足,会执行花括号里面的代码
+			   }
+			   if(下雨){
+			   	就放学回家
+			   }
+			 */
+			var x = 15;
+			var y = 10;
+			if(x > y){
+				console.log("x > y");
+			}
+			console.log("🐒🐒🐒");
+			
+			//双分支  
+			/*
+			  if(条件表达式){
+			  	语句1;
+			  }else{
+			  	语句2;
+			  }
+			  条件表达式满足true 会执行语句1;
+			  条件不满足  执行语句2
+			 */
+			if(x > y){
+				console.log("x > y");
+			}else{
+				console.log("x < y");
+			}
+			/*
+			 * 多分支
+			  if(条件表达式1){
+			 	  语句1;
+			  }else if(条件表达式2){
+			  	  语句2;
+			  }else if(条件表达式3){
+			  	   语句3;
+			  }else{
+			  	   语句4;
+			  }
+			 */
+//			x = parseInt(prompt("请输入x的值: "));
+//			y = parseInt(prompt("请输入y的值: "));
+			if(x > y){
+				document.write(" <h1> x > y </h1>");
+			}else if(x < y){
+				document.write(" <h1> x < y </h1>");
+			}else{
+				document.write(" <h1> x = y </h1>");
+			}
+			
+			a = parseInt(prompt("请输入成绩: "));
+			if(a > 90){
+				document.write("<h1> 优 </h1>");
+			}else if(a < 90 && a >= 80){
+				document.write("<h1> 良 </h1>");
+			}else if(a < 80 && a >= 60){
+				document.write("<h1> 中 </h1>");
+			}else{
+				document.write("<h1> 不及格 </h1>");
+			}
+			
+				var m = false;
+			console.log("吴大渣和姜一亲什么关系?");
+			if(!m){
+				console.log("--兄弟关系");
+			}
+			console.log("不--爱的关系");
+			
+			//非0即是真
+			if(-1){
+				console.log("zhang");
+			}else{
+				console.log("aaaaa");
+			}
+			
+		</script>
+	</body>
+</html>

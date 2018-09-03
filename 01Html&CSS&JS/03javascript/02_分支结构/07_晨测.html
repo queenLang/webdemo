@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>11_晨测</title>
+		<style type="text/css">
+			.small {
+				width: 200px;
+				height: 200px;
+				background-color: #FF00FF;
+				border-radius: 8%;
+				margin: 300px 300px;
+				outline: none;
+				user-select: none;
+				font-size: 30px;
+				text-align: center;
+				line-height: 200px;
+			}
+			
+			.small:hover {
+				background-color: darkcyan;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="text" name="" id="small" class="small" value="" />
+		<script type="text/javascript">
+			var small = document.getElementById("small");
+			var i = 1;
+
+			//执行顺序  赋初始值只需要执行一次
+			small.onclick = function() {
+				//每点击一次就执行一次
+				small.value = i++;
+				
+				//Math.floor(Math.random()*(最大值-最小值+1)+最小值)
+				var r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+				var g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+				var b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+	
+				small.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+			}
+		</script>
+	</body>
+
+</html>

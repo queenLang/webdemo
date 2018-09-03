@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_定时器.</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//延时5s  执行 function 里面的内容  只执行一次
+			
+			var timer = setTimeout(function(){
+				console.log("你不是人");
+			},5000);
+			console.log("out");
+			
+			//清除定时器
+			clearTimeout(timer);
+		</script>
+	</body>
+</html>

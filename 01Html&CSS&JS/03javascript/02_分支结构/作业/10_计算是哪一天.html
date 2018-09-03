@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>10_计算是哪一天.</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 4. 问题：计算某天是一年中的第几天
+			 * 解题思路：
+			 * （1）提示分别输入月份和日期
+			 * （2）计算当月的前几个整月的天数
+			 *          11种情况，即1月~11月
+			 *          在写case的时候，由case11~case1依次书写
+			 * （3）计算总天数 = 整月天数+这个月的日期
+			 * （4）输出结果
+			 * */
+			var year =  parseInt(prompt("请输入年份"));
+			var month = parseInt(prompt("请输入月份"));
+			var day = parseInt(prompt("请输入日期"));
+
+			switch(month - 1) {
+				case 11:
+					day += 30;
+				case 10:
+					day += 31;
+				case 9:
+					day += 30;
+				case 8:
+					day += 31;
+				case 7:
+					day += 31;
+				case 6:
+					day += 30;
+				case 5:
+					day += 31;
+				case 4:
+					day += 30;
+				case 3:
+					day += 31;
+				case 2:
+					if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+						day += 29;
+					} else {
+						day += 28;
+					}
+				case 1:
+					day += 31;
+                     break;
+				default:
+					break;
+				}
+//					alert("day=" + day);
+			  alert("是" + year + "年的第" + day + "天" );	
+			
+		</script>
+	</body>
+
+</html>

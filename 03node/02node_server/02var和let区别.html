@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    for (var i = 0; i < 3; i++) {
+        setInterval(function () {
+            // console.log(i);   //每秒3个3
+        }, 1000)
+    }
+    /*
+        var i = 0;
+        setInterval(function () {
+            console.log(i);
+        },1000)
+        i = 1
+        setInterval(function () {
+            console.log(i);
+        },1000)
+        i= 2;
+        setInterval(function () {
+            console.log(i);
+        },1000)
+     */
+
+
+    for (let i = 0; i < 3; i++) {
+        setInterval(function () {
+            // console.log(i);  // 0 1 2
+        }, 1000)
+    }
+
+    /*
+        {
+            i = 0;
+            setInterval(function () {
+                console.log(i);
+            }, 1000)
+        }
+        {
+            i = 1
+            setInterval(function () {
+                console.log(i);
+            }, 1000)
+        }
+        {
+            i = 2;
+            setInterval(function () {
+                console.log(i);
+            }, 1000)
+        }
+     */
+
+
+    for(var i = 0; i < 5; i++){
+        (function () {
+            console.log(i)
+            setTimeout(function () {
+                console.log(i)
+            },1000)
+        })(i)
+    }
+</script>
+
+</body>
+</html>

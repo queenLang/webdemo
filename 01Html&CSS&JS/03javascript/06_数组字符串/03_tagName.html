@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_tagName</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin: 10px;
+				font-size: 20px;
+			}
+			.div5{
+				background-color: yellow;
+				width: 500px;
+				height: 600px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div class="div5" id="thediv">
+			<div>5</div>
+			<div>5</div>
+			<div>5</div>
+			<div>5</div>
+			<div>5</div>
+		</div>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<script type="text/javascript">
+			//标签名字 
+			//使用id 来获取当前标签
+			//document.getElementById("")
+			
+			//获取body里面所有的div
+			var divs = document.getElementsByTagName("div");
+			console.log(divs.length);   //14
+			console.log(divs);  //得到装有所有div数组
+			
+			//获取 thediv中的所有div
+			var theDiv = document.getElementById("thediv");
+			var the_divs = theDiv.getElementsByTagName("div");
+			console.log(the_divs.length); //5
+			
+			//将theDiv 中的第二个div背景颜色改成蓝色  
+			
+			the_divs[1].style.backgroundColor = "blue";
+		</script>
+	</body>
+</html>

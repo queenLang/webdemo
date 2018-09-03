@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_transform_缩放</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: gold;
+				margin-bottom: 30px;
+				margin-left: 50px;
+				/*trs*/
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+				/*trfo*/
+				-webkit-transform-origin: right bottom;
+				-moz-transform-origin: right bottom;
+				-ms-transform-origin: right bottom;
+				-o-transform-origin: right bottom;
+				transform-origin: right bottom;
+			}
+			/*缩放:scale
+			 基准点就是元素的中心位置  缩放基数为1
+			 如果其值大于1就放大,反之其值小于1  元素缩小*/
+			.div1:hover{
+			  /*x,y同时缩放*/
+			 /*trsc*/
+			    -webkit-transform: scale(1.5, 1.5);
+			    -moz-transform: scale(1.5, 1.5);
+			    -ms-transform: scale(1.5, 1.5);
+			    -o-transform: scale(1.5, 1.5);
+			    transform: scale(1.5, 1.5);
+			}
+			/*水平*/
+			.div2:hover{
+				/*trfcx*/
+				/*trcx*/
+				-webkit-transform: scaleX(0.5);
+				-moz-transform: scaleX(0.5);
+				-ms-transform: scaleX(0.5);
+				-o-transform: scaleX(0.5);
+				transform: scaleX(0.5);
+			}
+			/*垂直y 缩放*/
+			.div3:hover{
+				/*trcy*/
+				-webkit-transform: scaleY(2);
+				-moz-transform: scaleY(2);
+				-ms-transform: scaleY(2);
+				-o-transform: scaleY(2);
+				transform: scaleY(2);
+			}
+			/*右下角为基准点进行缩小*/
+			.div4:hover{
+				-webkit-transform: scale(0.5, 0.5);
+				-moz-transform: scale(0.5, 0.5);
+				-ms-transform: scale(0.5, 0.5);
+				-o-transform: scale(0.5, 0.5);
+				transform: scale(0.5, 0.5);
+			}
+		</style>
+	</head>
+	<body>
+		<!--.div$*4-->
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+		<div class="div4"></div>
+	</body>
+</html>

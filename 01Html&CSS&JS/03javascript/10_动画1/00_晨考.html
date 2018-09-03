@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>00_晨考</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*1. 函数题: 随机 min 到 max 的 n 个数，   
+												要求数字不能重复, 返回一个数组
+												函数名: getUniqueArr 
+												*/
+
+			console.log(getUniqueArr(50, 1, 10));
+
+			function getUniqueArr(max, min, n) {
+				var arr = [];
+				while(arr.length != n) {
+					var a = Math.floor(Math.random() * (max - min + 1) + min);
+					var flag = true;
+					for(var i = 0; i < arr.length; i++) {
+						if(a == arr[i]) {
+							flag = false;
+							break;
+						}
+					}
+					if(flag) {
+						arr.push(a);
+					}
+				}
+				return arr;
+			}
+
+
+
+
+			getUniqueArr2(50, 1, 10);
+			function getUniqueArr2(max, min, n) {
+				var arr = [];
+				while(arr.length != n) {
+					var a = Math.floor(Math.random() * (max - min + 1) + min);
+					if(arr.indexOf(a) == -1) {
+						arr.push(a);
+					}
+				}
+				console.log(arr) ;
+			}
+		</script>
+
+	</body>
+
+</html>

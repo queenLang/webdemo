@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>03_作业</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			// 3. 写一个函数来检测传入的字符串是否为回文
+			// isPalindrome('hello'); // false
+			// isPalindrome('madam'); // true
+
+//			var arr = prompt("请输入字符串");
+//			document.write(isPalindrome(arr));
+//
+//			function isPalindrome(arr) {
+//				var s = parseInt((arr.length + 1) / 2);
+//				for(var i = 0; i < s; i++) {
+//					if(arr[i] != arr[arr.length - 1 - i]) {
+//						return false;
+//					}
+//				}
+//				return true;
+//			}
+
+			function ispalindrome(str) {
+				if(typeof str !== "string") {
+					//throw exception
+					throw "请输入字符串!";
+				}
+				var tmp = str.split('').reverse().join('');
+				return tmp === str;
+			}
+			console.log(ispalindrome(1211111));
+		</script>
+	</body>
+
+</html>

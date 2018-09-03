@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>输出三角形2</title>
+		<style type="text/css">
+			div {
+				width: 30px;
+				height: 30px;
+				background-color: red;
+				margin: 15px;
+				display: inline-block;
+				transform: rotate(45deg);
+			}
+			
+			.div1 {
+				background-color: rgba(0, 0, 0, 0);
+			}
+		</style>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			for(var i = 0; i < 6; i++) {
+				for(var j = 0; j < 5 - i; j++) {
+					document.write("<div class='div1'></div>");
+				}
+				for(var k = 0; k < 2 * i + 1; k++) {
+					//k 取值范围  0~2*i
+					if(k == 0 || k == 2 * i || (i == 5 && k % 2 == 0)) {
+						document.write("<div></div>");
+					} else {
+						document.write("<div class='div1'></div>");
+					}
+
+				}
+				document.write("<br />");
+			}
+		</script>
+	</body>
+
+</html>

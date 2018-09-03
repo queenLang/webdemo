@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>05_变量提升</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			a = 2;
+			var a;
+			console.log(a); // 2
+
+			/*
+			 上一段代码相当于:
+			  var a;
+			  a = 2;
+			  console.log(a);
+			 * */
+
+			/*
+			 * 引擎在处理js代码时:
+			 * 进行两个步骤
+			 * 第一步:解释
+			 * 第二部:执行
+			 * 解释就是通篇扫描所有js代码
+			 * 然后把所有声明提升到顶端 
+			 */
+
+			/*
+			 变量提升hoisting
+			 变量提升就是把变量声明提升到它所在作用域的最顶端
+			 js 里作用域: 全局;函数
+			 * */
+
+			// ------------------全局作用域范围-------------------
+			console.log(b); //undefined
+			var b = "bbb";
+
+			/*
+			  上一段代码相当于:
+			  var b;
+			  console.log(b);
+			  b = "bbb";
+			 */
+			//--------------------函数作用域范围--------------------
+			function fn() {
+				console.log(b); //nudefined
+				var b = "aaa";
+				console.log(b); //aaa
+			}
+			fn();
+
+			/*
+			  上一段代码相当于:
+			  function fn(){
+			  	var b;
+			   	console.log(b);  //nudefined
+			  	b = "aaa";
+			 	console.log(b);  //aaa
+			  }
+			fn();
+			 */
+
+			/*
+			 * 函数提升  函数声明可以提升
+			 */
+
+			f1();
+			function f1() {
+				console.log(1); //1
+			}
+			/*
+			 上一段代码相当于:
+			 function f1(){
+			  	console.log(1);  
+			}
+			f1();
+			 */
+
+			//练习
+			console.log("ifn1: " + ifn); //  function ifn() {console.log("fn调用")};	
+			var ifn = 3;
+			function ifn() {console.log("fn调用")};	
+			console.log("ifn2: " + ifn);  //3
+			console.log(ifn());   //  报错
+			
+			//如果有函数提升和变量提升  函数提升会在变量提升的上面 
+
+			/*
+			 上一段代码相当于:
+			 function ifn() {
+				console.log("fn调用")
+			};
+			 删除这行:var ifn;( 这是重复声明,因此声明被省略 )
+			 console.log("ifn1: " + ifn);
+			 ifn = 3;
+			console.log("ifn2: " + ifn);  //3
+			console.log(ifn());  //ifn此时是变量,不能被调函数
+			 */
+			
+			
+		</script>
+	</body>
+
+</html>

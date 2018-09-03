@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+			}
+			
+			#list {
+				border: 1px solid black;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			li {
+				width: 200px;
+				background-color: black;
+				color: white;
+				font-size: 50px;
+				text-align: center;
+				box-sizing: border-box;
+				position: absolute;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<ul id="list">
+		</ul>
+		<script type="text/javascript">
+			var oList = document.getElementById("list");
+			var space = 20;
+			var winW = document.documentElement.clientWidth;
+			var cols = parseInt((winW - space) / (200 + space));
+			oList.style.width = (200 + space) * cols + space + "px";
+			var colHArr = [];
+			for(var i = 0; i < cols; i++) {
+				colHArr[i] = 0;
+			}
+			for(var i = 0; i < 50; i++) {
+				var newLi = document.createElement("li");
+				newLi.innerHTML = i;
+				oList.appendChild(newLi);
+				var h = Math.floor(Math.random() * (300 - 200 + 1) + 200);
+				newLi.style.height = h + "px";
+				newLi.style.lineHeight = h + "px";
+				var minH = colHArr[0];
+				var minIndex = 0;
+				for(var j = 0; j < colHArr.length; j++) {
+					if(minH > colHArr[j]) {
+						minH = colHArr[j];
+						minIndex = j;
+					}
+				}
+				newLi.style.top = minH + space + "px";
+				newLi.style.left = space + (200 + space) * minIndex + "px";
+				colHArr[minIndex] += space + newLi.offsetHeight;
+			}
+			var maxH = colHArr[0];
+			for(var i = 0; i < colHArr.length; i++) {
+				if(maxH < colHArr[i]) {
+					maxH = colHArr[i];
+				}
+			}
+			oList.style.height = maxH + space + "px";
+		</script>
+	</body>
+
+</html>

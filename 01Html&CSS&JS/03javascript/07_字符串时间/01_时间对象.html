@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_时间对象</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 格林威治  GMT  全球都以格林威治的时间作为标准设定时间
+			 * 
+			 * CST  代表不同时区   北京  东八区  +8
+			 */
+			var nowDate = new Date();
+			console.log(nowDate);   //Thu Jul 05 2018 16:54:08 GMT+0800 (中国标准时间)
+
+			//年  
+			var year = nowDate.getFullYear();
+			console.log(year);  // 2018	
+			//月
+			var month = nowDate.getMonth();
+			console.log(month);
+			//日
+			var day = nowDate.getDate();
+			console.log(day);
+			//星期
+			var week = nowDate.getDay();
+			console.log(week);
+			//小时
+			var hours = nowDate.getHours();
+			console.log(hours);
+			//分钟
+			var minutes = nowDate.getMinutes();
+			console.log(minutes);
+			//秒
+			var second = nowDate.getSeconds();
+			console.log(second);
+			//毫秒数
+			var millSecond = nowDate.getMilliseconds();
+			console.log(millSecond);
+			
+			
+			//时间戳   从1970年到现在的毫秒数
+			var time = nowDate.getTime();
+			console.log(time);
+			
+			//自定义时间
+			//new Date(year month date hrs min sec)
+			var future = new Date(2018,7,7);
+			console.log(future);
+		</script>
+	</body>
+</html>

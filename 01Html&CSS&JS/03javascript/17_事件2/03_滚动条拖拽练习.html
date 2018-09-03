@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>03_滚动条拖拽练习</title>
+		<style type="text/css">
+			#all {
+				width: 600px;
+				height: 50px;
+				position: relative;
+				left: 50%;
+				margin-left: -300px;
+				background-color: burlywood;
+				border-radius: 50px;
+			}
+			
+			#div {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background-color: saddlebrown;
+				position: absolute;
+			}
+			
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: royalblue;
+				position: absolute;
+				top: 200px;
+				left: 100px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all">
+			<div id="div"></div>
+		</div>
+		<div id="box"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			var oDiv = document.getElementById("div");
+			var oBox = document.getElementById("box");
+			var maxW = oAll.clientWidth - oDiv.offsetWidth;
+			var minW = 0;
+			oDiv.onmousedown = function(ev) {
+				var ev = ev || window.event;
+				var X = ev.pageX - this.offsetLeft;
+				document.onmousemove = function(ev) {
+					var ev = ev || window.event;
+					var L = ev.pageX - X;
+					if(L <= 0) {
+						L = 0;
+					}
+					if(L >= maxW) {
+						L = maxW;
+					}
+					oDiv.style.left = L + "px";
+					//计算比例系数, 当前 滚动条位置 / 最大值
+					var ratio = L / maxW;
+					//原本长度 + 想要达到的距离* 比例系数 + "px"
+					oBox.style.width = 100 + 200 *ratio + "px";
+					oBox.style.height = 100 + 200 *ratio + "px";
+				}
+			}
+			oDiv.onmouseup = function(){
+				document.onmousemove = null;
+			}
+			
+		</script>
+	</body>
+
+</html>

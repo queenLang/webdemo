@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>练习</title>
+		<style type="text/css">
+			.container {
+				position: relative;
+				margin: 100px;
+			}
+			
+			input {
+				width: 160px;
+				height: 30px;
+				border: none;
+				/*设置没有轮廓*/
+				outline: none;
+				border: 1px solid red;
+				border-radius: 4px;
+				text-indent: 3em;
+				transition: all .5s;
+			}
+			
+			span.title {
+				position: absolute;
+				top: 1px;
+				left: 4px;
+				display: inline-block;
+				height: 30px;
+				line-height: 30px;
+				transition: all .5s;
+			}
+			
+			input:focus,
+			input:hover {
+				text-indent: .2em;
+			}
+			
+			input:focus+span.title,
+			input:hover+span.title {
+				transform: translateX(-120%);
+			}
+
+			input:invalid{
+				border: 1px solid tomato;
+			}
+			
+			input:valid~label::after {
+				content: "耶,一个邮箱!";
+			}
+			
+			input:invalid~label::after {
+				content: "枣糕,是邮箱吗?";
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<input type="email" id="mail" required placeholder="your mail" />
+			<span class="title">邮箱</span>
+			<label for="mail"></label>
+
+		</div>
+	</body>
+
+</html>

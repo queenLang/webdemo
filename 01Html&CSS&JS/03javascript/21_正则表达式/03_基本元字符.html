@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_基本元字符</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			1. [] 	[xyz] 	xyz中任意一个字符 等价于[x-z]
+			2. [^] 	[^xyz] 	匹配任意不在xyz中的一个字符，等价于[^x-z] 
+							(注意与^x区分，后者表示匹配以x开头的字符）
+			3. [-] 	[1-3] 	匹配123中的任意一个字符，等价于[123]。
+							注意：连字符只有出现在方括号中才表示连续的字符序列。
+			4. x|y  匹配 x 或 y	
+			5. () : 分组
+			6. . : 除了换行符\n之外的任意一个字符
+			7. \ : 转义字符
+		*/
+          var str = "abc1xy23efG456xyz000.y3Y.YP.";
+          var reg1 =/[axy]/g;
+          var reg2 = /[^abcxyz]/g;
+          var reg3 = /[0-9]/g;
+          var reg4 = /[a-zA-Z]/g;
+          var reg5 = /x|y/g;
+          var reg6 = /[^(xy)]/g;
+          var reg7 = /.[a-z][0-9]/g;
+          var reg8 = /\.[a-z][0-9]/g;    //.y3
+          
+          alert(str.match(reg8));
+          
+          
+		</script>
+	</body>
+</html>

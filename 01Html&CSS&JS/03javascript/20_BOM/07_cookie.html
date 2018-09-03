@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>07_cookie</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+		//分享: utf=8  
+		//分享:MD5...   加密方式
+		
+		//创建cookie
+			document.cookie = "uname=xiaoming";
+			document.cookie = "uname2=" + escape("小明");
+			
+			//默认过期时间 会话结束
+			//设置 cookie 过期时间
+			var oDate = new Date();
+			oDate.setTime(oDate.getTime()+ 60*500);  //半分钟后过期
+			document.cookie = "ujs=JavaScript;expires=" + oDate.toGMTString();
+			
+			//修改
+			//新设置的cookie 如果与原来的 cookie 相同
+			document.cookie = "uname2=lingling";
+			//删除 设置已经过期的时间
+			var exp = new Date();
+			exp.setTime(exp.getTime()-1);
+			document.cookie = "uname=xiaoming;expires=" + exp.toGMTString();
+			
+			//路径   /03javascript/20_BOM
+			//设置路径为全站有效  否则默认只有在当前路径下 有效
+			document.cookie = "upath=quanzhan; path=/";			
+			
+			/* * 什么是 cookie ?  session 会话
+			 *  键值对
+			[如果经常上网，会发现很多网站都有一个功能，
+			下次自动登录，或者一个月内免登录，
+			只要我们不点击“退出”按钮，一段时间后再回到该网站，发现依然在线。
+			这个功能很实用，避免了多次登录带来的不便。
+															
+			很多网站都是靠百度联盟和谷歌联盟的广告来盈利，
+			这些广告都有跟踪功能，我们需要什么服务就显示什么广告。
+			比如，你正在准备学习英语，在百度搜索了很多与英语有关的信息，
+			浏览了很多与英语有关的网站，当你再次浏览一个与英语无关的网站时，
+			这个网站上显示的却是英语的广告
+															
+			都是 cookie 在发挥作用
+															
+			由A页面跳至B页面，若在A页面中采用JS用变量temp保存了某一变量的值，
+			在B页面的时候，同样需要使用JS来引用temp的变量值，
+			对于JS中的全局变量或者静态变量的生命周期是有限的，
+			当发生页面跳转或者页面关闭的时候，这些变量的值会重新载入，即没有达到保存的效果。
+			解决这个问题的最好的方案是采用cookie来保存该变量的值 ]
+															
+			服务器需要保存用户的信息，这些信息最好放在用户的电脑上，
+			并能够让服务器获取。
+			例如自动登录功能的实现，需要将用户名和密码保存在本地，
+			下次访问网站时，再将用户名和密码发送到服务器进行验证，
+			验证通过后自动登录，否则不能登录。
+															
+			服务器在用户电脑上保存的信息，就叫 cookie .
+															
+			cookie 保存在用户的电脑上，当再次访问相应网站时，
+			浏览器会把 cookie 一起发送到服务器，让服务器进行处理
+													
+			cookie 可以由服务器端程序生成，也可以由客户端生成.
+															
+			cookie 只是一段文本，它只能保存字符串
+			本身大小有限制,  浏览器能保存的个数也有限制
+															
+			cookie 的形式: 键值对
+		 */
+		</script>
+	</body>
+</html>

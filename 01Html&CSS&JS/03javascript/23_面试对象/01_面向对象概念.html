@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			/*
+			 * 类和对象
+			 * 面向对象和面向过程是两种编程思想
+			 * 
+			 * JavaScript是面向对象的编程语言,但是不严谨(ES5)
+			 * 
+			 * 使用一个对象的时候,只关注一个对象提供的功能,不关注其内部实现
+			 * 
+			 * 类:具有相同特征和行为的事物的描述
+			 * 对象:类的一个具体实体
+			 * 
+			 * 面向对象特征: 封装,继承,多态
+			 * 封装:对象的方法,不考虑内部实现,只考虑功能
+			 * 继承:从已有的类,继承其属性和方法,子类将具有父类所有的开发的特征 
+			 * 多态:相同的操作,产生不同的结果
+			 * 
+			 */
+			
+		    //属性 和 方法
+		    //变量 和 函数
+			var a = 10;
+			console.log(a);
+			console.log(window.a);
+			
+			function abc(){
+				console.log("abc");
+			}
+			abc(); //函数调用
+			window.abc(); //window的方法
+			
+			var arr = [1,2,3,4];
+			console.log(arr.length);
+			arr.a = 100;
+			console.log(arr.a); //100
+			console.log(a);  //10
+			
+			var arr1 = [1,2,3];
+			console.log(arr1.length);
+			console.log(arr1.a); //undefined
+			arr1.abc = function(){
+				console.log("abc");
+			}
+			
+			
+			var date = new Date();
+			console.log(date);
+			
+			var arr = new Array();
+			console.log(arr);
+		</script>
+	</body>
+</html>

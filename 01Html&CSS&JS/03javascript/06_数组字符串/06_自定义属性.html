@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_自定义属性</title>
+	</head>
+	<body>
+		<div id="oDiv"></div>
+		<script type="text/javascript">
+			var oDiv = document.getElementById("oDiv");
+			//获得属性值
+			console.log(oDiv.id);  //oDiv
+			
+			//自定义属性
+			//属性的名称自己定义
+			// ' . ' + 属性名
+			
+			//设置属性
+			oDiv.index = 250;
+			
+			//获取自定义的属性值
+			console.log(oDiv.index);   //250
+		</script>
+	</body>
+</html>

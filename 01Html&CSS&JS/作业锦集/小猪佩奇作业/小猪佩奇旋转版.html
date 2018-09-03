@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>小猪佩奇旋转版</title>
+		<style type="text/css">
+		     *{
+		     	text-align: center;
+		     	cursor: pointer;
+		     }
+			.header{
+				width: 100%;
+				height: 80px;
+				background-color: bisque;
+				line-height: 80px;
+				font-size: 20px;
+				color: rosybrown;
+				position: fixed;
+				top: 0;
+				user-select: none;
+				z-index: 100;
+			}
+			.footer{
+				width: 100%;
+				height: 150px;
+				margin-top: 20px;
+				background-color: aqua;
+				line-height: 150px;
+				font-size: 40px;
+				color: darkkhaki;
+			}
+			#foot_nav{
+				width: 30px;
+				height: 30px;
+				background-image: url(img/gotop.png);
+				background-color: rgba(0,0,0,0.6);
+				background-size: 70% 70%;
+				background-position: center center; 
+				background-repeat: no-repeat;
+				position: fixed;
+				bottom: 100px;
+				right: 100px;
+				z-index: 1000;
+			}
+			.content{
+				width: 1100px;
+				border: 10px dotted fuchsia;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+			ul li{
+				width: 500px;
+				height: 500px;
+				background-image: url(img/p1.jpg);
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				list-style: none;
+				margin: 15px;
+				float: left;
+			}
+			.mass{
+				width: 500px;
+				height: 500px;
+				background-color: rgba(0,0,0,0.3);
+				position: relative;
+				display: none;
+			}
+			.picture{
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				background-image: url(img/i2.jpg);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-top: -30px;
+				margin-left: -50px;
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+			}
+			 .title{
+				height: 50px;
+				background-color: fuchsia;
+				position: absolute;
+				top: 80px;
+				width: 500px;
+				height: 40px;
+				line-height: 40px;
+				color: white;
+				font-size: 30px;
+			    -webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+			}
+			.matter{
+				width: 460px;
+				height: 50px;
+			    background-color: goldenrod;
+			    color: white;
+			    position: absolute;
+			    bottom: 30px;
+			    left: 20px;
+			    -webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+			}
+			.title:hover{
+				-webkit-transform: translateY(40px);
+				-moz-transform: translateY(40px);
+				-ms-transform: translateY(40px);
+				-o-transform: translateY(40px);
+				transform: translateY(40px);
+			}
+			 div.picture:hover{
+				-webkit-transform: scale(1.2,1.2) rotate(-360deg);
+				-moz-transform: scale(1.2,1.2) rotate(-360deg);
+				-ms-transform: scale(1.2,1.2) rotate(-360deg);
+				-o-transform: scale(1.2,1.2) rotate(-360deg);
+				transform: scale(1.2,1.2) rotate(-360deg);
+			}
+			span.matter:hover{
+				-webkit-transform: scale(0.5, 0.5);
+				-moz-transform: scale(0.5, 0.5);
+				-ms-transform: scale(0.5, 0.5);
+				-o-transform: scale(0.5, 0.5);
+				transform: scale(0.5, 0.5);
+			}
+			.matter{}
+			 li:hover .mass{
+			 	display: block;
+			 }
+		</style>
+	</head>
+	<body>
+	
+			<header class="header">介里是导航条</header>
+			<ul class="content">
+				<li>
+					<div class="mass">
+						<h2 class="title">标题1</h2>
+						<div class="picture"></div>
+						<span class="matter">内容1</span>
+					</div>
+				</li>
+				<li>
+					<div class="mass">
+						<h2 class="title">标题2</h2>
+						<div class="picture"></div>
+						<span class="matter">内容2lallala啦啦啦啦啦啦嘻嘻嘻嘻hahahahahahahahahahahah嘻嘻啦啦啦啦</span>
+					</div>
+				</li>
+				<li>
+					<div class="mass">
+						<h2 class="title">标题3</h2>
+						<div class="picture"></div>
+						<span class="matter">内容3</span>
+					</div>
+				</li>
+				<li>
+					<div class="mass">
+						<h2 class="title">标题4</h2>
+						<div class="picture"></div>
+						<span class="matter">内容4</span>
+					</div>
+				</li>
+				<li>
+					<div class="mass">
+						<h2 class="title">标题5</h2>
+						<div class="picture"></div>
+						<span class="matter">内容5</span>
+					</div>
+				</li>
+				<li>
+					<div class="mass">
+						<h2 class="title">标题6</h2>
+						<div class="picture"></div>
+						<span class="matter">内容6</span>
+					</div>
+				</li>
+				<li>
+					<div class="mass">
+						<h2 class="title">标题7</h2>
+						<div class="picture"></div>
+						<span class="matter">内容7</span>
+					</div>
+				</li>
+				<li>
+					<div class="mass">
+						<h2 class="title">标题8</h2>
+						<div class="picture"></div>
+						<span class="matter">内容8</span>
+					</div>
+				</li>
+				<li>
+					<div class="mass">
+						<h2 class="title">标题9</h2>
+						<div class="picture"></div>
+						<span class="matter">内容9</span>
+					</div>
+				</li>
+				<li>
+					<div class="mass">
+						<h2 class="title">标题10</h2>
+						<div class="picture"></div>
+						<span class="matter">内容10</span>
+					</div>
+				</li>
+				
+			</ul>
+			<footer class="footer">介里是大脚啊</footer>
+			
+		<a id="foot_nav" href="#"></a>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_window对象</title>
+	</head>
+	<body>
+		<button onclick="openNew()">创建新窗口</button>
+		<button onclick="acp()">交互</button>
+		<script type="text/javascript">
+		
+		    function acp(){
+		    	// confirm 对话框
+		    	//确定 "true"  取消  "false"
+//		    	var result = confirm("(*´▽｀)ノノ");
+//		    	console.log(result);
+
+            //prompt
+            // 输入框
+            //第一个参数  标题
+            // 第二个参数  默认输入框中的内容
+            var result = prompt("稳住,我们能赢","不可能");
+            console.log(result);
+		    }
+		
+		    function openNew(){
+		    	   // 1. 打开新页面
+		    	   //window.open();
+		    	   // 2. 打开新页面  指定网址
+		    	   //window.open("https://www.baidu.com");
+		    	   //window.open("00.html");
+		    	   //在当前页面打开对象的网页
+		    	   //第二个参数 : _brank  默认值
+		    	  // window.open("https://www.baidu.com","_self");
+		    	   
+		    	   //3. 关闭页面
+		    	   window.close();   
+		    	   //谷歌: 直接关
+		    	   // 火狐: 默认无法关闭
+		    	   //IE : 会提示询问用户是否关闭
+		    }
+		
+		
+			/*
+			 * BoM (browser object model)
+			 * 浏览器对象模型
+			 * BOM  主要用于管理窗口和窗口之间的通讯
+			 * 核心对象 :window
+			 * 
+			 * window 对象   所有浏览器都支持
+			 * 全局变量  本质上都是window 对象的属性
+			 * 全局函数  本质上都是window 对象的方法
+			 */
+			var a = 10;
+			console.log(a);
+			console.log(window.a);
+		</script>
+	</body>
+</html>

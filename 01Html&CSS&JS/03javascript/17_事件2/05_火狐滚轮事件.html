@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_火狐滚轮事件</title>
+		<style type="text/css">
+			div{
+				width: 300px;
+				height: 2000px;
+				border: 10px solid blueviolet;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			//事件的另一种绑定方式
+			document.addEventListener("DOMMouseScroll",progress,false);
+			function progress(ev){
+				var ev = ev || window.event;
+				console.log("mouseScroll: " + ev.detail);
+				if(ev.detail > 0){
+					console.log("向下滚: " + ev.detail);
+				}else{
+					console.log("向上滚: " + ev.detail);
+				}
+			}
+			
+			//判断当前浏览器是否是火狐
+			// 判断是否为-1 
+			var isFirefox = window.navigator.userAgent.indexOf("Firefox");
+			console.log(isFirefox);
+			
+		</script>
+	</body>
+</html>

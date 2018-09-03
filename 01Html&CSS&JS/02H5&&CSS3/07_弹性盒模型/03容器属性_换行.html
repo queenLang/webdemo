@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03容器属性_换行</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.box {
+				margin: 30px auto;
+				border: 5px solid black;
+				display: flex;
+				flex-wrap: wrap-reverse;
+			}
+			/* 默认情况下，项目都排在一条线（又称”轴线”）上。
+				  flex-wrap属性定义，如果一条轴线排不下，如何换行。 */
+				 /* 
+				  1. nowrap（默认）：不换行。 
+				  2. wrap：换行，第一行在上方
+				  3. wrap-reverse：换行，第一行在下方  */
+			
+			
+			.box div {
+				width: 200px;
+				height: 200px;
+				line-height: 200px;
+				text-align: center;
+				font-size: 50px;
+				color: white;
+				margin: 5px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+			<div>10</div>
+		</div>
+	</body>
+</html>

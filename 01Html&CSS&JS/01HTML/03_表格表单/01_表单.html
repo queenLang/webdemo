@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>01_表单</title>
+	</head>
+
+	<body>
+		<!--form 用来提交数据 网页之间的数据交换
+			action:提交网址
+			method:提交数据的方式
+			https://www.baidu.com/baidu?tn=monline_3_dg&ie=utf-8&wd=%E6%9D%8E%E6%98%93%E5%B3%B0
+			url组成:http://www.提交网址?参数1=value1&参数2=value2
+			
+			提交数据的方式:(http协议)
+			get:直接拼接
+			优点:速度快	给服务压力小
+			缺点: 保密性差 提交得信息一目了然
+			post:不会直接拼接在url上
+			优点:保密性好 可以上传比较大的文件
+			缺点:速度慢 给服务器压力大 
+		-->
+		<!--method默认是get-->
+		<form action="index.html" method="get">
+			<!--label for 和标签的id 值保持一致 -->
+			<label for="un">用户名</label>
+			<!--name 属性必须要写 , 它和文本输入的值组成健值对(name值=nalue值) 后台才能接收到
+				name值由后台规定
+			-->
+
+			<input type="text" name="uname" id="un" value="sam" />
+			<label for="pass">密码</label>
+			<input type="password" name="psssword" id="psss" value="123456" />
+
+			<!--/index.html?uname=sam&psssword=123456-->
+			<br />
+			<!--单选框name一致才能实现多个选项单选单选-->
+			<!--checked 默认-->
+			单选框:
+			<input type="radio" name="gender" id="man" value="man" />
+			<label for="man">男</label>
+			<input type="radio" name="gender" id="woman" value="womam" />女
+			<input type="radio" checked="" name="gender" id="what" value="what" />
+			<label for="what">不详</label>
+			<br />
+			<!--checked 默认选项  disabled 默认不选-->
+			多选框:
+			<input type="checkbox" name="hobby"  value="eat" checked=""/>吃
+			<input type="checkbox" name="hobby"  value="sleep" />睡觉
+			<input type="checkbox" name="hobby"  value="beat" disabled="" />打豆豆
+			<br />
+			
+			<!--上传文件-->
+			<input type="file"  />
+			<br />
+			
+			<!--下拉列表-->
+			<select name="pros">
+				<option value="0">战士</option>
+				<option value="1">法师</option>
+				<option value="2">刺客</option>
+				<option value="3">辅助</option>
+					
+				<!--选项组-->
+				Ï<optgroup label="区域">
+				<option value="">日韩</option>
+				<option value="">欧美</option>
+				<option value="">国产</option>
+			</optgroup>
+			</select>
+			<br />
+			自我介绍:
+			    <textarea name="" rows="20" cols="20" placeholder="请输入自我介绍"></textarea>
+			    <br />
+			<input type="button" name="" id="" value="按钮" />
+			<br />
+			<input type="reset" name="" id="" value="重置" />
+			<br />
+			<!--表单包括-->
+			
+			<fieldset id="" style="width: 50%;">
+				<legend>jiangdasha</legend>
+				 <label for="uname">用户名:</label>
+				 <input type="text" name="uname" id="uname" value="yayya" />
+				 <br />
+				 <label for="password" >密码:</label>
+				 <input type="password" name="psssword" id="psssword" value="123" />
+				
+			</fieldset>
+			<input type="submit" value="提交" />
+		</form>
+
+	</body>
+
+</html>

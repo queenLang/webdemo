@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>00_晨测</title>
+		<style type="text/css">
+			.div {
+				width: 600px;
+				height: 300px;
+				background-color: blue;
+				margin: 0 auto;
+				font-size: 20px;
+				text-align: center;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="div" id="div">
+
+		</div>
+		<script type="text/javascript">
+			var div = document.getElementById("div");
+			div.onclick = function() {
+				div.innerHTML = " ";
+				var div1 = parseInt(prompt("请输入起始数字"));
+				var div2 = parseInt(prompt("请输入结束数字"));
+				div.style.height = "100%";
+                var n = 0;
+				if(div1 > div2) {
+					alert("是不是傻?");
+				} else {
+					for(var a = div1; a <= div2; a++) {
+                         div.innerHTML += a + " ";
+                         n++;
+                         if(n % 10 == 0){
+                         	div.innerHTML += "<br />";
+                         }
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>

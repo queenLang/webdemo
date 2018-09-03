@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>07图形</title>
+		<style type="text/css">
+		    .box {
+				margin: 40px auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+				width: 300px;
+			}
+
+			.div {
+				width: 300px;
+				height: 300px;
+				border-radius: 8%;
+				background-color: red;
+				color: white;
+				font-size: 100px;
+				text-align: center;
+				line-height: 300px;
+				margin: 200px auto;
+				-webkit-transition: all 1s ease-in-out ;
+				-moz-transition: all 1s ease-in-out ;
+				-ms-transition: all 1s ease-in-out ;
+				-o-transition: all 1s ease-in-out ;
+				transition: all 1s ease-in-out ;
+			}
+			
+			#btn {
+				width: 100px;
+				height: 50px;
+				font-size: 20px;
+				margin: 0 auto;
+			}
+			
+			.div1 {
+				-webkit-transform: scale(1.2,1.2)		
+				-moz-transform: scale(1.2,1.2);
+				-ms-transform: scale(1.2,1.2);
+				-o-transform: scale(1.2,1.2);
+				transform: scale(1.2,1.2);
+				border-radius: 30%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+		<div id="div" class="div"></div>
+		<button id="btn">开始</button>
+		</div>
+	     
+		
+		<script type="text/javascript">
+			var div = document.getElementById("div");
+			var btn = document.getElementById("btn");
+			var timer = 0;
+			var bol = false;
+			btn.onclick = function() {
+				if(!bol) {
+					btn.innerHTML = "开始";
+
+					clearInterval(timer);
+					timer = setInterval(function() {
+						
+						div.innerHTML++;
+						var r = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+						var g = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+						var b = Math.floor(Math.random() * (255 - 0 + 1) + 0);
+						div.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+						//标签如果有div1这个类就删掉  没有就添加
+					   div.classList.toggle("div1");
+					   
+					}, 1000);
+					
+
+				} else {
+					btn.innerHTML = "结束";
+					clearInterval(timer);
+				}
+				bol = !bol;
+			}
+		</script>
+	</body>
+
+</html>

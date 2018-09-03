@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>05_缓冲运动封装</title>
+		<script src="tools.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: rosybrown;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			oAll.onmouseover = function() {
+				easeMove(oAll, 800, 20, "height", 40);
+			}
+			oAll.onmouseout = function() {
+				easeMove(oAll, 100, 20, "height", 40);
+			}
+
+			function easeMove(obj, targetPos, speedScale, attr, time) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					var attrValue = parseInt(getStyle(obj, attr));
+
+					var speed = (targetPos - attrValue) / speedScale;
+					speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+					console.log(speed);
+					if(attrValue == targetPos) {
+						clearInterval(obj.timer);
+					} else {
+						obj.style[attr] = attrValue + speed + "px";
+					}
+					console.log(getStyle(obj, attr));
+				}, time)
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>06_有参数有返回</title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: darkmagenta;
+				margin: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box"></div>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oBox = document.getElementById("box");
+			var oAll = document.getElementById("all");
+			oBox.onclick = function() {
+				//在调用函数时,向函数传递参数
+				//10,0 叫做实际参数 实参
+				oBox.innerHTML = getRandom(10, 0);
+			}
+			oAll.onclick = function() {
+				oAll.innerHTML = getRandom(100, 8);
+			}
+            //多个参数中间使用逗号(,)相隔
+            //max min 形式参数  形参
+			function getRandom(max, min) {
+				return Math.floor(Math.random() * (max - min + 1) + min);
+			}
+			
+			//形参改变不会影响实参
+			function func1(a,b){
+				a = 2;
+				return a+b;
+			}
+			var a = 3;
+			var b = 5;
+			console.log(func1(a,b));
+			console.log(a);
+		</script>
+	</body>
+
+</html>

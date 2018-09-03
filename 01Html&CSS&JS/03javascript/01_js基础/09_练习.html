@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>09_练习</title>
+		<style type="text/css">
+		
+			.div1 {
+				width: 300px;
+				height: 400px;
+				background-image: url(img/ai.jpeg);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				float: left;
+			}
+			.button{
+				width: 300px;
+				height: 200px;
+				background-color: skyblue;
+				margin: 100px 50px;
+			}
+		
+		</style>
+	</head>
+
+	<body>
+		<div id="div" class="div">
+			<input type="button" name="" id="button" value="最帅男子" class="button"/>
+			<div id="div1" class="div1"></div>
+
+		</div>
+
+		<script type="text/javascript">
+	      var aa = document.getElementById("div1");
+	      var bb = document.getElementById("button");
+	      bb.onclick = function(){
+	      	aa.style.height = "700px";
+	      	bb.style.border = "2px solid blue";
+	      }
+		</script>
+	</body>
+
+</html>

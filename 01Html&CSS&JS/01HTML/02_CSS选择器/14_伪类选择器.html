@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>14_伪类选择器</title>
+		<style type="text/css">
+		/*选择每个其父元素的首个子元素的每个 <p> 元素，并为其设置样式*/
+			p:first-child{
+				background-color: red;
+			}
+			/*伪元素 ::after  ::before*/
+			p::before{
+				content:'内容:' ;
+				/*边框*/
+				border: 1px solid fuchsia;
+			}
+			/*伪类选择器*/
+			/*链接没有被访问时*/
+			a:link{
+				color: gold;
+			}
+			/*链接被访问后*/
+			a:visited{
+				color: green;
+			}
+			/*当鼠标悬浮于a标签上时*/
+		     /*!!!!!!!!*/
+			a:hover{
+				color: red;
+				font-size: 20px;
+			}
+			/*鼠标点中激活链接的一瞬间*/
+			a:active{
+				background-color: darkgoldenrod;
+			}
+			/*这几个如果同时使用,顺序不要更改*/
+		</style>
+	</head>
+
+	<body>
+		<p>这是body元素的第一个子元素</p>
+		<div>
+			<p>这是div的第一个子元素</p>
+			<p>这是div的第一个子元素</p>
+		</div>
+		<a href="https://www.jd.com">去百度</a>
+		<a href="https://www.taobao.com">去淘宝</a>
+
+	</body>
+
+</html>

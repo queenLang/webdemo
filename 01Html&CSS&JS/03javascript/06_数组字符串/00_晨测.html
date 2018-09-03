@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>00_晨测</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 50px;
+				background-color: yellow;
+				margin: 5px;
+				text-align: center;
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			for(var i = 1; i <= 9 ; i++){
+				for(var j =1; j < i +1; j++){
+					var k = j * i;
+					document.write("<div>" + i + "*" + j + "=" + k + "</div>");
+				}
+				document.write("<br />");
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>13项目属性_flex简写</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.box {
+				margin: 30px auto;
+				border: 5px solid black;
+				display: flex;
+				
+			}
+			
+			.box div {
+				width: 200px;
+				height: 200px;
+				line-height: 200px;
+				text-align: center;
+				font-size: 50px;
+				color: white;
+				margin: 5px;
+				background-color: red;
+			}
+			/*flex属性是flex-grow, flex-shrink 和 flex-basis的简写,
+			 * 默认值为0 1 auto。后两个属性可 选。*/
+			 .box .div2{
+			 	flex: 1 1 auto;
+			 }
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="div1">1</div>
+			<div class="div2">2</div>
+			<div class="div3">3</div>
+		</div>
+	</body>
+</html>

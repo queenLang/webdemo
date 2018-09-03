@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>计算2</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			// 3. 计算100以内奇数和去掉第22位的值
+
+			var a = 0;
+			var b = 0;
+			for(var i = 0; i < 100; i++) {
+				if(i % 2 == 1) {
+					document.write(i + " ");
+					b++;
+					a += i;
+					if(b == 22) {
+						var c = i;
+						document.write(c);
+					}
+				}
+
+			}
+			document.write("<br />");
+			document.write("奇数和为: " + a);
+			document.write("<br />");
+			document.write("奇数和为: " + (a - c));
+
+			document.write("<hr />");
+
+			var i = 0;
+			var a = 0;
+			var b = 0;
+			while(i < 100) {
+				if(i % 2 == 1) {
+					document.write(i + " ");
+					b++;
+					if(b == 22) {
+						document.write(" " + a);
+						continue;
+					}
+					a += i;
+				}
+				i++;
+			}
+			document.write("<br />");
+			document.write("奇数和为: " + a);
+			document.write("<br />");
+			document.write("奇数和为: " + (a - c));
+		</script>
+	</body>
+
+</html>

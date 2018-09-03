@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>07_事件委托</title>
+		<style type="text/css">
+			#all div{
+				width: 100px;
+				height: 100px;
+				background-color: green;
+				margin-bottom: 10px;
+			}
+			#all{
+				width: 200px;
+				border: 2px solid red;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			事件委托: 利用事件冒泡的特性,将里层的事件委托给外层的事件
+		-->
+		<div id="all">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			oAll.onclick = function(ev){
+				var ev = ev || window.event;
+				//点击 oall 本身  target 就是它自己
+				//点击box target 就是box
+				//标准浏览器  都用ev.target  IE不同
+				var target = ev.target || ev.srcElement;
+				console.log(ev.target);
+				if(target != this){
+				   target.style.backgroundColor = getRandomColor();
+				}
+			}
+			
+//			var divs = oAll.getElementsByTagName("div");
+//			for (var i = 0; i < divs.length; i++) {
+//				divs[i].onclick = function(){
+//					this.style.backgroundColor = getRandomColor();
+//				}
+//			}
+			
+			function getRandomColor(){
+				var r = Math.floor(Math.random()*(255-0+1));
+				var g = Math.floor(Math.random()*(255-0+1));
+				var b = Math.floor(Math.random()*(255-0+1));
+				return "rgb(" + r + "," + g + "," + b + ")";
+			}
+		</script>
+	</body>
+</html>

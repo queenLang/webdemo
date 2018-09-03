@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#wrap{
+				width: 900px;
+				/*padding: 50px;*/
+				height: 450px;
+				margin: 0 auto;
+				border: 10px solid lightseagreen;
+				position: relative;
+			}
+			#div1{
+				width: 50px;
+				height: 50px;
+				
+				background-color: lightcoral;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="div1"></div>
+		</div>
+		<script type="text/javascript">
+			var oWrap = document.getElementById("wrap");       
+			var oDiv1 = document.getElementById("div1");           
+			//padding + width
+			console.log(oWrap.clientWidth);
+			//最大运动距离
+			var maxWidth = oWrap.clientWidth - oDiv1.offsetWidth;
+			var speedX = 8;
+			var iTarget = maxWidth;
+			var timer = setInterval(function () {
+				if (Math.abs(iTarget - oDiv1.offsetLeft) <= Math.abs(speedX)) {
+					oDiv1.style.left = iTarget + "px";
+					speedX *= -1;
+					iTarget = speedX > 0 ? maxWidth : 0;
+				} else {
+					oDiv1.style.left = oDiv1.offsetLeft + speedX + "px";
+				}
+			},100);
+			
+			
+			
+			
+		
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

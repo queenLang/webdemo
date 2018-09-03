@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_位置元素符</title>
+	</head>
+	<body>
+        <!--		
+			1. ^ 	^a 	以a开头（注意与[^]区分，后者表示匹配不在[^]中的元素）
+			2. $ 	a$ 	以a结尾
+		-->
+		<script type="text/javascript">
+			var str = "a234 s34 a345 w90190 et0 smartgirl0 bilibili0";
+			var reg1 = /^a\d+/g;
+			var reg2 = /\w+\d$/g;
+			alert(str.match(reg2));
+		</script>
+
+	</body>
+</html>

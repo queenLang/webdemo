@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="联动.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/*全局样式*/
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			fieldset {
+				width: 700px;
+				padding: 20px;
+				margin: 30px;
+				border: 2px solid #ccc;
+			}
+			
+			legend {
+				font-size: 18px;
+				font-weight: bold;
+			}
+			
+			#addr-show {
+				width: 200px;
+				height: 25px;
+				margin-bottom: 10px;
+			}
+			
+			#sureBtn {
+				width: 80px;
+				height: 30px;
+				border-radius: 4px;
+				border: 1px solid #ccc;
+				outline: none;
+				background-color: #aaa;
+				margin: 0 20px;
+			}
+			
+			#sureBtn:disabled {
+				background-color: #ccc;
+			}
+			
+			select {
+				width: 120px;
+				height: 30px;
+				margin-left: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<fieldset>
+			<legend>下拉选择框实现省市区（县）三级联动</legend>
+			<form action="#">
+				<label for="addr-show">您选择的是：
+                <input type="text" value="" id="addr-show">
+            </label>
+				<br/>
+
+				<!--省份选择-->
+				<select id="prov">
+					<option value="00">=请选择省份=</option>
+				</select>
+
+				<!--城市选择-->
+				<select id="city">
+					<option value="00">=请选择城市=</option>
+				</select>
+
+				<!--县区选择-->
+				<select id="country">
+					<option value="00">=请选择县区=</option>
+				</select>
+				<button type="button" id="sureBtn">确定</button>
+			</form>
+		</fieldset>
+
+		<script type="text/javascript">
+			var addrShow = document.getElementById("addr-show");
+			var sureBtn = document.getElementById("sureBtn");
+			var provS = document.getElementById("prov");
+			var cityS = document.getElementById("city");
+			var countryS = document.getElementById("country");
+			//不允许点击
+			sureBtn.disabled = true;
+
+			//一上来就加载所有省份
+			showProvs();
+
+			function showProvs() {
+				for(var i = 0; i < provice.length; i++) {
+					console.log("省份名称" + provice[i]["name"]);
+					//创建option 添加到provS 上
+					var provOpt = document.createElement("option");
+					provOpt.innerHTML = provice[i]["name"];
+					provOpt.value = i;
+					provS.appendChild(provOpt);
+				}
+			}
+			//当省份被选则,立马加载市
+			provS.onchange = function() {
+					//1.清空city 和 country
+					cityS.innerHTML = "<option value='00'>=请选择城市=</option>";
+					countryS.innerHTML = "<option value=\"00\">=请选择县区=</option>";
+					console.log("当前省份value值:" + this.value);
+					//2.什么时候可以加载所有城市
+					if(this.value != "00") {
+						showCity(this.value);
+					}
+
+				}
+				//加载所有城市
+			function showCity(provIndex) {
+				console.log("当前选则省份的名字: " + provice[provIndex]["name"]);
+				//当前省里所有城市的名称
+				for(var i = 0; i < provice[provIndex]["city"].length; i++) {
+					var city = provice[provIndex]["city"][i];
+					console.log("所有城市名称: " + city.name);
+					//创建option ,添加到cityS上
+					var cityOpt = document.createElement("option");
+					cityOpt.innerHTML = city["name"];
+					cityOpt.value = i;
+					cityS.appendChild(cityOpt);
+				}
+			}
+			//当城市被选则  加载所有的	区
+			cityS.onchange = function() {
+				countryS.innerHTML = "<option value=\"00\">=请选择县区=</option>";
+				console.log("当前城市的value: " + this.value);
+				if(this.value != "00"){
+					showCountry(provS.value, this.value);
+				}		
+			}
+
+			function showCountry(provIndex, cityIndex) {
+				console.log("当前省是: " + provice[provIndex]["name"] + ",市: " + provice[provIndex]["city"][cityIndex]["name"]);
+				var countryArr = provice[provIndex]["city"][cityIndex]["districtAndCounty"];
+				for(var i = 0; i < countryArr.length; i++) {
+					//创建option 添加到 country上
+					var countryOpt = document.createElement("option");
+					countryOpt.innerHTML = countryArr[i];
+					countryOpt.value = i;
+					countryS.appendChild(countryOpt);
+				}
+			}
+			countryS.onchange = function(){
+				if(provS.value != "00" && cityS.value != "00" && countryS.value != "00"){
+					sureBtn.disabled = false;
+				}else{
+					sureBtn.disabled = true;
+				}
+			}
+			//确定按钮什么时候可以点击?
+			sureBtn.onclick = function() {
+				addrShow.value = provice[provS.value]["name"] +
+					"---" +
+					provice[provS.value]["city"][cityS.value]["name"] +
+					"---" +
+					provice[provS.value]["city"][cityS.value]["districtAndCounty"][countryS.value];	
+			}
+		</script>
+	</body>
+
+</html>

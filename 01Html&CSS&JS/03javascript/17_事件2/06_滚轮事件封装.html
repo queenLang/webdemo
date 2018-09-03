@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>06_滚轮事件封装</title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: firebrick;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- 1. 先不管封装, 滚轮向下滚 div 变大 ;向上滚 div 变小 
+			 2. 浏览器兼容   大于0 小于0 的问题 浏览器不同 
+			 3. 判断浏览器: 如果是火狐怎么写; 如果是其他的怎么写
+		-->
+		<div id="div"></div>
+		<script type="text/javascript">
+			var oDiv = document.getElementById("div");
+			//判断是否是火狐
+			
+			var isFirefox = window.navigator.userAgent.indexOf("Firefox");
+			if(isFirefox == -1) {
+				document.onmousewheel = progress;
+			} else {
+				document.addEventListener("DOMMouseScroll", progress, false);
+
+			}
+
+			function progress(ev) {
+				var ev = ev || window.event;
+				var isDown = true;
+				if(isFirefox !== -1) {
+					if(ev.detail < 0) {
+						//往上滚
+						isDown = false;
+						console.log("detail: " + ev.detail);
+					}
+				} else {
+					if(ev.wheelDelta > 0) {
+						isDown = false;
+						console.log("wheelDelta: " + ev.wheelDelta);
+					}
+				}
+
+				if(isDown) {
+					oDiv.style.width = oDiv.offsetWidth + 5 + "px";
+					oDiv.style.height = oDiv.offsetHeight + 5 + "px";
+					console.log("向上滚: ");
+				} else {
+					oDiv.style.width = oDiv.offsetWidth - 5 + "px";
+					oDiv.style.height = oDiv.offsetHeight - 5 + "px";
+					console.log("向下滚: ");
+				}
+			}
+		</script>
+	</body>
+
+</html>

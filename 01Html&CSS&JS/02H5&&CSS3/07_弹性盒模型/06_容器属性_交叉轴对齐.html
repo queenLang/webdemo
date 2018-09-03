@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_容器属性_交叉轴对齐</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.box {
+				margin: 30px auto;
+				border: 5px solid black;
+				display: flex;
+				/*主轴的方向变了   交叉轴就变了*/
+				flex-direction: column-reverse;
+				align-items: flex-end;
+			   	/*
+				 align-items属性定义项目在交叉轴上如何对齐
+				 flex-start 	  交叉轴的起点对齐。
+				 flex-end 	  交叉轴的终点对齐。
+				 center  	  交叉轴的中点对齐。
+				 baseline 	  项目的第一行文字的基线对齐。
+				 stretch（默认值） 	如果项目未设置高度或设为auto，将占满整个容器的高度。*/
+				
+			}
+			
+			.box div {
+				width: 300px;
+				line-height: 100px;
+				text-align: center;
+				font-size: 50px;
+				color: white;
+				margin: 5px;
+				background-color: red;
+			}
+			
+			.box div:nth-child(1){
+				height: 100px;
+			}
+			.box div:nth-child(2){
+				height: 150px;
+			}
+			.box div:nth-child(3){
+				height: 200px;
+			}
+			.box div:nth-child(4){
+				height: 250px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+	</body>
+</html>

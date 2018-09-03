@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    getAllDate();
+    //获取所有数据
+    function getAllDate() {
+        var url = "02后端.php?";
+        ajax_get(url,function (result) {
+            
+        })
+    }
+    
+    
+    function ajax_get(url,callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("get",url,true);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4){
+                callback(xhr.responseText);
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

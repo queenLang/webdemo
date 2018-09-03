@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>06_计算器大练习</title>
+		<style type="text/css">
+			.div1 input,
+			.div2 input {
+				margin: 10px;
+				border: 2px solid black;
+				font-size: 20px;
+				text-align: center;
+			}
+			
+			#num1,
+			#num2,
+			#num3 {
+				width: 100px;
+				height: 50px;
+			}
+			
+			#air1,
+			#air2 {
+				width: 50px;
+				height: 50px;
+			}
+			
+			.div2 input {
+				width: 80px;
+				height: 50px;
+				outline: none;
+			}
+			.div2 input:hover{
+				color: fuchsia;
+				border: 3px solid fuchsia;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="div1" id="div1">
+			<input type="number" name="num1" id="num1" value="" />
+			<input type="text" name="air1" id="air1" value="?" />
+			<input type="number" name="num2" id="num2" value="" />
+			<input type="text" name="air2" id="air2" value="=" />
+			<input type="text" name="num3" id="num3" value="" />
+		</div>
+		<div class="div2" id="div2">
+			<input type="text" name="" id="add" value="加" />
+			<input type="text" name="" id="sub" value="减" />
+			<input type="text" name="" id="ride" value="乘" />
+			<input type="text" name="" id="divide" value="除" />
+			<input type="text" name="" id="rem" value="取余" />
+		</div>
+		<script type="text/javascript">
+			var number1 = document.getElementById("num1");
+			var number2 = document.getElementById("num2");
+			var number3 = document.getElementById("num3");
+			var sy = document.getElementById("air1");
+			var add = document.getElementById("add");
+			var result;
+			add.onclick = function() {
+				sy.value = " + ";
+				result = parseInt(number1.value) + parseInt(number2.value);
+				number3.value = result;
+			}
+			var sub = document.getElementById("sub");
+			sub.onclick = function() {
+				sy.value = " - ";
+				result = parseInt(number1.value) - parseInt(number2.value);
+				number3.value = result;
+			}
+			var ride = document.getElementById("ride");
+			ride.onclick = function() {
+				sy.value = " *️️";
+				result = parseInt(number1.value) * parseInt(number2.value);
+				number3.value = result;
+			}
+			var divide = document.getElementById("divide");
+			divide.onclick = function() {
+				sy.value = " / ";
+				result = parseInt(number1.value) / parseInt(number2.value);
+				number3.value = result;
+			}
+			var rem = document.getElementById("rem");
+			rem.onclick = function() {
+				sy.value = " % ";
+				result = parseInt(number1.value) % parseInt(number2.value);
+				number3.value = result;
+			}
+		</script>
+	</body>
+
+</html>

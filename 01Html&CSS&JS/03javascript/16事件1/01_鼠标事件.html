@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_鼠标事件</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: hotpink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="oDiv"></div>
+		<script type="text/javascript">
+			var oDiv = document.getElementById("oDiv");
+			//点击事件
+			oDiv.onclick = function(){
+				console.log("🐩onclick");
+			}
+			//鼠标移入
+			oDiv.onmouseover = function(){
+				console.log("🌹onmouseover");
+			}
+			//鼠标移出
+			oDiv.onmouseout =function(){
+				console.log("🌽onmouseout");
+			}
+			//鼠标在元素内移动
+			oDiv.onmousemove = function(){
+				console.log("🍗onmousemove");
+			}
+			//鼠标按下时响应
+			oDiv.onmousedown = function(){
+				console.log("😊onmousedown");
+			}
+			//鼠标抬起时响应
+			oDiv.onmouseup = function(){
+				console.log("😊onmouseup");
+			}
+			//双击
+			oDiv.ondblclick = function(){
+				console.log("🐩🐩ondblclick")
+			}
+			//--------无事件冒泡的移入移出------------
+			oDiv.onmouseenter = function(){
+				console.log("onmouseenter");
+			}
+			oDiv.onmouseleave =function(){
+				console.log("onmouseleave");
+			}
+		</script>
+	</body>
+</html>

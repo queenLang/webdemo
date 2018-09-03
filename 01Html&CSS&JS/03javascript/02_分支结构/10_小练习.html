@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>10_小练习</title>
+		<style type="text/css">
+			.div1 {
+				width: 315px;
+				margin: 10px auto;
+				user-select: none;
+			}
+			
+			.div1 input {
+				width: 60px;
+				height: 30px;
+				border-radius: 5%;
+				font-size: 20px;
+				text-align: center;
+				line-height: 30px;
+				margin: 5px;
+				border: 1px solid black;
+				outline: none;
+			}
+			
+			.div2 {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin: 20px auto;
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="div1" id="div1">
+			<input type="button" name="" id="width" value="变宽" />
+			<input type="button" name="" id="height" value="变高" />
+			<input type="button" name="" id="color" value="变色" />
+			<input type="button" name="" id="hidden" value="隐藏" />
+		</div>
+		<div class="div2" id="div2"></div>
+		<script type="text/javascript">
+			var div = document.getElementById("div2");
+			var width = document.getElementById("width");
+			var height = document.getElementById("height");
+			var color = document.getElementById("color");
+			var hidden = document.getElementById("hidden");
+			var bol1 = false;
+			var bol2 = true;
+			var bol3 = true;
+			var bol4 = true;
+			width.onclick = function() {
+				if(!bol1) {
+					div.style.width = "200px";
+				} else {
+					div.style.width = "100px";
+				}
+				bol1 = !bol1;
+			}
+			height.onclick = function() {
+				if(bol2) {
+					div.style.height = "200px";
+				} else {
+					div.style.height = "100px";
+				}
+				bol2 = !bol2;
+			}
+			color.onclick = function() {
+				if(bol3) {
+					div.style.backgroundColor = "yellow";
+				} else {
+					div.style.backgroundColor = "red";
+				}
+				bol3 = !bol3;
+			}
+			hidden.onclick = function() {
+				if(bol3) {
+					div.style.display = "none";
+				} else {
+					div.style.display = "block";
+				}
+				bol3 = !bol3;
+			}
+		</script>
+	</body>
+
+</html>

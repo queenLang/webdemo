@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_图像</title>
+	</head>
+	<body>
+		<!--
+			img 图片标签
+			src:图片地址
+			title:鼠标悬停在图片上  出现的文字
+			alt :图片未加载成功时显示的文字
+		-->
+		<!--绝对路径 , 服务器地址, 跨域-->
+		
+		<img src="https://www.baidu.com/img/bd_logo1.png" title="猛男" alt="完了" />
+		
+		<!--相对地址
+			01_基础标签
+			     >img
+			       >01
+			         >1.jpg
+			     >05_图像.html(当前文件)    
+		-->
+		<!--
+			./ : 表示当前文件, 如果你要寻找的文件和自身文件在统计的目录下,
+			直接写文件名即可
+		-->
+		<!--
+			../返回上一级目录
+		-->
+		<img src="img/01/1.jpg" style="width: 500px; height: 500px;" />
+		<br />
+		img /02 /0201 /1.jpg
+		../02 /0201 /1.jpg
+		<!--怎么测试?-->
+		<!--写一个div和一个span ,背景颜色 宽 高 内容 -->
+		<div style="background-color: red; width: 500px; height:100px ;">呦呦呦</div>
+		<span style="background-color: green; width: 500px; height: 100px;">切克闹</span>
+	</body>
+</html>

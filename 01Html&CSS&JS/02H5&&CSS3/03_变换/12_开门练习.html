@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>12_开门练习</title>
+		<style type="text/css">
+			.box{
+				width: 300px;
+				height: 500px;
+				border: 10px solid saddlebrown;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-top: -250px;
+				margin-left: -150px;
+				-webkit-transform-style: preserve-3d;
+				-moz-transform-style: preserve-3d;
+				-ms-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+				-webkit-perspective: 1000px;
+				-moz-perspective: 1000px;
+				-ms-perspective: 1000px;
+				perspective: 1000px;
+			}
+			.door{
+				width: 300px;
+				height: 500px;
+				background-image: url(img/door.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+				-webkit-transform-origin: left;
+				-moz-transform-origin: left;
+				-ms-transform-origin: left;
+				-o-transform-origin: left;
+				transform-origin: left;
+			}
+			.door:hover{
+				-webkit-transform: rotateY(60deg);
+				-moz-transform: rotateY(60deg);
+				-ms-transform: rotateY(60deg);
+				-o-transform: rotateY(60deg);
+				transform: rotateY(60deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="door"></div>
+		</div>
+	</body>
+</html>

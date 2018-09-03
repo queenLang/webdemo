@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>04_从右往左运动.</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: darkcyan;
+				position: absolute;
+				left: 1000px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			//时间 每20毫秒 速度 是7px 原始位置500px 运动到10px 停
+			var oAll = document.getElementById("all");
+//			var speed = 7;
+//			var timer = setInterval(function() {
+//				if(oAll.offsetLeft - 10 <= 7) {
+//					oAll.style.left = "10px";
+//					clearInterval(timer);
+//				} else {
+//					oAll.style.left = oAll.offsetLeft - speed + "px";
+//				}
+//				console.log(oAll.offsetLeft);
+//			}, 20)
+			
+			oAll.onmouseover = function(){
+				startMove(oAll,0,7);
+			}
+			oAll.onmouseout = function(){
+				clearInterval(oAll.timer);
+			}
+			
+			function startMove(obj,targetPos,speed){
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function(){
+					if(obj.offsetLeft - targetPos <= speed){
+						obj.style.left = targetPos + "px";
+						clearInterval(obj.timer);
+					}else{
+							obj.style.left = obj.offsetLeft - speed + "px";
+					}
+					console.log(obj.offsetLeft);
+					
+				},20)
+			}
+		</script>
+	</body>
+
+</html>

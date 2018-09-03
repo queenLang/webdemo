@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">获取数据</button>
+<script>
+    var oBtn = document.getElementById("btn");
+    oBtn.onclick = function (result) {
+        var url = "02接口.php?phone=110&password=123";
+        ajax_get(url,function (result) {
+            console.log(result);
+        });
+    }
+    function ajax_get(url,callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("get",url,true);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4){
+                callback(xhr.responseText);
+            }
+        }
+    }
+</script>
+</body>
+</html>

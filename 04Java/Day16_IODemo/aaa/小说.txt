@@ -1,0 +1,16 @@
+欧洲			西班牙		马德里自治区		马德里		萨拉曼卡区
+europe		spain	conmmunityOfMadrid  madrid		salamanca
+						加泰罗尼亚区		巴萨罗那		老城区
+						catalonia		barcelona	oldCity
+			意大利		米兰大都会区		米兰省		米兰市
+			italy  theMilanmetropolitan	milan_Prov	milan
+						威尼托大区		威尼斯省		威尼斯市
+						veneto		  venice_Prov	venice
+亚洲			中国			上海市			上海市		黄埔区
+asia		china	shanghai_Prov 	   shanghai   huangpuDistrict
+						四川省			成都市		锦江区
+					   sichuan			chengdu	  jinjiangDistrict
+			日本			东京都			东京23区		中央区
+			japan		tokyo		   tokoyCity	centralDistrict
+						北海道			札幌市		北区
+					   hokkaido			sapporo    northDistrict

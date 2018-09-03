@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_input新增属性</title>
+	</head>
+	<body>
+		<!--autocomplete 自动填充
+			写在form就是对表单中所有的input设置
+		-->
+		<!--autofocus自动获取焦点
+			checked 默认选中
+			disabled  不可选
+			placeholder占位提示
+			required  提交时必须要填写
+			novalidate   提交表单时不再验证
+		-->
+		<form action="" method="get" autocomplete="on" >
+			姓名:
+			<input type="text" autofocus required/>
+			<br />
+			<!--off并不好用 163邮箱代码:autocomplete="new-password" -->
+			密码:
+			<input type="password" autocomplete="new-password" placeholder="请输入密码"/>
+			<br />
+			<!--multiple 属性规定输入域中可选择多个值-->
+			选择文件1: <input type="file" />
+			<br /><br />
+			选择文件2: <input type="file" multiple />
+			<br />
+			必须是数字:
+			<!--pattern:正则表达式-->
+			<input type="text" pattern="[0-9]{6,10}" title="只能输入6~10个字"/>
+			<br />
+			<input type="submit" value="提交"/>
+			<br />
+			<br />
+			<br />
+			<br />
+			<a href="http://www.w3school.com.cn/html5/html_5_form_attributes.asp">这节课网址</a>
+		</form>
+	</body>
+</html>

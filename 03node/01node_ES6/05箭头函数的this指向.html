@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05箭头函数的this指向</title>
+</head>
+<body>
+<div id="div1">最近大家小心感冒</div>
+<script>
+
+    let x = () => {
+        console.log(this);
+    }
+    x();  //window
+
+    let oDiv1 = document.getElementById("div1");
+    /*
+    oDiv1.onclick = function () {
+        console.log(this); //oDiv1
+        //箭头函数,继承外层作用域
+        setTimeout(() => {
+            console.log(this); //oDiv1
+        }, 500);
+    }
+    */
+
+    oDiv1.onclick = () => {
+        console.log(this);   //window
+    }
+
+
+    let obj = {
+        fn:function () {
+            console.log(this);
+        },
+        arrowfn:()=>{
+            console.log(this);
+        }
+    }
+
+    obj.fn();  //{fn: ƒ, arrowfn: ƒ}  obj
+
+    //全局变量和全局函数 都是 window的属性和方法
+
+    //找外层作用域
+    obj.arrowfn(); //window
+    /*
+    相当于
+    window.obj.arrowfn();
+     */
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>03_output</title>
+		<style type="text/css">
+			input[type=range] {
+				margin-top: 8px;
+				outline: none;
+				-webkit-appearance: none;
+				/*清除系统默认样式*/
+				width: 100px !important;
+				background: blue;
+				height: 3px;
+				/*横条的高度*/
+			}
+			/*拖动块的样式*/
+			input[type=range]::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				/*清除系统默认样式*/
+				height: 16px;
+				/*拖动块高度*/
+				width: 16px;
+				/*拖动块宽度*/
+				background: pink;
+				/*拖动块背景*/
+				border: solid 1px pink;
+				/*设置边框*/
+			}
+		</style>
+	</head>
+	<body>
+		<form action="" oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+			<input type="number" id="a" value="5" />
+			+
+			<input type="number" id="b" value="10" />
+			=
+			<output name="x" for="a b">15</output>
+		</form>
+		<form action="" oninput="y.value=parseInt(c.value)+parseInt(d.value)">
+			0<input type="range" min="1" max="100" id="c" value="5" />100
+			+
+			<input type="number" id="d" value="10" />
+			=
+			<output name="y" for="c d">15</output>
+		</form>
+	</body>
+</html>

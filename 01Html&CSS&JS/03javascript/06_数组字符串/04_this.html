@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_this.</title>
+		<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: black;
+			margin: 10px;
+		}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<script type="text/javascript">
+		   //点击oDiv改变背景颜色
+		   
+//			var oDiv = document.getElementById("oDiv");
+//			 oDiv.onclick = function(){
+//			 	oDiv.style.backgroundColor = "goldenrod";
+//			 }
+
+           //点击div改变背景颜色
+           var divs = document.getElementsByTagName("div");
+           
+           for (var i = 0; i < divs.length; i++) {
+           	divs[i].onclick = function(){
+           		console.log(i);
+           		//this 最终指向的那个调用它的对象
+           		this.style.backgroundColor = "goldenrod";
+           	}
+           }
+		</script>
+	</body>
+</html>

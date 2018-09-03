@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>04_练习</title>
+		<script src="../11_动画2/tools.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+
+			#box {
+				width: 680px;
+				height: 60px;
+				background-color: grey;
+				border-radius: 15px;
+			}
+			
+			#box button {
+				width: 80px;
+				height: 40px;
+				font-size: 20px;
+				text-align: center;
+				margin: 10px;
+				margin-left: 15px;
+				outline: none;
+			}
+			
+			.div {
+				width: 680px;
+				height: 60px;
+				border-radius: 15px;
+				text-align: center;
+				line-height: 60px;
+				background-color: skyblue;
+				font-size: 30px;
+				margin-top: 20px;
+			}
+			.borActive{
+				border: 3px solid fuchsia;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="box">
+			<button id="add">添加</button>
+			<button id="del">删除</button>
+			<button id="big">大于0</button>
+			<button id="small">小于0</button>
+			<button id="refresh">刷新</button>
+			<button id="empty">清空</button>
+		</div>
+		<div id="all"></div>
+		<script type="text/javascript">
+			var oAll = document.getElementById("all");
+			var oAdd = document.getElementById("add");
+			var oDel = document.getElementById("del");
+			var oBig = document.getElementById("big");
+			var oSmall = document.getElementById("small");
+			var oRef = document.getElementById("refresh");
+			var oEmpty = document.getElementById("empty");
+			var oBox = document.getElementById("box");
+			oBox.onclick = function(ev){
+				console.log(ev);
+				ev = ev || window.event;
+				if(ev.target != this){
+					for (var i = 0; i < oBox.children.length; i++) {
+						oBox.children[i].classList.remove("borActive");
+					}
+					ev.target.classList.add("borActive");
+				}
+			}
+			
+			var arr = [];
+			var start = 0; //存储上一次点击的按钮
+			oAdd.onclick = function() {
+				start = 0;
+				var oDiv = document.createElement("div");
+				oDiv.className = "div";
+				oDiv.innerHTML = getNum(100, -100);
+				oAll.appendChild(oDiv);
+				arr.push(oDiv); //将div添加到数组中
+			}
+
+			oBig.onclick = function() {
+				//循环遍历数组  找到大于0 的数添加到 oAll 中
+				oAll.innerHTML = "";
+				start = 1;
+                 for (var i = 0; i < arr.length; i++) {
+                 	var num = parseInt(arr[i].innerHTML);
+                 	if(num > 0){
+                 		oAll.appendChild(arr[i]);
+                 	}
+                 }
+			}
+			oSmall.onclick = function() {
+				oAll.innerHTML = "";
+				start = 2;
+               for (var i = 0; i < arr.length; i++) {
+               	  var num = parseInt(arr[i].innerHTML);
+                 	if(num < 0){
+                 		oAll.appendChild(arr[i]);
+                 	}
+               }
+			}
+			oRef.onclick = function() {
+                // 将数组添加到oAll中
+                oAll.innerHTML = "";
+                for (var i = 0; i < arr.length; i++) {
+                	    oAll.appendChild(arr[i]);
+                }
+			}
+			oDel.onclick = function() {
+				//删除   找到页面oAll中最后一个元素  找到 元素在数组中对应索引的位置 在数组中删除
+				 //同时在页面中删除
+				if(oAll.children.length != 0) {
+					var delDiv = oAll.lastChild;
+					console.log("index: " + arr.indexOf(delDiv));
+					arr.splice((arr.indexOf(delDiv)),1);
+					oAll.removeChild(delDiv);
+				}
+				
+			}
+			oEmpty.onclick = function() {
+				start = 0;
+                 //找到上一次点击的按钮  来使用switch case 判断要清空的数组里面的内容
+                 oAll.innerHTML = "";
+//               switch (start){
+//               	case 0:
+//               	  for (var i = 0; i < arr.length; i++) {
+//               	  	arr.splice(i,1);
+//               	  }
+//               		break;
+//               	case 1;
+//               	 
+//               	   
+//               	default:
+//               		break;
+//               }
+//               
+			}
+
+		</script>
+	</body>
+
+</html>

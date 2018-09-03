@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>05_json练习</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var aJson = {
+				"a": [{
+					"abc": 123,
+					"bc": 34,
+					"cd": 34
+				}, {
+					"abc": 456,
+					"bdc": 123,
+					"mn": 78
+				}, {
+					"abc": 789,
+					"xyz": 123
+				}],
+				"b": [{
+					"abc": 456,
+					"bc": 78,
+					"cd": 78
+				}, {
+					"abc": 901,
+					"bdc": 234,
+					"mn": 43
+				}, {
+					"abc": 345,
+					"xyz": 87
+				}]
+			};
+			
+			// 打印所有 "abc"
+			
+			
+				var a_aJson = aJson["a"];
+				for (var i in a_aJson) {
+					var num = a_aJson[i]["abc"];
+					console.log(num);
+				}
+				var b_aJson = aJson["b"];
+			    for (var j in b_aJson) {
+					var num1 = b_aJson[j]["abc"];
+					console.log(num1);
+				}
+		</script>
+	</body>
+</html>

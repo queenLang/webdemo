@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    let arr = ["吴大渣", "姜一亲", "马大爷", "峰"];
+    //1.map实现
+
+    function newMap(arr, callback) {
+        let arrs = [];
+        for (let i = 0; i < arr.length; i++) {
+
+            arrs.push(callback(arr[i], i, arr));
+
+        }
+        return arrs;
+    }
+
+    let result2 = newMap(arr,
+        function (value, index, array) {
+            console.log(value, index, array);
+            return "大猪蹄子:" + value;
+        }
+    );
+    console.log(result2);
+
+
+    //原型方法
+    Array.prototype.mapMap = function(callback) {
+        let arrs = [];
+        for (let i = 0; i < this.length; i++) {
+
+            arrs.push(callback(this[i], i, this));
+
+        }
+        return arrs;
+    }
+
+    arr.mapMap(function (value, index, array) {
+            console.log(value, index, array);
+            return "大猪蹄子:" + value;
+        }
+    );
+    console.log(result2);
+</script>
+</body>
+</html>

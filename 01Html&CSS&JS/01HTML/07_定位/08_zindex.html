@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>08_zindex</title>
+		<style type="text/css">
+			.all{
+				width: 500px;
+				height: 500px;
+				background-color: gray;
+				margin: 0 auto;
+				position: relative;
+			}
+			.all div{
+				width: 200px;
+				height: 200px;
+				
+			}
+			.div1{
+				background-color: red;
+				position: absolute;
+				left: 40px;
+				top: 40px;
+				z-index: 20;
+				
+			}
+			.div2{
+				background-color: green;
+				position: absolute;
+				left: 80px;
+				top: 80px;
+				z-index: 10;
+			}
+			.div3{
+				background-color: blue;
+				position: absolute;
+				left: 120px;
+				top: 120px;
+				z-index: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<div class="div1"></div>
+			<div class="div2"></div>
+			<div class="div3"></div>
+			<!--z-index
+				1.改变堆叠顺序
+				2.数值越大,层级越往上
+				3.只和统计的定位元素进行比较
+			-->
+		</div>
+	</body>
+</html>

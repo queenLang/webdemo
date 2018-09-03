@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>03_姓名,年龄</title>
+		<style type="text/css">
+			input{
+				width: 100px;
+				height: 40px;
+				font-size: 25px;
+			}
+			#sub{
+				width: 100px;
+				height: 50px;
+				background-color: darkblue;
+				color: white;
+				outline: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form action="" method="get">
+			姓名:<input type="text" name="name" id="name" value="" />
+			年龄:<input type="number" name="num" id="num" value="" />
+			<input type="submit" name="sub" id="sub" value="提交" />
+		</form>
+		
+        <script type="text/javascript">
+        	  var oName = document.getElementById("name");
+        	  var oNum = document.getElementById("num");
+        	  var sub = document.getElementById("sub");
+        	  sub.onclick = function(){
+        	  	  getResult();
+        	  }
+        	  function getResult(){
+        	  	alert("他是:" + oName.value + ",年龄是" + oNum.value);
+        	  }
+        </script>
+	</body>
+
+</html>

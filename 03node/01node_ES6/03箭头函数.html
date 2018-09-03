@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+</head>
+<body>
+<script>
+
+    //箭头函数也算是匿名函数
+    //fn函数名
+    //a 参数
+    //a*2 返回值
+    let fn = a => a * 2;
+    console.log(fn(10));
+    /*相当于
+    function fn(a) {
+        return a * 2;
+    }*/
+
+    /*匿名函数
+    var a = function () {
+
+    }*/
+
+
+    //1.一个参数
+    let abc = x => {
+        if (x != 100) {
+            console.log(x * 100);
+        } else {
+            console.log(x - 100);
+        }
+    }
+    abc(10);
+
+    /*function 函数名(参数,参数) {
+        函数体;
+        return 返回值
+    }*/
+
+
+    //2.两个参数
+    let getName = (m, n) => {
+        return m + n;
+    }
+    console.log(getName("吴大渣", "姜一亲"));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>02_属性匀速运动封装</title>
+		<script src="tools.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#all {
+				width: 100px;
+				height: 100px;
+				background-color: rosybrown;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="all"></div>
+		<script type="text/javascript">
+			//无论输入width,left,top,height ,正负
+			//都可以使用这个函数
+			var oAll = document.getElementById("all");
+			startMove(oAll,800,7,"width",20);
+			
+			
+			function startMove(obj, targetPos, speed, attr, time) {
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					// 通过属性名获取属性值
+				    //getStyle(obj,attr) 是字符串 "~px"
+					var attrValue = parseInt(getStyle(obj,attr));
+					console.log(attr + ": " + attrValue);
+					if(Math.abs(attrValue - targetPos) <= Math.abs(speed)) {
+						obj.style[attr] = targetPos + "px";
+						clearInterval(obj.timer);
+					} else {
+						obj.style[attr] = attrValue + speed + "px";
+					}
+					console.log(getStyle(obj,attr));
+				}, time)
+			}
+		</script>
+	</body>
+
+</html>

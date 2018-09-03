@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 50px;
+				background-color: goldenrod;
+				font-size: 20px;
+				text-align: center;
+				line-height: 50px;
+				display: inline-block;
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			for(var i = 1; i <= 9 ; i++){
+				for(var j = 1 ; j < i + 1; j ++){
+					var z = i * j;
+					document.write("<div>" + i + "*" + j + "=" + z + "</div>")
+				}
+				document.write("<br />");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>02_dom树操作节点</title>
+	</head>
+	<body>
+		<div id="all">
+			<div>
+				<div id="div1">
+					lalala
+				</div>
+			</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+			<div id="div10">10</div>
+
+			<p>p1</p>
+			<p>p2</p>
+			<p>p3</p>
+			<p>p4</p>
+			<p>p5</p>
+		</div>
+		
+		<script type="text/javascript">
+			//1.获取元素  
+			var oAll = document.getElementById("all");
+			//2.获取子节点  父元素的直接子标签. 不找孙子辈
+			console.log(oAll.children);
+			//3.创建元素 
+			var 	newDiv = document.createElement("div");
+			newDiv.innerHTML = "峰峰峰峰";
+			//4.添加元素
+			oAll.appendChild(newDiv);
+			//5.插入子元素 (新元素,子元素)
+			var newP = document.createElement("p");
+			newP.innerHTML = "爱你";
+			oAll.insertBefore(newP,oAll.children[0]);
+			//6.删除
+			//删除子节点
+			oAll.removeChild(oAll.children[5]);
+			//删除自身
+			//oAll.remove();
+			//删除oAll里的所有元素
+			//oAll.innerHTML = "";
+			//for 循环 oAll.children 删除
+//			 for (var i = 0; i < oAll.children.length; i++) {
+//			 	//oAll.children[i].innerHTML = "";
+//			 	oAll.removeChild(oAll.children[i]);
+//			 	i--;
+//			 }
+             //7.替换
+             // replaceChild (新标签,被替换的标签)
+             var newA = document.createElement("a");
+             newA.innerHTML = "超链接";
+             newA.href = "#";
+             oAll.replaceChild(newA,oAll.children[3]);
+             //获取父标签
+             var div10 = oAll.children[9];
+             var parentDiv = div10.parentNode;
+             parentDiv.style.backgroundColor = "red";
+             
+             
+		</script>
+	</body>
+</html>

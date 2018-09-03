@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>08_练习</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//无参无返
+			function funs1(){
+				
+			}
+			//有参无返
+			function funs2(arr){
+				var sum = 0;
+				for (var i = 0; i <  arr.length; i++) {
+					sum+= arr[i]
+				}
+			}
+			//无参有返
+			function funs3(){
+				return;
+			}
+			//有参有返
+			
+			
+			
+			//1.定义函数 求两个数的最小值
+			// 有参有返
+			
+			// 2.定义函数 求1到n的和
+			
+			/*3.定义函数 实现如果 a > b  
+			返回 两数之差的绝对值否则 返回两数之和 
+			*/
+			function getMin(a,b){
+				return Math.min(a,b);
+			}
+			console.log(getMin(7,5));
+			//--------
+			function geta(n){
+				var x = 0;
+				for (var i =1; i <= n; i++) {
+					x += i;
+				}
+				console.log("和为: " + x);
+			}
+			geta(4);
+			//--------------
+			var a = parseInt(prompt("a"));
+			var b = parseInt(prompt("b"));
+			alert(getNum(a,b));
+			
+			function getNum(a,b){
+				if(a >b){
+					return Math.abs(b-a);
+				}else{
+					return a+b;
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

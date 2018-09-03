@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>06_拖拽练习</title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: darkcyan;
+				position: absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div"></div>
+		<script type="text/javascript">
+			var oDiv = document.getElementById("div");
+			var oBody = document.getElementById("body");
+			oDiv.onmousedown = function(ev) {
+				var ev = ev || window.event;
+				 var x =  ev.pageX - this.offsetLeft;
+				 var y =  ev.pageY - this.offsetTop;
+				document.onmousemove = function(ev) {
+					var ev = ev || window.event;
+					//oDiv.style.left = ev.pageX - oDiv.offsetWidth / 2 + "px";
+					//oDiv.style.top = ev.pageY - oDiv.offsetHeight / 2 + "px";
+					oDiv.style.left = ev.pageX - x + "px";
+					oDiv.style.top = ev.pageY - y + "px";
+				}
+			}
+			oDiv.onmouseup = function(){
+				document.onmousemove = null;  
+			}
+		</script>
+	</body>
+
+</html>

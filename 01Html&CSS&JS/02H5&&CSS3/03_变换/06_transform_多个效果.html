@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_transform_多个效果</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				margin-top: 50px;
+				background-color: mediumaquamarine;
+				-webkit-transition: all 1s;
+				-moz-transition: all 1s;
+				-ms-transition: all 1s;
+				-o-transition: all 1s;
+				transition: all 1s;
+			}
+			.div1:hover{
+			  /*trf*/	
+			  -webkit-transform: translateX(500px) rotate(60deg) scale(3);
+			  -moz-transform: translateX(500px) rotate(60deg) scale(3);
+			  -ms-transform: translateX(500px) rotate(60deg) scale(3);
+			  -o-transform: translateX(500px) rotate(60deg) scale(3);
+			  transform: translateX(500px) rotate(60deg) scale(3);
+			}
+			.div2:hover{
+				-webkit-transform: rotate(-45deg) scale(4) translate(300px);
+				-moz-transform: rotate(-45deg) scale(4) translate(300px);
+				-ms-transform: rotate(-45deg) scale(4) translate(300px);
+				-o-transform: rotate(-45deg) scale(4) translate(300px);
+				transform: rotate(-45deg) scale(4) translate(300px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<div class="div2"></div>
+	</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_动画.</title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: gray;
+				margin-bottom: 20px;
+			}
+			.div1{
+				/*规定动画的名称
+				 规定动画的时长*/
+				/*an*/
+				-webkit-animation: bcc 2s;
+				-o-animation: bcc 2s;
+				animation: bcc 2s;
+			}
+			/*关键帧动画  bcc是动画名称   可以修改*/
+			@-webkit-keyframes bcc{
+				from{
+					background-color: red;
+				}
+				to{
+					background-color: orange;
+				}
+			}
+			.div2{
+				
+				-webkit-animation: bcc2 2s infinite;
+				-o-animation: bcc2 2s infinite;
+				animation: bcc2 2s infinite;
+			}
+			@-webkit-keyframes bcc2{
+				0%{
+					background-color: red;
+				}
+				25%{
+					background-color: yellow;
+				}
+				50%{
+					background-color: yellowgreen;
+				}
+				100%{
+					background-color: darkblue;
+				}
+			}
+			
+			@-webkit-keyframes move{
+				from{
+					transform: translate(0,0);
+				}
+				to{
+					transform: translate(180px,0);
+				}
+			}
+			.div3{
+				/*动画名 ann*/
+				-webkit-animation-name: move;
+				-moz-animation-name: move;
+				-o-animation-name: move;
+				animation-name: move;
+				/*动画时长  andu*/
+				-webkit-animation-duration: 3s;
+				-moz-animation-duration: 3s;
+				-o-animation-duration: 3s;
+				animation-duration: 3s;
+				/*速度曲线 ant*/
+				-webkit-animation-timing-function: linear;
+				-moz-animation-timing-function: linear;
+				-o-animation-timing-function: linear;
+				animation-timing-function: linear;
+				/*动画延时  ande*/
+				-webkit-animation-delay: 1s;
+				-moz-animation-delay: 1s;
+				-o-animation-delay: 1s;
+				animation-delay: 1s;
+				/*动画播放次数 anic*/
+				/*infinite 不停地变 无限次数*/
+				-webkit-animation-iteration-count: 5;
+				-moz-animation-iteration-count: 5;
+				-o-animation-iteration-count: 5;
+				animation-iteration-count: 5;
+				/*动画在下一个周期是否逆向播放 andir*/
+				-webkit-animation-direction: alternate;
+				-moz-animation-direction: alternate;
+				-o-animation-direction: alternate;
+				animation-direction: alternate;
+				/*运动状态 anp*/
+				/*running 运行
+				 paused  暂停*/
+				-webkit-animation-play-state: running;
+				-moz-animation-play-state: running;
+				-o-animation-play-state: running;
+				animation-play-state: running;
+				/*动画停止时的状态 anfm*/
+				/*forwards 元素停留在动画结束的那一帧*/
+				/*backwards  元素停留在动画开始的位置*/
+				-webkit-animation-fill-mode: backwards;
+				-moz-animation-fill-mode: backwards;
+				-o-animation-fill-mode: backwards;
+				animation-fill-mode: backwards;
+			}
+			
+			.div4{
+				/*复合属性*/
+				/*名称  时长  线性 次数  延迟 运动方向  停留位置*/
+				-webkit-animation: move 2s ease-in-out infinite 4s normal forwards;
+				-o-animation: move 2s ease-in-out infinite 4s normal forwards;
+				animation: move 2s ease-in-out infinite 4s normal forwards;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+		<div class="div4"></div>
+		
+	</body>
+</html>

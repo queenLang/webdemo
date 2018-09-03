@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>04_图片瀑布流</title>
+		<style type="text/css">
+				* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+			}
+			
+			#list {
+				border: 1px solid black;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			li {
+				width: 200px;
+				color: white;
+				font-size: 30px;
+				padding: 10px;
+				border: 1px solid gainsboro;
+				text-align: center;
+				position: absolute;
+				box-sizing: border-box;
+				/* 隐藏 */
+				visibility: hidden;
+				transition: all 1s;
+			}
+			
+			li img {
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list"></ul>
+		<script type="text/javascript">
+			var oList = document.getElementById("list");
+			function createImg(){
+				for (var i = 1; i <= 20; i++) {
+					var theLi = document.createElement("li");
+					var theImg = document.createElement("img");
+					theImg.src = "img/" + i + ".jpeg";
+					theLi.appendChild(theImg);
+					oList.appendChild(theLi);
+				}
+			}
+			//创建图片
+			createImg();
+			
+			window.onload = function(){
+				//图片加载完成后,进行瀑布流布局
+				changePuBuLiu();
+			}
+			//当浏览器宽高发生改变时,响应
+			window.onresize = function(){
+				changePuBuLiu();
+			}
+			
+			function changePuBuLiu(){
+				// 1.计算列数
+				var space = 10;
+				var winW = document.documentElement.clientWidth;
+				var cols = parseInt((winW - space) / (200+ space));
+				oList.style.width = (space+ 200)*cols + space + "px";
+				
+				//2.初始化每列高度
+				var colHArr = [];
+				for (var i = 0; i < cols; i++) {
+					colHArr[i] = 0;
+				}
+				//3.更改li位置
+				var oListChild = oList.children;
+				for (var i = 0; i < oListChild.length; i++) {
+					//3.1最短列
+					var minH = colHArr[0];
+					var minIndex = 0;
+					for (var j = 0; j < colHArr.length; j++) {
+						if(minH>colHArr[j]){
+							minH = colHArr[j];
+							minIndex = j;
+						}
+					}
+					//3.2 改变定位位置
+					oListChild[i].style.top = space + minH + "px";
+					oListChild[i].style.left = space + minIndex *(200+ space)+"px";
+					
+					oListChild[i].style.visibility = "visible";
+					
+					//3.3更新最短列数值
+					colHArr[minIndex] += space + oListChild[i].offsetHeight;
+				}
+				//4.更新ul高度
+				var maxH = colHArr[0];
+				for (var i = 0; i < colHArr.length; i++) {
+					if(maxH < colHArr[i]){
+						maxH = colHArr[i];
+					}
+				}
+				oList.style.height = maxH + space + "px";
+			}
+		</script>
+	</body>
+</html>

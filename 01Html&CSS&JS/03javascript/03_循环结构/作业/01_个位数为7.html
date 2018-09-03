@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>01_个位数为7</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.打印1~1000之间个位为7的数 使用while for两种方式实现
+			for(var i = 0; i <1000; i++){
+				if(i % 10 == 7){
+					console.log("i: " +i);
+				}
+			}
+			
+			var j = 0;
+			while(j < 1000){
+				if(j % 10 == 7){
+					console.log("j: " +j);
+				}
+				j++;
+			}
+		</script>
+	</body>
+</html>

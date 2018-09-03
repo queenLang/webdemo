@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>03_计算器.</title>
+		<style type="text/css">
+			.box {
+				width: 250px;
+				background-color: silver;
+				color: white;
+				font-size: 22px;
+				margin: 100px auto;
+				text-align: center;
+			}
+			
+			.header {
+				width: 250px;
+				height: 100px;
+				background-color: grey;
+				text-align: end;
+				line-height: 50px;
+				font-size: 30px;
+			}
+			
+			table,
+			th,
+			td {
+				width: 250px;
+				height: 50px;
+				border-collapse: collapse;
+				border: 3px solid darkgray;
+			}
+			
+			td:nth-last-child(1),
+			tr:nth-child(1) {
+				background-color: orange;
+			}
+			
+			.num {
+				color: black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box" id="box">
+			<div class="header" id="header"></div>
+			<table id="table">
+				<tr>
+					<td>A</td>
+					<td>C</td>
+					<td>%</td>
+					<td class="opn">÷</td>
+				</tr>
+				<tr>
+					<td class="num">7</td>
+					<td class="num">8</td>
+					<td class="num">9</td>
+					<td class="opn">*️️</td>
+				</tr>
+				<tr>
+					<td class="num">4</td>
+					<td class="num">5</td>
+					<td class="num">6</td>
+					<td class="opn">-</td>
+				</tr>
+				<tr>
+					<td class="num">1</td>
+					<td class="num">2</td>
+					<td class="num">3</td>
+					<td class="opn">+</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="num">0</td>
+					<td class="point">.</td>
+					<td id="equal">=</td>
+				</tr>
+			</table>
+		</div>
+
+		<script src="jquery-1.11.2.min(1).js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var $header = $("#header"); //最上方
+			var $num = $(".num"); //数字
+			var $opn = $(".opn"); //+ - * /
+			var $equal = $("#equal"); // 等于号
+			var result = "";
+			var result_1 = "";
+			var result_2 = "";
+			var maths = "";
+			//数字点击
+			$num.click(function() {
+				console.log($(this).html());
+				if($(this).html() == ".") {
+					console.log(111);
+
+				}
+				result += $(this).html();
+				$header.html(result);
+			})
+
+			var flag = true;
+			$(".point").click(function() {
+					if(flag == true) {
+						result += $(this).html()
+						$header.html(result);
+					}
+					flag = false;
+				})
+				//符号点击
+			$opn.click(function() {
+					flag = true;
+					result_1 = parseFloat($header.html());
+					console.log(result_1);
+					maths = $(this).html();
+					console.log(maths);
+					result = "";
+				})
+				//等号点击
+			$equal.click(function() {
+				flag = true;
+				getNum();
+			})
+
+			function getNum() {
+				if(result == "") {
+					result_1 = parseFloat($header.html());
+				} else {
+					result_2 = parseFloat($header.html());
+					console.log(result_2);
+				}
+				switch(maths) {
+					case "+":
+						result = result_1 + result_2;
+						$header.html(result);
+						break;
+					case "-":
+						result = result_1 - result_2;
+						$header.html(result);
+						break;
+					case "÷":
+						result = result_1 / result_2;
+						$header.html(result);
+						break;
+					default:
+						result = result_1 * result_2;
+						$header.html(result);
+						break;
+						console.log(result);
+				}
+			}
+		</script>
+	</body>
+
+</html>

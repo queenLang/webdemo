@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>九九乘法表</title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 50px;
+				background-color: tan;
+				text-align: center;
+				margin: 5px;
+				font-size: 20px;
+				line-height: 50px;
+				display: inline-block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			for(var i = 1; i <= 9; i++) {
+				for(var j = 1; j < i + 1; j++) {
+					var k = i * j;
+					document.write("<div>" + i + '✖️' + j + '=' + k + "</div>");
+				}
+				document.write("<br />");
+			}
+		</script>
+	</body>
+
+</html>

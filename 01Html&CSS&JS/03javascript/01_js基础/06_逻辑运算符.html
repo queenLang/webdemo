@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>06_逻辑运算符</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a = false;
+			var b = true;
+			var c = true;
+			var d = false;
+			// [1] 与 &&
+			//全真才为真  有一假则假
+			var x = a && b;
+			console.log("x: " + x);   //x: false
+			var x = b && c;
+			console.log("x: " + x);   //x: true
+			var x = a && b && c;
+			console.log("x: " + x);   //x: false
+			
+			//[2] 或||
+			//有一真则为真   全假才为假
+			var m = a || b;
+			console.log("m: " + m);   //m: true
+			
+			//[3] 非  !  取反
+			var cc = false;
+			var dd = !cc;
+			console.log("dd: " + dd);   //dd: true
+			
+			
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

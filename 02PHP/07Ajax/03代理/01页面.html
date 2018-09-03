@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">获取数据</button>
+<script>
+    /*
+    *
+    * 代理
+    * 前端向后台跨域请求
+    * 本质: 前端做同域请求,后台作为代理,在后台做跨域请求,请求到数据后,返回给前端
+    *
+    * */
+
+    var oBtn = document.getElementById("btn");
+    oBtn.onclick = function () {
+        var url = "02代理.php?";
+        //获取返回结果
+        ajax_get(url,function (result) {
+            console.log(JSON.parse(result));
+        });
+    }
+
+
+    function ajax_get(url,callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("get",url,true);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4){
+                callback(xhr.responseText);
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>
