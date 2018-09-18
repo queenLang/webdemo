@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="root"></div>
+<script>
+    let arr = [{
+            school : "北大",
+            id : 1
+        },{
+            school : "清华",
+            id : 2
+        },{
+            school : "浙大",
+            id : 3
+        }
+    ]
+
+    let result = arr.find((value, index, obj) => {
+        console.log(value, index, obj);
+        //返回的是布尔值,如果返回true,停止循环
+        //find的返回值 为当前遍历到的元素
+        return value["id"] == 3;
+    })
+
+    console.log(result);
+</script>
+</body>
+</html>

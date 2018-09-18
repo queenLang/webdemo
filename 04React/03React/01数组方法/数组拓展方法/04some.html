@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var scores = [5,2,3,7];
+        // 有一个符合条件，则返回为真
+        // some只有有true即返回不再执行了
+        var result = scores.some(function (value) {
+            console.log(value);
+            return value > 7;
+        })
+
+        console.log(result);
+
+    </script>
+</body>
+</html>

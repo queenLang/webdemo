@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    let theClick = ()=>{
+        console.log("点击啦");
+    };
+    //事件需要使用驼峰结构 如 onClick
+    let ele = <button onClick={theClick}>按我</button>
+    ReactDOM.render(ele,document.getElementById("root"));
+</script>
+</body>
+</html>

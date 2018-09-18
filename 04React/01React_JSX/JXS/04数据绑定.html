@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+  let user = {
+      name : "李易峰",
+      age : 18,
+      sex : "男",
+  }
+   // {} 中可以写js表达式 比如 数字相加 逻辑判断 函数调用 字符串拼接等
+  //单标签必须要加 "/"
+  let elemet = (
+      <div>
+          <h1>{user.name}</h1>
+          <h1>年龄:{user.age}</h1>
+          <input type="text"/>
+      </div>
+  );
+
+  ReactDOM.render(
+      elemet,
+      document.getElementById("root")
+  )
+
+</script>
+</body>
+</html>

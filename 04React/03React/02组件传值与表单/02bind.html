@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script>
+    class Car {
+        constructor (brand,price){
+            this.brand = brand;
+            this.price = price;
+        }
+        getBrand(){
+            console.log(this.brand);
+        }
+    }
+
+    let car1 = new Car("mini","30W");
+    console.log(car1);
+
+    let car2 = new Car("BYD","6W");
+    console.log(car2);
+     //bind(arg1,arg2...)会创建一个新的函数,这个函数的this指向是arg1
+    //bind() 返回的是函数,可以改变函数的this指向
+    let aaa = car2.getBrand.bind(car1);
+    console.log(aaa);
+</script>
+</body>
+</html>

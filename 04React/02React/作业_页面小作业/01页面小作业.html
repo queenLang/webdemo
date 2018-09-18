@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+    let Json = [{
+        id: 2371,
+        username: "LiuHong",
+        qq: "112***11",
+        phone: "140****2313",
+        time: "2018/9/10"
+    }, {
+        id: 2372,
+        username: "mary",
+        qq: "177***147",
+        phone: "150****147",
+        time: "2018/9/10"
+    }, {
+        id: 2373,
+        username: "Arery",
+        qq: "1445***77",
+        phone: "177****5748",
+        time: "2018/9/10"
+    }, {
+        id: 2374,
+        username: "Liyi",
+        qq: "487***456",
+        phone: "128****7648",
+        time: "2018/9/10"
+    }, {
+        id: 2375,
+        username: "Hong",
+        qq: "476***4756",
+        phone: "127****7845",
+        time: "2018/9/10"
+    }];
+
+    class All extends React.Component {
+        render() {
+            return (
+                <div className="container">
+                    <table className="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>用户名</th>
+                            <th>邮箱</th>
+                            <th>电话</th>
+                            <th>注册时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {
+                            Json.map((value, index) => {
+                                  return <Allid key={index} data={value}/>
+                            })
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            )
+        }
+    }
+
+    class Allid extends React.Component {
+        render() {
+            console.log(this.props.data);
+            console.log(this.props);
+
+            return (
+                <tr>
+                    <td>{this.props.data.id}</td>
+                    <td>{this.props.data.username}</td>
+                    <td>{this.props.data.qq}</td>
+                    <td>{this.props.data.phone}</td>
+                    <td>{this.props.data.time}</td>
+                </tr>
+            )
+        }
+    }
+
+
+    ReactDOM.render(<All/>, document.getElementById("root"));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<script>
+    class Person{
+        //构造函数
+        constructor(name,age,sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        getInfo(){
+            console.log(this.name + "今年" + this.age + "岁了");
+        }
+    }
+    //ES6 中继承使用extends 关键字即可
+    //如果子类 写了构造函数,则必须在函数中添加super() 去调用父类的构造函数
+    class Student extends Person{
+        constructor(name,age,sex,score){
+            //super 调用父类的构造函数,
+            // 不传参,父类属性也会存在,只是没有值
+            super(name,age,sex);
+            this.score = score;
+
+        }
+        school(){
+            console.log(this.name + "睡觉");
+        }
+    }
+
+    let stu = new Student("鲸鱼","19","男",100);
+    stu.getInfo();
+    stu.school();
+    console.log(stu);
+
+
+</script>
+</body>
+</html>

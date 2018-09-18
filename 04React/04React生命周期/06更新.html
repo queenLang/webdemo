@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class MyComponent extends React.Component {
+        constructor() {
+            super();
+            console.log("constructor");
+            this.state = {
+                count : 1024
+            }
+
+        }
+        //1.是否可以更新
+        //此方法必须有返回值  true/false
+        //如果为false,任何操作都不会更新组件中state和props
+        shouldComponentUpdate(nextProps,nextState){
+            console.log("shouldComponentUpdate");
+            console.log(this.state);//1024
+            console.log(nextState);//2的十次方
+            return true;
+        }
+         //0.即将接收props的值
+        // 如果props改变时,才响应
+        componentWillReceiveProps(nextProps){
+            console.log("componentWillReceiveProps");
+        }
+        //2.即将更新
+        componentWillUpdate(nextProps,nextState){
+            console.log("componentWillUpdate");
+        }
+        //4.更新成功
+        componentDidUpdate(prevProps,prevState){
+            console.log("componentDidUpdate");
+            console.log(this.state);  //2的十次方
+            console.log(prevState);  //1024 (之前的值)
+        }
+        //3.更新中,渲染数据
+        render() {
+            console.log("render");
+            return (
+                <div>
+                    <h1>count:{this.state.count}</h1>
+                    <h1>score:{this.props.myScore}</h1>
+                    <button onClick={this.handleClick.bind(this)}>改变状态</button>
+                </div>
+            );
+        }
+        handleClick(){
+            this.setState({
+                count : "2的十次方"
+            })
+        }
+    }
+
+    class App extends React.Component {
+        constructor() {
+            super();
+            this.state = {
+               score :100
+            }
+        }
+
+        render() {
+            return (
+                <div>
+                    <MyComponent myScore={this.state.score}/>
+                    <button onClick={this.handleClick.bind(this)}>变变变</button>
+                </div>
+            );
+        }
+
+        handleClick() {
+            this.setState({
+                score: 150
+            })
+        }
+    }
+
+    ReactDOM.render(
+        <App/>,
+        document.getElementById("root"));
+</script>
+</body>
+</html>

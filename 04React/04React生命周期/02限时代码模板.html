@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class CommentInput extends React.Component{
+
+        render(){
+            return (
+                <div className="comment-input">
+                    <div className="comment-field"><span className="comment-field-name">用户名：</span>
+                        <div className="comment-field-input">
+                            <input value={}/>
+                        </div>
+                    </div>
+                    <div className="comment-field"><span className="comment-field-name">评论内容：</span>
+                        <div className="comment-field-input">
+                            <textarea value={}></textarea>
+                        </div>
+                    </div>
+                    <div className="comment-field-button">
+                        <button >发布</button>
+                    </div>
+                </div>
+            )
+        }
+
+
+
+
+    }
+    class Comment extends React.Component{
+        render(){
+            return (
+                <div className="comment">
+                    <div className="comment-user">
+                        <span></span>：
+                    </div>
+                    <p></p>
+                </div>
+            )
+        }
+    }
+    class CommentList extends React.Component{
+        render(){
+            return (
+                <div>
+
+                </div>
+            )
+        }
+    }
+    class CommentApp extends React.Component{
+
+        render(){
+            return (
+                <div className="wrapper">
+                    <CommentInput />
+                    <CommentList />
+                </div>
+            )
+        }
+
+
+    }
+
+    ReactDOM.render(
+        <CommentApp/>,
+        document.getElementById("root"));
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        var arr = [1,2,3,4,5,6];
+
+        var sum = arr.reduce(function (previous,current) {
+            console.log(previous,current);
+            return previous + current;
+        })
+
+        console.log(sum);
+
+        var matrix = [
+            [1, 2],
+            [3, 4],
+            [5, 6]
+        ];
+
+
+        var flatten = matrix.reduce(function (previous, current) {
+            console.log(previous,current);
+            return previous.concat(current);
+        });
+
+
+        console.log(flatten);
+
+
+    </script>
+</body>
+</html>

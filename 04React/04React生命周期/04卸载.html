@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class MyComponent extends React.Component {
+        constructor() {
+            super();
+            console.log("constructor");
+        }
+
+        componentWillMount() {
+            console.log("componentWillMount");
+        }
+
+        componentDidMount() {
+            console.log("componentDidMount");
+        }
+
+        componentWillUnmount() {
+            //卸载
+            //定时器清除
+            console.log("componentWillUnmount");
+        }
+
+        render() {
+            console.log("render");
+            return (
+                <h1>MyComponent</h1>
+            );
+        }
+    }
+
+    class App extends React.Component {
+        constructor() {
+            super();
+            this.state = {
+                flag: true
+            }
+        }
+
+        render() {
+            return (
+                <div>
+                    {this.state.flag ? <MyComponent/> : null}
+                    <button onClick={this.handleClick.bind(this)}>显示或隐藏</button>
+                </div>
+            );
+        }
+
+        handleClick() {
+            this.setState({
+                flag: !this.state.flag
+            })
+        }
+    }
+
+    ReactDOM.render(
+        <App/>,
+        document.getElementById("root"));
+</script>
+</body>
+</html>

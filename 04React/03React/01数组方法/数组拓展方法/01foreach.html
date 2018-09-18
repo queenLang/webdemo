@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        var arr = [1,2,3,4];
+
+        arr.forEach(function (value, index, array) {
+            console.log(value,index,array);
+        })
+        
+        var dataBase = {
+            users:[4,5,6,7],
+            sendEmail:function (user) {
+                if(this.isValidUser(user)){
+                    console.log("你好",user);
+                } else {
+                    console.log("抱歉" + user + "你不是本家人");
+                }
+            },
+            isValidUser:function (user) {
+                //检测是否以张开头
+                return /^张/.test(user);
+            }
+            
+        }
+
+        dataBase.users.forEach(dataBase.sendEmail,dataBase);
+        
+
+
+        var arr = [1,4,,5];
+        for (var i = 0; i < arr.length; i++){
+            console.log(arr[i]);
+        }
+        arr.forEach(function (value) {
+            console.log(value);
+        })
+
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class InputComponent extends React.Component{
+        constructor(){
+            super();
+            this.state = {
+                name: "123",
+                mes:""
+            }
+        }
+        render() {
+            return (
+                <div>
+                    姓名:<input type="text" defaultValue={this.state.name} onChange={this.handleNameChange.bind(this)}/>
+                    <br/>
+                    评论:<input type="text"/>
+                    <br/>
+                    <button onClick={this.handleClick.bind(this)}>提交</button>
+                </div>
+            );
+        }
+
+        handleNameChange(ev){
+            this.setState({
+                name:ev.target.value
+            });
+            // console.log(1);
+            // console.log(ev.target.value);
+        }
+
+        handleClick(){
+           //把input中的值,传到App中
+            console.log(this.state);
+            this.props.submit(this.state);
+        }
+    }
+
+
+    class App extends React.Component{
+        render() {
+            return <InputComponent submit={this.handleSubmit.bind(this)}/>;
+        }
+
+        handleSubmit(com){
+            console.log(com);
+        }
+    }
+
+    ReactDOM.render(<App/>,document.getElementById("root"));
+</script>
+</body>
+</html>

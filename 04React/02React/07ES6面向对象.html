@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //类 创建对象 属性 方法 继承 构造函数
+
+    //创建类
+    class Person{
+        //构造函数,创建对象时自动调用
+        constructor(name,age){
+            // console.log("constructor");
+            //定义属性
+            this.name = name;
+            this.age = age;
+        }
+        //定义方法
+        getName(){
+            return this.name;
+        }
+        //静态方法, 只能有类名去调用
+        static sayHello(){
+            console.log("你好");
+        }
+    }
+
+    //定义对象
+    let person = new Person("峰峰","20");
+    let theName = person.getName();
+    console.log(theName);
+    Person.sayHello();
+    Person.a = "人";
+
+
+    let p = new Person();
+    p.age = "10";
+    console.log(person);
+    console.log(p);
+
+</script>
+
+</body>
+</html>

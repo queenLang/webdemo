@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    /*
+    * jsx语法规则
+    * 1.只能有一个根节点
+    * 2.多个标签放在小括号中,防止js自动分号不执行的问题
+    * 3.遇到html标签(以<开头),就用html规则解析(babel会对标签进行转换成react创建元素的语法)
+    *   单标签不能省略结束标签,如<img src="" /> "/"不能省略
+    * 4.遇到代码块({}),就是用js解析
+    * 5.jsx允许在{},直接放入一个js变量,
+    *   如果这一个变量是一个数组,则会将数组中的所有元素添加到{}中
+    * */
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    /*
+    * JSX  JS 和 HTML混编的语法
+    * 这种语法 ,需要使用babel编译完浏览器才能执行
+    *
+    * */
+    ReactDOM.render(
+        <h1>hello React</h1>,
+        document.getElementById("root")
+    );
+</script>
+</body>
+</html>

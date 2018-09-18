@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+    //jsx 数组中可以直接放标签,作为一个元素
+    let cars = [
+        <li key="1">甲壳虫</li>,
+        <li key="2">路虎</li>,
+        <li key="3">雷克沙斯</li>,
+        <li key="4">比亚迪</li>,
+        <li key="5">哈哈哈</li>
+    ];
+
+    let arr = [1, 5, 68, 4, 65];
+
+    let aJson = [
+        {
+            id: 1,
+            title: "花钱,买衣服"
+        }, {
+            id: 2,
+            title:"吃大惨"
+        },{
+            id: 3,
+            title: "睡觉"
+        }
+    ];
+
+let d = aJson.map((num,key)=>{
+   return <li key={key}>{num.title}</li>
+});
+console.log(d);
+
+let listArr = [];
+aJson.forEach((value,index) => {
+    let ele = <li key={index}>{value.title}</li>;
+    listArr.push(ele);
+});
+
+    let element = (
+        <div>
+            <ul>
+                {cars}
+            </ul>
+            <ul>
+                {arr}
+            </ul>
+            <ul>
+                {listArr}
+            </ul>
+            <ul>
+                {
+                   aJson.map((value,index) => {
+                       return <li key={index}>{value.title}</li>
+                   })
+                }
+            </ul>
+            <ul>
+                {d}
+            </ul>
+        </div>
+    );
+
+    ReactDOM.render(element, document.getElementById("root"));
+</script>
+</body>
+</html>

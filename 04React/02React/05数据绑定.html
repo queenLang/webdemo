@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    let name = "井柏然";
+    let ele = (
+        <ul>
+            <li>西红柿首富</li>
+            <li>我不是药神</li>
+            <li>起跑线</li>
+            <li>侏罗纪世界</li>
+            <li>{name}</li>
+        </ul>
+    )
+    setTimeout(()=>{
+        name = "一出好戏";
+        console.log("111");
+    },5000);
+
+    setInterval(()=>{
+        console.log("111");
+    },1000);
+
+    ReactDOM.render(ele,document.getElementById("root"));
+</script>
+</body>
+</html>

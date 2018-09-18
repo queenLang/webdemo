@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+    //函数式组件
+  function AppHeader() {
+      return <h1>头部</h1>
+  }
+  function Main() {
+      return (<div className="main">
+          <h1>主体部分</h1>
+      </div>)
+  }
+  function GetName(props){
+      console.log(props);
+      return <h2>姓名:{props.name}</h2>
+  }
+  let a = "哈哈哈";
+  let ele = (
+      <div className="wrap">
+          <AppHeader/>
+          <Main/>
+          <GetName name="鲸鱼" age="3"/>
+          <GetName name={a}/>
+          <div className="foot">
+              <h1>脚</h1>
+          </div>
+      </div>
+  );
+
+  ReactDOM.render(ele,document.getElementById("root"));
+
+</script>
+</body>
+</html>

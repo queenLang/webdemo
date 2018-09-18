@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    let htmlEle = <h1>htmEle</h1>;
+    //必须只能有一个根节点
+    //多个标签 推荐在外面使用括号
+    let htmlEle1 = (
+        <div>
+            <h1>angular</h1>
+            <h1>angular</h1>
+            <h1>angular</h1>
+        </div>
+    );
+    function getName(){
+       return (
+           <div>
+               <h1>啊哈哈</h1>
+           </div>
+       )
+    }
+
+
+    ReactDOM.render(
+        // htmlEle1,
+        getName(),
+        document.getElementById("root")
+    )
+</script>
+</body>
+</html>

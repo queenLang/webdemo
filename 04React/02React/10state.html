@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class MyComponent extends React.Component{
+        constructor(){
+            super();
+            this.state = {
+                mes : "作业"
+            }
+        }
+        //固定的方法
+        //bind 里面写什么 , this的打印就是什么
+        render(){
+            return(
+                <div>
+                    <h1>{this.state.mes}</h1>
+                    <button onClick={this.handleClick.bind(this)}>点击事件</button>
+                </div>
+            )
+        }
+        //添加的方法
+        handleClick(){
+            console.log(this);
+            console.log(this.state.mes);
+            //固定写法
+            this.setState({
+                mes: "可能每天"
+            });
+            console.log("啦啦啦");
+        }
+    }
+    ReactDOM.render(<MyComponent/>,document.getElementById("root"));
+
+
+    //组件键传值
+</script>
+</body>
+</html>

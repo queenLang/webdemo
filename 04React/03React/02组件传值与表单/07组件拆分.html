@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    //上面输入框
+    class CommentInput extends React.Component {
+        render() {
+            return (
+                <div className="comment-input">
+                    <div className="comment-field"><span className="comment-field-name">用户名：</span>
+                        <div className="comment-field-input"><input defaultValue=""/></div>
+                    </div>
+                    <div className="comment-field"><span className="comment-field-name">评论内容：</span>
+                        <div className="comment-field-input"><textarea></textarea></div>
+                    </div>
+                    <div className="comment-field-button">
+                        <button>发布</button>
+                    </div>
+                </div>
+            );
+        }
+    }
+
+    //列表里面单独一条
+    class Comment extends React.Component {
+        render() {
+            return (
+                <div className="comment">
+                    <div className="comment-user">
+                        <span>{this.props.name}</span>：
+                    </div>
+                    <p>{this.props.comment}</p>
+                </div>
+            );
+        }
+    }
+
+    //下面列表
+    class CommentList extends React.Component {
+        render() {
+            let arr = [
+                {name: "Jerry", comment: "hello"},
+                {name: "Tom", comment: "World"},
+                {name: "Mary", comment: "Good"}
+            ];
+            return (
+                <div>
+                    {
+                        arr.map((value,index) => {
+                            return <Comment key={index} name={value.name} comment={value.comment}/>
+                        })
+                    }
+                </div>
+            );
+        }
+    }
+
+    //最外面大框
+    class CommentAPP extends React.Component {
+        render() {
+            return (
+                <div className="wrapper">
+                    <CommentInput/>
+                    <CommentList/>
+                </div>
+            );
+        }
+    }
+
+    ReactDOM.render(<CommentAPP/>, document.getElementById("root"));
+</script>
+</body>
+</html>

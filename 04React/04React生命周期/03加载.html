@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    //挂载过程
+    class MyComponent extends React.Component{
+        constructor(){
+            super();
+            //1.组件初始化
+            console.log("constructor");
+        }
+        componentWillMount(){
+            //组件即将挂载
+            console.log("componentWillMount");
+        }
+
+        componentDidMount(){
+            //4组件挂载完成  网络请求
+            console.log("componentDidMount");
+        }
+
+        render() {
+            //3.组件渲染
+            console.log("render");
+            return (
+                <div>
+                    <h1>生命周期</h1>
+                </div>
+            );
+        }
+    }
+    ReactDOM.render(<MyComponent/>,document.getElementById("root"));
+</script>
+</body>
+</html>

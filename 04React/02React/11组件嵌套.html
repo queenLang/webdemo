@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+     class Father extends React.Component{
+         render(){
+             return (
+                 <div>
+                     <Son name="小明" age="13"/>
+                     <Son name="小红"/>
+                     <Son name="小娜"/>
+                 </div>
+             )
+         }
+     }
+     class Son extends React.Component{
+          render(){
+              console.log(this.props);
+              return <h1>儿子</h1>
+          }
+     }
+
+     ReactDOM.render(<Father/>,document.getElementById("root"));
+
+</script>
+</body>
+</html>

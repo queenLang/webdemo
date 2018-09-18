@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    /*
+    * 子组件向父组件传值,
+    * 1.子组件在父组件中设置属性
+    * <Son fn={this.abc.bind(this)}/>
+    * 2.需要传值时,在子组件调用函数
+    * this.props.fn("峰峰");
+    * 3.函数的参数,即为要传的值
+    *
+    *
+    * */
+
+
+
+
+    class Son extends React.Component{
+        render() {
+            return (
+                <div>
+                    <button onClick={this.handleClick.bind(this)}>按钮</button>
+                </div>
+            );
+        }
+        handleClick(){
+            // console.log(this.props.fn);
+            // console.log("1");
+            //在需要向父组件传值时 就在子组件调用函数  将要传递的内容作为参数
+            this.props.fn("峰峰");
+        }
+    }
+    class Father extends React.Component{
+        constructor(){
+            super();
+            this.state = {
+                status : "等待传值中...",
+                result : ""
+            }
+        }
+        render() {
+            return (
+                <div>
+                    <h1>{this.state.status}</h1>
+                    <h1>传值结果:{this.state.result}</h1>
+                    <Son fn={this.abc.bind(this)}/>
+                </div>
+            );
+        }
+        abc(name){
+            this.setState({
+                status: "已传值",
+                result: name
+            });
+            console.log(name);
+            console.log("abc");
+        }
+    }
+    ReactDOM.render(<Father/>,document.getElementById("root"));
+</script>
+</body>
+</html>

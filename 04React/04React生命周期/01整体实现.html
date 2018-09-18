@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class CommentInput extends React.Component{
+        constructor(){
+            super();
+            this.state = {
+                username:"",
+                content:""
+            }
+        }
+        render(){
+            return (
+                <div className="comment-input">
+                    <div className="comment-field"><span className="comment-field-name">用户名：</span>
+                        <div className="comment-field-input">
+                            <input value={this.state.username} name="username" onChange={this.handleInputChange.bind(this)}/>
+                        </div>
+                    </div>
+                    <div className="comment-field"><span className="comment-field-name">评论内容：</span>
+                        <div className="comment-field-input">
+                            <textarea value={this.state.content}
+                                      name="content"
+                                    onChange={this.handleInputChange.bind(this)}></textarea>
+                        </div>
+                    </div>
+                    <div className="comment-field-button">
+                        <button onClick={this.handleClick.bind(this)}>发布</button>
+                    </div>
+                </div>
+            )
+        }
+
+        //结合成一个函数(需要先给input标签添加name属性 属性值为 state里的key值)
+       handleInputChange(ev){
+
+           console.log(ev.target.name);
+           //[]不是数组  是语法  如果key值为变量,需要加[]
+           this.setState({
+               [ev.target.name] : ev.target.value
+           });
+       }
+
+        handleClick(){
+            this.props.submit(this.state);
+            //清空
+            this.setState({
+                username:"",
+                content:""
+            })
+        }
+    }
+    class Comment extends React.Component{
+        render(){
+            return (
+                <div className="comment">
+                    <div className="comment-user">
+                        <span>{this.props.comment.username}</span>：
+                    </div>
+                    <p>{this.props.comment.content}</p>
+                </div>
+            )
+        }
+    }
+    class CommentList extends React.Component{
+        render(){
+
+            return (
+                <div>
+                    {
+                        this.props.commentArr.map((value, index) => {
+                            return <Comment comment={value} key={index}/>
+                        })
+                    }
+                </div>
+            )
+        }
+    }
+    class CommentApp extends React.Component{
+        constructor(){
+            super();
+            this.state = {
+                comments:[]
+            }
+        }
+        render(){
+            return (
+                <div className="wrapper">
+                    <CommentInput submit={this.handleSubmit.bind(this)}/>
+                    <CommentList commentArr={this.state.comments}/>
+                </div>
+            )
+        }
+        handleSubmit(commentInfo){
+            this.state.comments.push(commentInfo);
+            this.setState({
+                comments:this.state.comments
+            })
+        }
+
+    }
+
+    ReactDOM.render(
+        <CommentApp/>,
+        document.getElementById("root"));
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

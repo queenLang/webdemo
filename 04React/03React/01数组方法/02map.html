@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root"></div>
+<script>
+    let arr = [10,20,30,40,50];
+    //有return 对数组中元素做相同操作时 用map方便
+    let result =  arr.map((value, index, array) => {
+        console.log(value, index, array);
+        return value +1;
+    })
+    console.log(result);
+</script>
+</body>
+</html>

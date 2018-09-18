@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class CommentInput extends React.Component{
+         constructor(){
+             super();
+             this.state ={
+                 username : "",
+                 comment: ""
+             }
+         }
+        render(){
+            return (
+                <div className="comment-input">
+                    <div className="comment-field"><span className="comment-field-name">用户名：</span>
+                        <div className="comment-field-input">
+                            <input value={this.state.username} name="username" onChange={this.handleInputChange.bind(this)}/>
+                        </div>
+                    </div>
+                    <div className="comment-field"><span className="comment-field-name">评论内容</span>
+                        <div className="comment-field-input">
+                            <textarea value={this.state.comment} name="comment"  onChange={this.handleInputChange.bind(this)}></textarea>
+                        </div>
+                    </div>
+                    <div className="comment-field-button">
+                        <button onClick={this.handleClick.bind(this)}>发布</button>
+                    </div>
+                </div>
+            )
+        }
+        handleInputChange(ev){
+            this.setState({
+                [ev.target.name]:ev.target.value
+            })
+        }
+
+        handleClick(){
+             this.props.submit(this.state);
+             this.setState({
+                 username: "",
+                 comment:""
+             })
+        }
+
+
+
+    }
+    class Comment extends React.Component{
+        render(){
+            return (
+                <div className="comment">
+                    <div className="comment-user">
+                        <span>{this.props.comment.username}</span>：
+                    </div>
+                    <p>{this.props.comment.comment}</p>
+                </div>
+            )
+        }
+    }
+    class CommentList extends React.Component{
+        render(){
+            return (
+                <div>
+                    {
+                        this.props.connect.map((value,index)=>{
+                            return <Comment key={index} comment={value}/>
+                        })
+                    }
+                </div>
+            )
+        }
+    }
+    class CommentApp extends React.Component{
+        constructor(){
+            super();
+            this.state = {
+                commentArr :[]
+            }
+        }
+        render(){
+            return (
+                <div className="wrapper">
+                    <CommentInput submit={this.handleSubmit.bind(this)}/>
+                    <CommentList connect={this.state.commentArr}/>
+                </div>
+            )
+        }
+        handleSubmit(com){
+            this.state.commentArr.push(com);
+            this.setState({
+                commentArr:this.state.commentArr
+            })
+        }
+
+    }
+
+    ReactDOM.render(
+        <CommentApp/>,
+        document.getElementById("root"));
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

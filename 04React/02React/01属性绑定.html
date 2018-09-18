@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/@babel/standalone/babel.js"></script>
+    <script src="node_modules/react/umd/react.development.js"></script>
+    <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+    <style>
+        .wrapper{
+            border: 2px solid firebrick;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    let user = {
+        name : "李易峰",
+        hobby : "打球",
+        gender : "男",
+    };
+    //jsx 语法
+    // 标签的类名,使用className
+    // label的for属性, 变成htmlFor
+    // input的check属性,变成defaultChecked
+    // input的value属性,变成defaultValue
+    let element = (
+        <div className="wrapper" title={user.name}>
+            <div>
+                <label htmlFor="name">用户名:</label>
+                <input type="text" id="name"/>
+            </div>
+            <div>
+                <input type="checkbox" defaultChecked/>
+            </div>
+            <div>
+                <input type="text" defaultValue={user.hobby}/>
+            </div>
+        </div>
+    )
+    ReactDOM.render(element,document.getElementById("root"));
+</script>
+</body>
+</html>
