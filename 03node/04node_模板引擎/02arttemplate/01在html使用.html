@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="content"></div>
+<script src="node_modules/art-template/lib/template-web.js"></script>
+<script id="test" type="text/html">
+    <h1>{{title}}</h1>
+    <ul>
+        {{each list as item i}}
+        <li>索引 {{i + 1}} ：{{item}}</li>
+        {{/each}}
+    </ul>
+    <ul>
+        {{each list}}
+        <li>索引{{$index + 1}} : {{$value}}</li>
+        {{/each}}
+    </ul>
+    <ul>
+        {{each theJson as m n}}
+        <li>{{n}} : {{m}}</li>
+        {{/each}}
+    </ul>
+
+    {{if flag && count == 100}}
+    {{count}}
+    {{@ flag }}
+    {{@ html }}
+    {{ html }}
+
+    {{/if}}
+</script>
+<script>
+    var data = {
+        title: '标签',
+        list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他'],
+        flag: true,
+        html: "<h1>哈哈</h1>",
+        count : 100,
+        theJson : {
+            "name" : "李易峰",
+            "age"  : 20
+        }
+    };
+    //template (模板id,json)
+    //第二个参数 必须是一个json (对象)
+    //模板中直接些json的key即可
+    var html = template('test', data);
+    document.getElementById('content').innerHTML = html;
+</script>
+</body>
+</html>

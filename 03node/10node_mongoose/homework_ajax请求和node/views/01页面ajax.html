@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">get请求数据</button>
+<button id="btn_post">post请求数据</button>
+<script src="../public/js/ajax请求封装.js"></script>
+<script>
+    oBtn = document.getElementById("btn");
+    //get 请求
+    oBtn.onclick = function () {
+        var url = "http://localhost:3000/get";
+        ajax_get(url,function (result) {
+            console.log(result);
+        })
+    }
+    //post请求 (3个参数)
+    oBtn_post = document.getElementById("btn_post");
+    oBtn_post.onclick = function () {
+        var url = "http://localhost:3000/post";
+        ajax_post(url,"",function (result) {
+            console.log(result);
+        })
+    }
+
+</script>
+</body>
+</html>

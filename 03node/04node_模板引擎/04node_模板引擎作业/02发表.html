@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            margin: 20px;
+        }
+
+    </style>
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <form action="/home" method="get">
+        <h1 style="color: #2e6da4">首页
+            <small>发表评论</small>
+        </h1>
+        <div>
+            <label for="username">你的大名</label>
+            <input type="text" class="form-control" id="username" name="name" placeholder="请输入名字">
+        </div>
+        <div>
+            <label for="username">留言内容</label>
+            <textarea class="form-control" name="message" rows="12"></textarea>
+        </div>
+        <div>
+            <input type="submit" value="发表">
+        </div>
+    </form>
+
+</div>
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

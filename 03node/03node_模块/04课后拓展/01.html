@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body id="content">
+<script id="test" type="text/html">
+    <h1>{{title}}</h1>
+    <ul>
+        {{each list value i}}
+        <li>{{i + 1}} ：{{value}}</li>
+        {{/each}}
+    </ul>
+</script>
+<script src="template-web.js"></script>
+<script src="02.js"></script>
+</body>
+</html>

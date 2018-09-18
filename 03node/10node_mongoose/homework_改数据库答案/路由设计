@@ -1,0 +1,37 @@
+首页渲染
+    请求方法:  get
+    请求路径:  /student
+    get 参数: 无
+    post参数: 无
+
+渲染添加学生页面
+    请求方法:  get
+    请求路径:  /new
+    get 参数: 无
+    post参数: 无
+
+处理添加学生请求
+    请求方法:  post
+    请求路径:  /new
+    get 参数: 无
+    post参数: name age gender hobbies
+
+渲染编辑页面
+    请求方法:  get
+    请求路径:  /edit
+    get 参数: id
+    post参数:
+
+处理编辑请求
+    请求方法:  post
+    请求路径:  /edit
+    get 参数:
+    post参数: id name age gender hobbies
+
+处理删除请求
+    请求方法:  get
+    请求路径:  /delete
+    get 参数: id
+    post参数:
+
+
